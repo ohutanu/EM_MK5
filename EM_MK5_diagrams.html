@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EM_MK5 diagrams and schematics</title>
+<style>
+:root{--t:#2c2c2a;--t2:#5f5e5a;--border-strong:#8a8880;--text-danger:#a32d2d;--bg:#ffffff}
+@media (prefers-color-scheme:dark){:root{--t:#d3d1c7;--t2:#b4b2a9;--border-strong:#7a7872;--text-danger:#f09595;--bg:#1f1f1d}}
+body{margin:0;padding:24px 16px 48px;background:var(--bg);color:var(--t);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:920px;margin:0 auto}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+h2{font-size:17px;font-weight:600;margin:40px 0 4px;break-after:avoid}
+p.d{margin:0 0 10px;color:var(--t2);font-size:14px}
+section{break-inside:avoid}
+svg{display:block;width:100%;height:auto}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.th{font-size:14px;font-weight:500;fill:var(--t)}
+.ts{font-size:12px;fill:var(--t2)}
+.box{fill:#f1efe8;stroke:#5f5e5a}
+.c-gray rect{fill:#f1efe8;stroke:#5f5e5a}
+.c-gray .th{fill:#444441}.c-gray .ts{fill:#5f5e5a}
+.c-teal rect{fill:#e1f5ee;stroke:#0f6e56}
+.c-teal .th{fill:#085041}.c-teal .ts{fill:#0f6e56}
+.c-purple rect{fill:#eeedfe;stroke:#534ab7}
+.c-purple .th{fill:#3c3489}.c-purple .ts{fill:#534ab7}
+@media (prefers-color-scheme:dark){
+.box{fill:#2c2c2a;stroke:#b4b2a9}
+.c-gray rect{fill:#444441;stroke:#b4b2a9}
+.c-gray .th{fill:#d3d1c7}.c-gray .ts{fill:#b4b2a9}
+.c-teal rect{fill:#085041;stroke:#5dcaa5}
+.c-teal .th{fill:#9fe1cb}.c-teal .ts{fill:#5dcaa5}
+.c-purple rect{fill:#3c3489;stroke:#afa9ec}
+.c-purple .th{fill:#cecbf6}.c-purple .ts{fill:#afa9ec}
+}
+@media print{body{background:#fff}}
+</style>
+</head>
+<body>
+<main>
+<h1>EM_MK5 diagrams and schematics</h1>
+<p class="d">October 2026. Matches EM_MK5_project_summary_v2.md. Red dashed lines are fault and enable paths. Items marked [CONFIRM] in the summary are still to be verified.</p>
+
+<section>
+<h2>Sheet 1: control, ADC and sensors</h2>
+<p class="d">Pi 5, guarded position sensors, SPI0 bus to the RP2040 and AD4691, supply dividers, buffered gate drive, trip latch and enable optocouplers.</p>
+<svg viewBox="0 0 680 360" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="160" y1="58" x2="178" y2="58" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<line x1="420" y1="58" x2="402" y2="58" marker-end="url(#arrow)"/>
+<line x1="550" y1="58" x2="532" y2="58" marker-end="url(#arrow)"/>
+<line x1="290" y1="86" x2="290" y2="120"/>
+<line x1="260" y1="120" x2="420" y2="120"/>
+<line x1="260" y1="120" x2="260" y2="148" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<line x1="420" y1="120" x2="420" y2="148" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<line x1="170" y1="178" x2="188" y2="178" marker-end="url(#arrow)"/>
+<line x1="260" y1="206" x2="260" y2="234" marker-end="url(#arrow)"/>
+<line x1="420" y1="236" x2="420" y2="208" marker-end="url(#arrow)"/>
+</g>
+<g fill="var(--t)"><circle cx="290" cy="120" r="3"/></g>
+<path d="M575 150 L575 104 L380 104 L380 88" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 4" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<path d="M575 206 L575 234" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<path d="M575 292 L575 320 L260 320 L260 294" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<g class="c-gray"><rect x="40" y="30" width="120" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="100" y="48" text-anchor="middle" dominant-baseline="central">TFT display</text>
+<text class="ts" x="100" y="68" text-anchor="middle" dominant-baseline="central">800×480</text></g>
+<g class="c-purple"><rect x="180" y="30" width="220" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="290" y="48" text-anchor="middle" dominant-baseline="central">Raspberry Pi 5</text>
+<text class="ts" x="290" y="68" text-anchor="middle" dominant-baseline="central">Python control, GUI</text></g>
+<g class="c-gray"><rect x="420" y="30" width="110" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="475" y="48" text-anchor="middle" dominant-baseline="central">Input guard</text>
+<text class="ts" x="475" y="68" text-anchor="middle" dominant-baseline="central">opto, clamp</text></g>
+<g class="c-teal"><rect x="550" y="30" width="90" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="595" y="48" text-anchor="middle" dominant-baseline="central">Sensors</text>
+<text class="ts" x="595" y="68" text-anchor="middle" dominant-baseline="central">S1, S2, S3</text></g>
+<text class="ts" x="355" y="110" text-anchor="middle">SPI0, 3.3 V</text>
+<g class="c-teal"><rect x="40" y="150" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="168" text-anchor="middle" dominant-baseline="central">V dividers</text>
+<text class="ts" x="105" y="188" text-anchor="middle" dominant-baseline="central">bus, battery</text></g>
+<g class="c-purple"><rect x="190" y="150" width="140" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="260" y="168" text-anchor="middle" dominant-baseline="central">RP2040</text>
+<text class="ts" x="260" y="188" text-anchor="middle" dominant-baseline="central">8 PWM, 2 ADC</text></g>
+<g class="c-teal"><rect x="350" y="150" width="140" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="420" y="168" text-anchor="middle" dominant-baseline="central">AD4691</text>
+<text class="ts" x="420" y="188" text-anchor="middle" dominant-baseline="central">16-bit, 16 ch</text></g>
+<g class="c-gray"><rect x="510" y="150" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="575" y="168" text-anchor="middle" dominant-baseline="central">Trip latch</text>
+<text class="ts" x="575" y="188" text-anchor="middle" dominant-baseline="central">17 + 4 flags</text></g>
+<g class="c-gray"><rect x="190" y="236" width="140" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="260" y="254" text-anchor="middle" dominant-baseline="central">Buffer + ACPL</text>
+<text class="ts" x="260" y="274" text-anchor="middle" dominant-baseline="central">×8, then 2EDN</text></g>
+<g class="c-teal"><rect x="350" y="236" width="140" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="420" y="254" text-anchor="middle" dominant-baseline="central">INA240 ×3</text>
+<text class="ts" x="420" y="274" text-anchor="middle" dominant-baseline="central">NTC ×5</text></g>
+<g class="c-gray"><rect x="510" y="236" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="575" y="254" text-anchor="middle" dominant-baseline="central">EN opto ×2</text>
+<text class="ts" x="575" y="274" text-anchor="middle" dominant-baseline="central">latch → EN</text></g>
+<text class="ts" x="420" y="338" text-anchor="middle">EN, both groups</text>
+</svg>
+</section>
+
+<section>
+<h2>Sheet 2: power path and protection, one channel</h2>
+<p class="d">Bus feed through the CT, coil, paralleled SiC switches, shunt and battery, with the trip chain and the gate drive blocks. Channel 2 is a copy.</p>
+<svg viewBox="0 0 680 430" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="105" y1="52" x2="105" y2="82" marker-end="url(#arrow)"/>
+<line x1="170" y1="112" x2="188" y2="112" marker-end="url(#arrow)"/>
+<line x1="320" y1="112" x2="338" y2="112" marker-end="url(#arrow)"/>
+<line x1="470" y1="112" x2="488" y2="112" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<line x1="105" y1="140" x2="105" y2="168" marker-end="url(#arrow)"/>
+<line x1="105" y1="226" x2="105" y2="254" marker-end="url(#arrow)"/>
+<line x1="360" y1="284" x2="332" y2="284" marker-end="url(#arrow)"/>
+<line x1="200" y1="284" x2="172" y2="284" marker-end="url(#arrow)"/>
+<line x1="540" y1="284" x2="492" y2="284" marker-end="url(#arrow)"/>
+<line x1="70" y1="312" x2="70" y2="340" marker-end="url(#arrow)"/>
+</g>
+<path d="M150 312 L150 327 L265 327 L265 340" fill="none" stroke="var(--t)" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M405 140 L405 168" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<path d="M340 198 L265 198 L265 254" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<g class="c-gray"><rect x="40" y="24" width="600" height="28" rx="4" stroke-width="0.5"/>
+<text class="th" x="340" y="38" text-anchor="middle" dominant-baseline="central">+60 V DC bus, bulk C, TVS P6KE100A</text></g>
+<g class="c-gray"><rect x="40" y="84" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="102" text-anchor="middle" dominant-baseline="central">CT + burden</text>
+<text class="ts" x="105" y="122" text-anchor="middle" dominant-baseline="central">56 Ω, 1 turn</text></g>
+<g class="c-gray"><rect x="190" y="84" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="255" y="102" text-anchor="middle" dominant-baseline="central">LTC6752</text>
+<text class="ts" x="255" y="122" text-anchor="middle" dominant-baseline="central">3V3, trip 75 A</text></g>
+<g class="c-gray"><rect x="340" y="84" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="405" y="102" text-anchor="middle" dominant-baseline="central">74HC279</text>
+<text class="ts" x="405" y="122" text-anchor="middle" dominant-baseline="central">4 latches</text></g>
+<g class="c-gray"><rect x="490" y="84" width="150" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="565" y="102" text-anchor="middle" dominant-baseline="central">Pi GPIO</text>
+<text class="ts" x="565" y="122" text-anchor="middle" dominant-baseline="central">17 reset, 4 flags</text></g>
+<g class="c-teal"><rect x="40" y="170" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="188" text-anchor="middle" dominant-baseline="central">Coil + D1</text>
+<text class="ts" x="105" y="208" text-anchor="middle" dominant-baseline="central">20 mH, snubbers</text></g>
+<g class="c-gray"><rect x="340" y="170" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="405" y="188" text-anchor="middle" dominant-baseline="central">EN opto</text>
+<text class="ts" x="405" y="208" text-anchor="middle" dominant-baseline="central">shared groups</text></g>
+<g class="c-purple"><rect x="40" y="256" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="274" text-anchor="middle" dominant-baseline="central">Q1 ×2, Q2 ×2</text>
+<text class="ts" x="105" y="294" text-anchor="middle" dominant-baseline="central">SiC, paralleled</text></g>
+<g class="c-gray"><rect x="200" y="256" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="265" y="274" text-anchor="middle" dominant-baseline="central">2EDN7534R ×2</text>
+<text class="ts" x="265" y="294" text-anchor="middle" dominant-baseline="central">one per pair</text></g>
+<g class="c-gray"><rect x="360" y="256" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="425" y="274" text-anchor="middle" dominant-baseline="central">ACPL-343 ×4</text>
+<text class="ts" x="425" y="294" text-anchor="middle" dominant-baseline="central">one per gate</text></g>
+<text class="ts" x="546" y="284" dominant-baseline="central">RP2040 PWM</text>
+<g class="c-teal"><rect x="40" y="342" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="360" text-anchor="middle" dominant-baseline="central">Battery</text>
+<text class="ts" x="105" y="380" text-anchor="middle" dominant-baseline="central">52 V, 16S, BMS</text></g>
+<g class="c-teal"><rect x="200" y="342" width="130" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="265" y="360" text-anchor="middle" dominant-baseline="central">Shunt 1 mΩ</text>
+<text class="ts" x="265" y="380" text-anchor="middle" dominant-baseline="central">INA240 → AD4691</text></g>
+<text class="ts" x="360" y="350">Channel 1 shown; channel 2 is a copy.</text>
+<text class="ts" x="360" y="366">CT, latch and battery are shared.</text>
+<text class="ts" x="360" y="382">Each MOSFET pair has its own supply.</text>
+</svg>
+</section>
+
+<section>
+<h2>Sheet 3: gate drive groups</h2>
+<p class="d">Coil control group (four Q1 gates) and regeneration group (four Q2 gates), each with four PWM optocouplers, two 2EDN7534R drivers and one enable optocoupler. The red note marks the known reference problem in the regeneration group.</p>
+<svg viewBox="0 0 680 395" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="30" y="24" width="620" height="140" rx="8" fill="none" stroke="var(--border-strong)" stroke-width="0.5" stroke-dasharray="4 4"/>
+<text class="ts" x="42" y="40" dominant-baseline="central">Coil control group: ref = Q1 sources, supply A</text>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="90" y1="84" x2="148" y2="84" marker-end="url(#arrow)"/>
+<line x1="270" y1="84" x2="298" y2="84" marker-end="url(#arrow)"/>
+<line x1="420" y1="84" x2="448" y2="84" marker-end="url(#arrow)"/>
+<line x1="120" y1="141" x2="148" y2="141" marker-end="url(#arrow)"/>
+<path d="M270 141 L360 141 L360 114" marker-end="url(#arrow)"/>
+</g>
+<text class="ts" x="40" y="84" dominant-baseline="central">PWM ×4</text>
+<text class="ts" x="40" y="141" dominant-baseline="central">EN, buffered</text>
+<g class="c-gray"><rect x="150" y="56" width="120" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="210" y="74" text-anchor="middle" dominant-baseline="central">ACPL-343 ×4</text>
+<text class="ts" x="210" y="94" text-anchor="middle" dominant-baseline="central">one per gate</text></g>
+<g class="c-gray"><rect x="300" y="56" width="120" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="360" y="74" text-anchor="middle" dominant-baseline="central">2EDN7534R ×2</text>
+<text class="ts" x="360" y="94" text-anchor="middle" dominant-baseline="central">4 outputs</text></g>
+<g class="c-purple"><rect x="450" y="56" width="120" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="510" y="74" text-anchor="middle" dominant-baseline="central">Q1 ×4</text>
+<text class="ts" x="510" y="94" text-anchor="middle" dominant-baseline="central">SiC, Rg each</text></g>
+<g class="c-gray"><rect x="150" y="128" width="120" height="26" rx="4" stroke-width="0.5"/>
+<text class="th" x="210" y="141" text-anchor="middle" dominant-baseline="central">EN opto</text></g>
+<rect x="30" y="184" width="620" height="140" rx="8" fill="none" stroke="var(--border-strong)" stroke-width="0.5" stroke-dasharray="4 4"/>
+<text class="ts" x="42" y="200" dominant-baseline="central">Regeneration group: ref = node A, supplies B1 and B2</text>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="90" y1="244" x2="148" y2="244" marker-end="url(#arrow)"/>
+<line x1="270" y1="244" x2="298" y2="244" marker-end="url(#arrow)"/>
+<line x1="420" y1="244" x2="448" y2="244" marker-end="url(#arrow)"/>
+<line x1="120" y1="301" x2="148" y2="301" marker-end="url(#arrow)"/>
+<path d="M270 301 L360 301 L360 274" marker-end="url(#arrow)"/>
+</g>
+<text class="ts" x="40" y="244" dominant-baseline="central">PWM ×4</text>
+<text class="ts" x="40" y="301" dominant-baseline="central">EN, buffered</text>
+<g class="c-gray"><rect x="150" y="216" width="120" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="210" y="234" text-anchor="middle" dominant-baseline="central">ACPL-343 ×4</text>
+<text class="ts" x="210" y="254" text-anchor="middle" dominant-baseline="central">one per gate</text></g>
+<g class="c-gray"><rect x="300" y="216" width="120" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="360" y="234" text-anchor="middle" dominant-baseline="central">2EDN7534R ×2</text>
+<text class="ts" x="360" y="254" text-anchor="middle" dominant-baseline="central">4 outputs</text></g>
+<g class="c-purple"><rect x="450" y="216" width="120" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="510" y="234" text-anchor="middle" dominant-baseline="central">Q2 ×4</text>
+<text class="ts" x="510" y="254" text-anchor="middle" dominant-baseline="central">SiC, Rg each</text></g>
+<g class="c-gray"><rect x="150" y="288" width="120" height="26" rx="4" stroke-width="0.5"/>
+<text class="th" x="210" y="301" text-anchor="middle" dominant-baseline="central">EN opto</text></g>
+<text class="ts" x="380" y="301" dominant-baseline="central" style="fill:var(--text-danger)">Check: node A1 ≠ node A2</text>
+<text class="ts" x="40" y="346">Supply A: one isolated 18 V for the whole coil control group.</text>
+<text class="ts" x="40" y="362">Supplies B1, B2: one per channel, each referenced to its node A.</text>
+<text class="ts" x="40" y="378">Each 2EDN7534R drives a pair of paralleled MOSFETs, one output each.</text>
+</svg>
+</section>
+
+<section>
+<h2>Schematic: power stage, one channel</h2>
+<p class="d">Coil, flyback diode and snubbers, paralleled Q1 and Q2 pairs, shunts, battery and the coil current sense. Gate nets G1a, G1b, G2a, G2b go to the drivers.</p>
+<svg viewBox="0 0 680 400" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="ts" x="130" y="50">+60 V bus, via CT</text>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="130" y1="70" x2="345" y2="70"/>
+<line x1="130" y1="70" x2="130" y2="104"/>
+<line x1="130" y1="160" x2="130" y2="215"/>
+<line x1="230" y1="70" x2="230" y2="104"/>
+<line x1="230" y1="160" x2="230" y2="190"/>
+<line x1="345" y1="70" x2="345" y2="104"/>
+<line x1="345" y1="160" x2="345" y2="190"/>
+<line x1="130" y1="190" x2="465" y2="190"/>
+<line x1="260" y1="190" x2="260" y2="215"/>
+<line x1="260" y1="271" x2="260" y2="285"/>
+<line x1="260" y1="285" x2="130" y2="285"/>
+<line x1="130" y1="271" x2="130" y2="295"/>
+<line x1="130" y1="339" x2="130" y2="355"/>
+<line x1="465" y1="160" x2="465" y2="190"/>
+<line x1="465" y1="104" x2="465" y2="80"/>
+<line x1="465" y1="80" x2="570" y2="80"/>
+<line x1="515" y1="122" x2="535" y2="122"/>
+<line x1="515" y1="142" x2="535" y2="142"/>
+<line x1="80" y1="233" x2="65" y2="233"/>
+<line x1="80" y1="253" x2="65" y2="253"/>
+<line x1="605" y1="130" x2="605" y2="200"/>
+<line x1="605" y1="244" x2="605" y2="268"/>
+<line x1="118" y1="355" x2="142" y2="355"/>
+<line x1="122" y1="360" x2="138" y2="360"/>
+<line x1="126" y1="365" x2="134" y2="365"/>
+<line x1="593" y1="268" x2="617" y2="268"/>
+<line x1="597" y1="273" x2="613" y2="273"/>
+<line x1="601" y1="278" x2="609" y2="278"/>
+</g>
+<g fill="var(--t)">
+<circle cx="230" cy="70" r="3"/><circle cx="345" cy="70" r="3"/>
+<circle cx="130" cy="190" r="3"/><circle cx="230" cy="190" r="3"/><circle cx="260" cy="190" r="3"/><circle cx="345" cy="190" r="3"/>
+<circle cx="130" cy="285" r="3"/>
+</g>
+<text class="ts" x="380" y="182">Node A</text>
+<text class="ts" x="152" y="360" dominant-baseline="central">GND</text>
+<text class="ts" x="40" y="233" dominant-baseline="central">G1a</text>
+<text class="ts" x="40" y="253" dominant-baseline="central">G1b</text>
+<text class="ts" x="538" y="122" dominant-baseline="central">G2a</text>
+<text class="ts" x="538" y="142" dominant-baseline="central">G2b</text>
+<g class="c-teal"><rect x="100" y="104" width="60" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="130" y="122" text-anchor="middle" dominant-baseline="central">Coil</text>
+<text class="ts" x="130" y="142" text-anchor="middle" dominant-baseline="central">20 mH</text></g>
+<g class="c-purple"><rect x="185" y="104" width="90" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="230" y="122" text-anchor="middle" dominant-baseline="central">D1 flyback</text>
+<text class="ts" x="230" y="142" text-anchor="middle" dominant-baseline="central">VS-60EPU06</text></g>
+<g class="c-teal"><rect x="295" y="104" width="100" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="345" y="122" text-anchor="middle" dominant-baseline="central">Snub 1</text>
+<text class="ts" x="345" y="142" text-anchor="middle" dominant-baseline="central">10Ω + 10nF</text></g>
+<g class="c-purple"><rect x="415" y="104" width="100" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="465" y="122" text-anchor="middle" dominant-baseline="central">Q2a + Q2b</text>
+<text class="ts" x="465" y="142" text-anchor="middle" dominant-baseline="central">SiC, parallel</text></g>
+<g class="c-teal"><rect x="570" y="60" width="70" height="70" rx="4" stroke-width="0.5"/>
+<text class="th" x="605" y="86" text-anchor="middle" dominant-baseline="central">Battery</text>
+<text class="ts" x="605" y="106" text-anchor="middle" dominant-baseline="central">52 V, 16S</text></g>
+<g class="c-teal"><rect x="570" y="200" width="70" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="605" y="215" text-anchor="middle" dominant-baseline="central">Shunt 3</text>
+<text class="ts" x="605" y="232" text-anchor="middle" dominant-baseline="central">1 mΩ</text></g>
+<g class="c-purple"><rect x="80" y="215" width="100" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="130" y="233" text-anchor="middle" dominant-baseline="central">Q1a + Q1b</text>
+<text class="ts" x="130" y="253" text-anchor="middle" dominant-baseline="central">SiC, parallel</text></g>
+<g class="c-teal"><rect x="210" y="215" width="100" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="260" y="233" text-anchor="middle" dominant-baseline="central">Snub 2</text>
+<text class="ts" x="260" y="253" text-anchor="middle" dominant-baseline="central">4.7Ω + 4.7nF</text></g>
+<g class="c-teal"><rect x="92" y="295" width="76" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="130" y="310" text-anchor="middle" dominant-baseline="central">Shunt 1</text>
+<text class="ts" x="130" y="327" text-anchor="middle" dominant-baseline="central">1 mΩ</text></g>
+<line x1="168" y1="317" x2="326" y2="317" stroke="var(--t)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<g class="c-gray"><rect x="330" y="295" width="110" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="385" y="310" text-anchor="middle" dominant-baseline="central">INA240A2</text>
+<text class="ts" x="385" y="327" text-anchor="middle" dominant-baseline="central">gain 50 V/V</text></g>
+<line x1="440" y1="317" x2="470" y2="317" stroke="var(--t)" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text class="ts" x="476" y="317" dominant-baseline="central">AD4691 CH0</text>
+</svg>
+</section>
+
+<section>
+<h2>Schematic: gate driver for one MOSFET pair</h2>
+<p class="d">Two ACPL-P343 PWM optocouplers into the two inputs of a 2EDN7534R, a third ACPL-P343 for the shared enable, and separate 10 Ω gate resistors to the two paralleled MOSFETs. Repeated four times.</p>
+<svg viewBox="0 0 680 475" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="ts" x="40" y="40">Logic side</text>
+<text class="ts" x="640" y="40" text-anchor="end">Isolated side</text>
+<g stroke="#E24B4A" stroke-width="1" stroke-dasharray="6 4" fill="none">
+<line x1="320" y1="50" x2="320" y2="98"/>
+<line x1="320" y1="172" x2="320" y2="212"/>
+<line x1="320" y1="286" x2="320" y2="326"/>
+<line x1="320" y1="400" x2="320" y2="430"/>
+</g>
+<text class="ts" x="312" y="60" text-anchor="end">Barrier</text>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="92" y1="130" x2="130" y2="130"/><rect x="130" y="124" width="40" height="12"/><line x1="170" y1="130" x2="268" y2="130" marker-end="url(#arrow)"/>
+<line x1="270" y1="160" x2="240" y2="160"/><line x1="240" y1="160" x2="240" y2="176"/>
+<line x1="230" y1="176" x2="250" y2="176"/><line x1="234" y1="181" x2="246" y2="181"/><line x1="238" y1="186" x2="242" y2="186"/>
+<line x1="92" y1="244" x2="130" y2="244"/><rect x="130" y="238" width="40" height="12"/><line x1="170" y1="244" x2="268" y2="244" marker-end="url(#arrow)"/>
+<line x1="270" y1="274" x2="240" y2="274"/><line x1="240" y1="274" x2="240" y2="290"/>
+<line x1="230" y1="290" x2="250" y2="290"/><line x1="234" y1="295" x2="246" y2="295"/><line x1="238" y1="300" x2="242" y2="300"/>
+<line x1="118" y1="358" x2="130" y2="358"/><rect x="130" y="352" width="40" height="12"/><line x1="170" y1="358" x2="268" y2="358" marker-end="url(#arrow)"/>
+<line x1="270" y1="388" x2="240" y2="388"/><line x1="240" y1="388" x2="240" y2="404"/>
+<line x1="230" y1="404" x2="250" y2="404"/><line x1="234" y1="409" x2="246" y2="409"/><line x1="238" y1="414" x2="242" y2="414"/>
+<line x1="345" y1="100" x2="345" y2="70"/>
+<line x1="345" y1="70" x2="500" y2="70"/>
+<line x1="500" y1="96" x2="500" y2="70"/>
+<line x1="345" y1="170" x2="345" y2="184"/>
+<line x1="345" y1="214" x2="345" y2="200"/>
+<line x1="345" y1="284" x2="345" y2="298"/>
+<line x1="345" y1="328" x2="345" y2="314"/>
+<line x1="345" y1="398" x2="345" y2="412"/>
+<line x1="500" y1="276" x2="500" y2="290"/>
+<line x1="370" y1="132" x2="448" y2="132" marker-end="url(#arrow)"/>
+<line x1="370" y1="246" x2="448" y2="246" marker-end="url(#arrow)"/>
+<line x1="370" y1="360" x2="390" y2="360"/>
+<line x1="450" y1="176" x2="432" y2="176"/><line x1="450" y1="192" x2="432" y2="192"/>
+<line x1="432" y1="176" x2="432" y2="192"/><line x1="432" y1="184" x2="416" y2="184"/>
+<line x1="550" y1="132" x2="568" y2="132"/><rect x="568" y="126" width="30" height="12"/><line x1="598" y1="132" x2="626" y2="132" marker-end="url(#arrow)"/>
+<line x1="550" y1="246" x2="568" y2="246"/><rect x="568" y="240" width="30" height="12"/><line x1="598" y1="246" x2="626" y2="246" marker-end="url(#arrow)"/>
+</g>
+<g fill="var(--t)"><circle cx="432" cy="184" r="3"/></g>
+<g class="c-gray"><rect x="270" y="100" width="100" height="70" rx="4" stroke-width="0.5"/>
+<text class="th" x="320" y="114" text-anchor="middle" dominant-baseline="central">ACPL-P343</text>
+<text class="ts" x="278" y="130" dominant-baseline="central">A</text>
+<text class="ts" x="278" y="160" dominant-baseline="central">K</text>
+<text class="ts" x="362" y="132" text-anchor="end" dominant-baseline="central">OUT</text></g>
+<g class="c-gray"><rect x="270" y="214" width="100" height="70" rx="4" stroke-width="0.5"/>
+<text class="th" x="320" y="228" text-anchor="middle" dominant-baseline="central">ACPL-P343</text>
+<text class="ts" x="278" y="244" dominant-baseline="central">A</text>
+<text class="ts" x="278" y="274" dominant-baseline="central">K</text>
+<text class="ts" x="362" y="246" text-anchor="end" dominant-baseline="central">OUT</text></g>
+<g class="c-gray"><rect x="270" y="328" width="100" height="70" rx="4" stroke-width="0.5"/>
+<text class="th" x="320" y="342" text-anchor="middle" dominant-baseline="central">ACPL-P343</text>
+<text class="ts" x="278" y="358" dominant-baseline="central">A</text>
+<text class="ts" x="278" y="388" dominant-baseline="central">K</text>
+<text class="ts" x="362" y="360" text-anchor="end" dominant-baseline="central">OUT</text></g>
+<g class="c-gray"><rect x="450" y="96" width="100" height="180" rx="4" stroke-width="0.5"/>
+<text class="th" x="500" y="112" text-anchor="middle" dominant-baseline="central">2EDN7534R</text>
+<text class="ts" x="458" y="132" dominant-baseline="central">INA</text>
+<text class="ts" x="458" y="176" dominant-baseline="central">ENA</text>
+<text class="ts" x="458" y="192" dominant-baseline="central">ENB</text>
+<text class="ts" x="458" y="246" dominant-baseline="central">INB</text>
+<text class="ts" x="542" y="132" text-anchor="end" dominant-baseline="central">OUTA</text>
+<text class="ts" x="542" y="246" text-anchor="end" dominant-baseline="central">OUTB</text></g>
+<text class="ts" x="40" y="130" dominant-baseline="central">PWM a</text>
+<text class="ts" x="40" y="244" dominant-baseline="central">PWM b</text>
+<text class="ts" x="40" y="358" dominant-baseline="central">EN, buffered</text>
+<text class="ts" x="150" y="116" text-anchor="middle">R 180 Ω</text>
+<text class="ts" x="150" y="230" text-anchor="middle">R 180 Ω</text>
+<text class="ts" x="150" y="344" text-anchor="middle">R 180 Ω</text>
+<text class="ts" x="422" y="58" text-anchor="middle">+18 V isolated</text>
+<text class="ts" x="352" y="184" dominant-baseline="central">Ref</text>
+<text class="ts" x="352" y="200" dominant-baseline="central">+18 V</text>
+<text class="ts" x="352" y="298" dominant-baseline="central">Ref</text>
+<text class="ts" x="352" y="314" dominant-baseline="central">+18 V</text>
+<text class="ts" x="352" y="412" dominant-baseline="central">Ref</text>
+<text class="ts" x="508" y="290" dominant-baseline="central">Ref</text>
+<text class="ts" x="412" y="184" text-anchor="end" dominant-baseline="central">EN</text>
+<text class="ts" x="394" y="360" dominant-baseline="central">EN</text>
+<text class="ts" x="583" y="116" text-anchor="middle">Rg 10 Ω</text>
+<text class="ts" x="583" y="230" text-anchor="middle">Rg 10 Ω</text>
+<text class="ts" x="612" y="150" text-anchor="middle">gate Qa</text>
+<text class="ts" x="612" y="264" text-anchor="middle">gate Qb</text>
+<text class="ts" x="40" y="446">One 2EDN7534R drives a pair of paralleled MOSFETs, one output each.</text>
+<text class="ts" x="40" y="462">100 nF + 1 µF at each VCC and VDD pin. Repeat for all four drivers.</text>
+</svg>
+</section>
+
+<section>
+<h2>Schematic: four trip latches and enable</h2>
+<p class="d">Each trip comparator resets its own latch in one 74HC279, so the Pi can see which trip fired. The four Q outputs are combined by a BAT54 wired-AND into the enable node, which drives the 74LVC244 buffer and two ACPL-343 enable optocouplers.</p>
+<svg viewBox="0 0 680 520" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="140" y1="86" x2="158" y2="86"/><line x1="120" y1="114" x2="158" y2="114" marker-end="url(#arrow)"/>
+<line x1="140" y1="176" x2="158" y2="176"/><line x1="120" y1="204" x2="158" y2="204" marker-end="url(#arrow)"/>
+<line x1="140" y1="266" x2="158" y2="266"/><line x1="120" y1="294" x2="158" y2="294" marker-end="url(#arrow)"/>
+<line x1="140" y1="356" x2="158" y2="356"/><line x1="120" y1="384" x2="158" y2="384" marker-end="url(#arrow)"/>
+<line x1="270" y1="100" x2="320" y2="100"/><line x1="285" y1="100" x2="285" y2="82"/>
+<line x1="270" y1="190" x2="320" y2="190"/><line x1="285" y1="190" x2="285" y2="172"/>
+<line x1="270" y1="280" x2="320" y2="280"/><line x1="285" y1="280" x2="285" y2="262"/>
+<line x1="270" y1="370" x2="320" y2="370"/><line x1="285" y1="370" x2="285" y2="352"/>
+<polygon points="350,90 350,110 320,100"/><line x1="320" y1="89" x2="320" y2="111"/><line x1="350" y1="100" x2="380" y2="100"/>
+<polygon points="350,180 350,200 320,190"/><line x1="320" y1="179" x2="320" y2="201"/><line x1="350" y1="190" x2="380" y2="190"/>
+<polygon points="350,270 350,290 320,280"/><line x1="320" y1="269" x2="320" y2="291"/><line x1="350" y1="280" x2="380" y2="280"/>
+<polygon points="350,360 350,380 320,370"/><line x1="320" y1="359" x2="320" y2="381"/><line x1="350" y1="370" x2="380" y2="370"/>
+<line x1="380" y1="100" x2="380" y2="370"/>
+<line x1="368" y1="40" x2="392" y2="40"/><line x1="380" y1="40" x2="380" y2="56"/>
+<rect x="373" y="56" width="14" height="32"/><line x1="380" y1="88" x2="380" y2="100"/>
+<line x1="380" y1="235" x2="418" y2="235" marker-end="url(#arrow)"/>
+<line x1="500" y1="205" x2="510" y2="205"/><rect x="510" y="199" width="26" height="12"/><line x1="536" y1="205" x2="548" y2="205" marker-end="url(#arrow)"/>
+<line x1="500" y1="265" x2="510" y2="265"/><rect x="510" y="259" width="26" height="12"/><line x1="536" y1="265" x2="548" y2="265" marker-end="url(#arrow)"/>
+<line x1="148" y1="440" x2="172" y2="440"/><line x1="160" y1="440" x2="160" y2="452"/>
+<rect x="153" y="452" width="14" height="32"/><line x1="160" y1="484" x2="160" y2="496"/>
+<line x1="92" y1="496" x2="158" y2="496" marker-end="url(#arrow)"/>
+<line x1="160" y1="496" x2="218" y2="496"/>
+</g>
+<g fill="var(--t)">
+<circle cx="285" cy="100" r="3"/><circle cx="285" cy="190" r="3"/><circle cx="285" cy="280" r="3"/><circle cx="285" cy="370" r="3"/>
+<circle cx="380" cy="100" r="3"/><circle cx="380" cy="190" r="3"/><circle cx="380" cy="280" r="3"/><circle cx="380" cy="370" r="3"/>
+<circle cx="380" cy="235" r="3"/><circle cx="160" cy="496" r="3"/>
+</g>
+<rect class="box" x="160" y="56" width="110" height="358" rx="4" stroke-width="0.5"/>
+<text class="th" x="215" y="70" text-anchor="middle" dominant-baseline="central">74HC279</text>
+<text class="ts" x="168" y="86" dominant-baseline="central">/S</text><text class="ts" x="168" y="114" dominant-baseline="central">/R</text><text class="ts" x="262" y="100" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="100" text-anchor="middle" dominant-baseline="central">CT</text>
+<text class="ts" x="168" y="176" dominant-baseline="central">/S</text><text class="ts" x="168" y="204" dominant-baseline="central">/R</text><text class="ts" x="262" y="190" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="190" text-anchor="middle" dominant-baseline="central">coil 1</text>
+<text class="ts" x="168" y="266" dominant-baseline="central">/S</text><text class="ts" x="168" y="294" dominant-baseline="central">/R</text><text class="ts" x="262" y="280" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="280" text-anchor="middle" dominant-baseline="central">coil 2</text>
+<text class="ts" x="168" y="356" dominant-baseline="central">/S</text><text class="ts" x="168" y="384" dominant-baseline="central">/R</text><text class="ts" x="262" y="370" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="370" text-anchor="middle" dominant-baseline="central">battery</text>
+<text class="ts" x="136" y="86" text-anchor="end" dominant-baseline="central">RST</text>
+<text class="ts" x="136" y="176" text-anchor="end" dominant-baseline="central">RST</text>
+<text class="ts" x="136" y="266" text-anchor="end" dominant-baseline="central">RST</text>
+<text class="ts" x="136" y="356" text-anchor="end" dominant-baseline="central">RST</text>
+<text class="ts" x="40" y="114" dominant-baseline="central">TRIP_N CT</text>
+<text class="ts" x="40" y="204" dominant-baseline="central">TRIP coil 1</text>
+<text class="ts" x="40" y="294" dominant-baseline="central">TRIP coil 2</text>
+<text class="ts" x="40" y="384" dominant-baseline="central">TRIP battery</text>
+<text class="ts" x="285" y="76" text-anchor="middle">→ GPIO22</text>
+<text class="ts" x="285" y="166" text-anchor="middle">→ GPIO23</text>
+<text class="ts" x="285" y="256" text-anchor="middle">→ GPIO24</text>
+<text class="ts" x="285" y="346" text-anchor="middle">→ GPIO27</text>
+<text class="ts" x="400" y="40" dominant-baseline="central">+3V3</text>
+<text class="ts" x="396" y="72">10 kΩ</text>
+<g class="c-gray"><rect x="420" y="190" width="80" height="90" rx="4" stroke-width="0.5"/>
+<text class="th" x="460" y="235" text-anchor="middle" dominant-baseline="central">74LVC244</text></g>
+<g class="c-gray"><rect x="550" y="183" width="80" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="590" y="205" text-anchor="middle" dominant-baseline="central">ACPL-343</text></g>
+<g class="c-gray"><rect x="550" y="243" width="80" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="590" y="265" text-anchor="middle" dominant-baseline="central">ACPL-343</text></g>
+<text class="ts" x="523" y="192" text-anchor="middle">180 Ω</text>
+<text class="ts" x="590" y="235" text-anchor="middle">EN coil</text>
+<text class="ts" x="590" y="302" text-anchor="middle">EN regen</text>
+<text class="ts" x="460" y="178" text-anchor="middle">EN node</text>
+<text class="ts" x="180" y="440" dominant-baseline="central">+3V3</text>
+<text class="ts" x="176" y="468">10 kΩ</text>
+<text class="ts" x="40" y="496" dominant-baseline="central">GPIO17</text>
+<text class="ts" x="224" y="496" dominant-baseline="central">RST net</text>
+<text class="ts" x="300" y="440">RST feeds every /S. Tie /S2 to /S1 on latches 1 and 3.</text>
+<text class="ts" x="300" y="456">Enable node: BAT54 per Q, one 10 kΩ pull-up.</text>
+<text class="ts" x="300" y="472">Each Q goes to its own Pi GPIO: shows which trip fired.</text>
+<text class="ts" x="300" y="488">After power-up, pulse RST once the TRIP inputs are high.</text>
+</svg>
+</section>
+
+<section>
+<h2>Schematic: current trip front end</h2>
+<p class="d">CT on the +60 V feed, 56 Ω burden, TVS, BAT54 peak hold, and the LTC6752 (SOT-23-5, 3.3 V) comparator with a 1.88 V reference and hysteresis. TRIP_N goes to the latch /R input.</p>
+<svg viewBox="0 0 680 370" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="70" y1="110" x2="70" y2="296" marker-end="url(#arrow)"/>
+<circle cx="70" cy="212" r="24"/>
+<line x1="91" y1="200" x2="300" y2="200"/>
+<line x1="320" y1="200" x2="500" y2="200"/>
+<line x1="91" y1="224" x2="112" y2="224"/>
+<line x1="112" y1="224" x2="112" y2="330"/>
+<line x1="112" y1="330" x2="450" y2="330"/>
+<line x1="160" y1="200" x2="160" y2="252"/><line x1="160" y1="292" x2="160" y2="330"/>
+<line x1="225" y1="200" x2="225" y2="246"/><line x1="225" y1="274" x2="225" y2="330"/>
+<line x1="380" y1="200" x2="380" y2="256"/><line x1="380" y1="262" x2="380" y2="330"/>
+<line x1="450" y1="200" x2="450" y2="252"/><line x1="450" y1="292" x2="450" y2="330"/>
+<line x1="400" y1="40" x2="440" y2="40"/>
+<line x1="420" y1="40" x2="420" y2="56"/><line x1="420" y1="88" x2="420" y2="120"/>
+<line x1="420" y1="120" x2="420" y2="128"/><line x1="420" y1="160" x2="420" y2="170"/>
+<line x1="410" y1="170" x2="430" y2="170"/><line x1="414" y1="175" x2="426" y2="175"/><line x1="418" y1="180" x2="422" y2="180"/>
+<line x1="420" y1="120" x2="500" y2="120"/>
+<line x1="460" y1="70" x2="460" y2="120"/><line x1="460" y1="70" x2="520" y2="70"/>
+<line x1="560" y1="70" x2="610" y2="70"/><line x1="610" y1="70" x2="610" y2="160"/>
+<line x1="600" y1="160" x2="640" y2="160"/>
+<line x1="112" y1="330" x2="112" y2="340"/>
+<line x1="100" y1="340" x2="124" y2="340"/><line x1="104" y1="345" x2="120" y2="345"/><line x1="108" y1="350" x2="116" y2="350"/>
+<rect x="153" y="252" width="14" height="40"/>
+<rect x="443" y="252" width="14" height="40"/>
+<rect x="413" y="56" width="14" height="32"/>
+<rect x="413" y="128" width="14" height="32"/>
+<rect x="520" y="63" width="40" height="14"/>
+<polygon points="300,190 300,210 320,200"/>
+<line x1="320" y1="189" x2="320" y2="211"/>
+<polygon points="217,246 233,246 225,260"/>
+<line x1="216" y1="260" x2="234" y2="260"/>
+<polygon points="217,274 233,274 225,260"/>
+<line x1="368" y1="256" x2="392" y2="256"/><line x1="368" y1="262" x2="392" y2="262"/>
+<polygon points="500,96 500,224 600,160"/>
+</g>
+<g fill="var(--t)">
+<circle cx="160" cy="200" r="3"/><circle cx="225" cy="200" r="3"/><circle cx="380" cy="200" r="3"/><circle cx="450" cy="200" r="3"/>
+<circle cx="420" cy="120" r="3"/><circle cx="460" cy="120" r="3"/><circle cx="610" cy="160" r="3"/>
+<circle cx="160" cy="330" r="3"/><circle cx="225" cy="330" r="3"/><circle cx="380" cy="330" r="3"/><circle cx="450" cy="330" r="3"/>
+</g>
+<text class="ts" x="40" y="92">Primary: +60 V bus feed</text>
+<text class="ts" x="40" y="318">1 turn</text>
+<text class="ts" x="116" y="184">CR8348-2000-F</text>
+<text class="ts" x="172" y="266">Rb</text><text class="ts" x="172" y="282">56 Ω</text>
+<text class="ts" x="240" y="262">TVS 15 V</text>
+<text class="ts" x="310" y="180" text-anchor="middle">BAT54</text>
+<text class="ts" x="394" y="250">Ch</text><text class="ts" x="394" y="268">4.7 nF</text>
+<text class="ts" x="462" y="266">Rdis</text><text class="ts" x="462" y="282">100 kΩ</text>
+<text class="ts" x="408" y="72" text-anchor="end">R1 4.7 kΩ</text>
+<text class="ts" x="408" y="144" text-anchor="end">R2 6.2 kΩ</text>
+<text class="ts" x="408" y="120" text-anchor="end">VREF 1.88 V</text>
+<text class="ts" x="448" y="40" dominant-baseline="central">+3V3</text>
+<text class="ts" x="508" y="120" dominant-baseline="central">+</text>
+<text class="ts" x="508" y="200" dominant-baseline="central">−</text>
+<text class="th" x="550" y="160" text-anchor="middle" dominant-baseline="central">LTC6752</text>
+<text class="ts" x="540" y="54" text-anchor="middle">Rhyst 100 kΩ</text>
+<text class="ts" x="625" y="180" text-anchor="middle">TRIP_N</text>
+<text class="ts" x="625" y="196" text-anchor="middle">to latch /R</text>
+<text class="ts" x="130" y="346" dominant-baseline="central">GND</text>
+<text class="ts" x="520" y="256">V+ = +3V3, 100 nF</text>
+<text class="ts" x="520" y="272">V− = GND</text>
+<text class="ts" x="520" y="288">SOT-23-5</text>
+</svg>
+</section>
+
+<section>
+<h2>Schematic: measurement inputs</h2>
+<p class="d">INA240 outputs and NTC dividers into the AD4691 with a 4.096 V reference, and the supply voltage divider into an RP2040 ADC input.</p>
+<svg viewBox="0 0 680 475" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="170" y1="70" x2="198" y2="70" marker-end="url(#arrow)"/><line x1="250" y1="70" x2="328" y2="70" marker-end="url(#arrow)"/>
+<line x1="170" y1="130" x2="198" y2="130" marker-end="url(#arrow)"/><line x1="250" y1="130" x2="328" y2="130" marker-end="url(#arrow)"/>
+<line x1="170" y1="190" x2="198" y2="190" marker-end="url(#arrow)"/><line x1="250" y1="190" x2="328" y2="190" marker-end="url(#arrow)"/>
+<line x1="170" y1="250" x2="198" y2="250" marker-end="url(#arrow)"/><line x1="250" y1="250" x2="328" y2="250" marker-end="url(#arrow)"/>
+<line x1="470" y1="170" x2="528" y2="170" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<line x1="520" y1="82" x2="472" y2="82" marker-end="url(#arrow)"/>
+<line x1="70" y1="346" x2="70" y2="358"/><rect x="63" y="358" width="14" height="32"/>
+<line x1="70" y1="390" x2="70" y2="406"/><rect x="63" y="406" width="14" height="32"/>
+<line x1="70" y1="438" x2="70" y2="448"/>
+<line x1="60" y1="448" x2="80" y2="448"/><line x1="64" y1="453" x2="76" y2="453"/><line x1="68" y1="458" x2="72" y2="458"/>
+<line x1="70" y1="406" x2="130" y2="406"/>
+<line x1="100" y1="406" x2="100" y2="420"/>
+<line x1="90" y1="420" x2="110" y2="420"/><line x1="90" y1="426" x2="110" y2="426"/>
+<line x1="100" y1="426" x2="100" y2="448"/>
+<line x1="90" y1="448" x2="110" y2="448"/><line x1="94" y1="453" x2="106" y2="453"/><line x1="98" y1="458" x2="102" y2="458"/>
+<rect x="130" y="400" width="36" height="12"/>
+<line x1="166" y1="406" x2="248" y2="406" marker-end="url(#arrow)"/>
+<line x1="190" y1="406" x2="190" y2="424"/>
+</g>
+<g fill="var(--t)"><circle cx="70" cy="406" r="3"/><circle cx="100" cy="406" r="3"/><circle cx="190" cy="406" r="3"/></g>
+<g class="c-teal"><rect x="40" y="48" width="130" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="62" text-anchor="middle" dominant-baseline="central">INA240A2</text>
+<text class="ts" x="105" y="79" text-anchor="middle" dominant-baseline="central">coil 1</text></g>
+<g class="c-teal"><rect x="40" y="108" width="130" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="122" text-anchor="middle" dominant-baseline="central">INA240A2</text>
+<text class="ts" x="105" y="139" text-anchor="middle" dominant-baseline="central">coil 2</text></g>
+<g class="c-teal"><rect x="40" y="168" width="130" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="182" text-anchor="middle" dominant-baseline="central">INA240A1</text>
+<text class="ts" x="105" y="199" text-anchor="middle" dominant-baseline="central">battery, bidir</text></g>
+<g class="c-teal"><rect x="40" y="228" width="130" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="105" y="242" text-anchor="middle" dominant-baseline="central">NTC ×5</text>
+<text class="ts" x="105" y="259" text-anchor="middle" dominant-baseline="central">10 kΩ to REF</text></g>
+<g class="c-gray"><rect x="200" y="56" width="50" height="28" rx="4" stroke-width="0.5"/><text class="th" x="225" y="70" text-anchor="middle" dominant-baseline="central">RC</text></g>
+<g class="c-gray"><rect x="200" y="116" width="50" height="28" rx="4" stroke-width="0.5"/><text class="th" x="225" y="130" text-anchor="middle" dominant-baseline="central">RC</text></g>
+<g class="c-gray"><rect x="200" y="176" width="50" height="28" rx="4" stroke-width="0.5"/><text class="th" x="225" y="190" text-anchor="middle" dominant-baseline="central">RC</text></g>
+<g class="c-gray"><rect x="200" y="236" width="50" height="28" rx="4" stroke-width="0.5"/><text class="th" x="225" y="250" text-anchor="middle" dominant-baseline="central">RC</text></g>
+<g class="c-purple"><rect x="330" y="40" width="140" height="260" rx="4" stroke-width="0.5"/>
+<text class="ts" x="338" y="70" dominant-baseline="central">CH0</text>
+<text class="ts" x="338" y="130" dominant-baseline="central">CH1</text>
+<text class="ts" x="338" y="190" dominant-baseline="central">CH2</text>
+<text class="ts" x="338" y="250" dominant-baseline="central">CH3–7</text>
+<text class="ts" x="462" y="82" text-anchor="end" dominant-baseline="central">REF</text>
+<text class="th" x="400" y="270" text-anchor="middle" dominant-baseline="central">AD4691</text>
+<text class="ts" x="400" y="288" text-anchor="middle" dominant-baseline="central">16-bit, 16 ch</text></g>
+<g class="c-teal"><rect x="520" y="60" width="120" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="580" y="74" text-anchor="middle" dominant-baseline="central">REF</text>
+<text class="ts" x="580" y="91" text-anchor="middle" dominant-baseline="central">4.096 V</text></g>
+<text class="ts" x="534" y="170" dominant-baseline="central">SPI0 to Pi 5</text>
+<text class="ts" x="490" y="130">RC: 100 Ω + 1 nF</text>
+<text class="ts" x="490" y="146">at every input</text>
+<text class="ts" x="490" y="236">AVDD 5 V, VIO 3V3</text>
+<text class="ts" x="490" y="252">core: see datasheet</text>
+<text class="ts" x="40" y="322">Supply voltage inputs, RP2040 ADC</text>
+<text class="ts" x="70" y="338" text-anchor="middle">+60 V bus</text>
+<text class="ts" x="86" y="374">51 kΩ</text>
+<text class="ts" x="86" y="422">2.2 kΩ</text>
+<text class="ts" x="116" y="436">100 nF</text>
+<text class="ts" x="148" y="392" text-anchor="middle">1 kΩ</text>
+<g class="c-gray"><rect x="160" y="424" width="60" height="24" rx="4" stroke-width="0.5"/>
+<text class="th" x="190" y="436" text-anchor="middle" dominant-baseline="central">BAT54S</text></g>
+<g class="c-purple"><rect x="250" y="376" width="100" height="70" rx="4" stroke-width="0.5"/>
+<text class="th" x="300" y="392" text-anchor="middle" dominant-baseline="central">RP2040</text>
+<text class="ts" x="258" y="406" dominant-baseline="central">ADC0</text>
+<text class="ts" x="258" y="430" dominant-baseline="central">ADC1</text></g>
+<text class="ts" x="360" y="406" dominant-baseline="central">ADC0: bus voltage</text>
+<text class="ts" x="360" y="430" dominant-baseline="central">ADC1: battery, same circuit</text>
+</svg>
+</section>
+
+<section>
+<h2>Schematic: position sensor input guard</h2>
+<p class="d">One channel, repeated for S1, S2 and S3. A PNP sensor output drives an optocoupler LED, and the transistor side has a pull-up, series resistor and BAT54S clamp before the Pi GPIO.</p>
+<svg viewBox="0 0 680 300" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="ts" x="40" y="40">Field side</text>
+<text class="ts" x="640" y="40" text-anchor="end">Pi side</text>
+<g stroke="#E24B4A" stroke-width="1" stroke-dasharray="6 4" fill="none">
+<line x1="305" y1="50" x2="305" y2="88"/>
+<line x1="305" y1="172" x2="305" y2="210"/>
+</g>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="150" y1="116" x2="170" y2="116"/>
+<rect x="170" y="110" width="50" height="12"/>
+<line x1="220" y1="116" x2="258" y2="116" marker-end="url(#arrow)"/>
+<line x1="150" y1="146" x2="258" y2="146"/>
+<line x1="240" y1="116" x2="240" y2="124"/>
+<polygon points="232,138 248,138 240,124"/>
+<line x1="231" y1="124" x2="249" y2="124"/>
+<line x1="240" y1="138" x2="240" y2="146"/>
+<line x1="350" y1="116" x2="430" y2="116"/>
+<line x1="380" y1="56" x2="380" y2="70"/>
+<rect x="373" y="70" width="14" height="32"/>
+<line x1="380" y1="102" x2="380" y2="116"/>
+<rect x="430" y="110" width="40" height="12"/>
+<line x1="470" y1="116" x2="558" y2="116" marker-end="url(#arrow)"/>
+<line x1="350" y1="146" x2="380" y2="146"/>
+<line x1="380" y1="146" x2="380" y2="170"/>
+<line x1="370" y1="170" x2="390" y2="170"/><line x1="374" y1="175" x2="386" y2="175"/><line x1="378" y1="180" x2="382" y2="180"/>
+<line x1="520" y1="116" x2="520" y2="150"/>
+</g>
+<g fill="var(--t)"><circle cx="240" cy="116" r="3"/><circle cx="240" cy="146" r="3"/><circle cx="380" cy="116" r="3"/><circle cx="520" cy="116" r="3"/></g>
+<g class="c-teal"><rect x="40" y="100" width="110" height="56" rx="4" stroke-width="0.5"/>
+<text class="th" x="95" y="118" text-anchor="middle" dominant-baseline="central">Sensor</text>
+<text class="ts" x="95" y="138" text-anchor="middle" dominant-baseline="central">PNP, 10–30 V</text></g>
+<g class="c-gray"><rect x="260" y="90" width="90" height="80" rx="4" stroke-width="0.5"/>
+<text class="th" x="305" y="104" text-anchor="middle" dominant-baseline="central">Opto</text>
+<text class="ts" x="268" y="116" dominant-baseline="central">A</text>
+<text class="ts" x="268" y="146" dominant-baseline="central">K</text>
+<text class="ts" x="342" y="116" text-anchor="end" dominant-baseline="central">C</text>
+<text class="ts" x="342" y="146" text-anchor="end" dominant-baseline="central">E</text></g>
+<g class="c-gray"><rect x="490" y="150" width="60" height="26" rx="4" stroke-width="0.5"/>
+<text class="th" x="520" y="163" text-anchor="middle" dominant-baseline="central">BAT54S</text></g>
+<g class="c-purple"><rect x="560" y="96" width="80" height="40" rx="4" stroke-width="0.5"/>
+<text class="th" x="600" y="110" text-anchor="middle" dominant-baseline="central">Pi GPIO</text>
+<text class="ts" x="600" y="126" text-anchor="middle" dominant-baseline="central">5, 6, 13</text></g>
+<text class="ts" x="195" y="100" text-anchor="middle">3.3 kΩ ½ W</text>
+<text class="ts" x="215" y="164" text-anchor="middle">1N4148</text>
+<text class="ts" x="388" y="50" dominant-baseline="central">+3V3</text>
+<text class="ts" x="396" y="86" dominant-baseline="central">10 kΩ</text>
+<text class="ts" x="450" y="100" text-anchor="middle">330 Ω</text>
+<text class="ts" x="520" y="194" text-anchor="middle">to +3V3 and GND</text>
+<text class="ts" x="40" y="238">Active sensor pulls the GPIO low: use a falling edge and the pull-up as drawn.</text>
+<text class="ts" x="40" y="254">LED current is about 3 mA at 10 V and 9 mA at 30 V. Quad opto, e.g. TLP291-4.</text>
+<text class="ts" x="40" y="270">Repeat for S1, S2 and S3. Optional 100 pF at the Pi pin.</text>
+</svg>
+</section>
+<section>
+<h2>Schematic: INA240 backup trip</h2>
+<p class="d">INA240 outputs through the same LTC6752 comparators, each driving its own latch /R input. Catches a stuck-on switch and slower overcurrents. One coil channel is shown in detail.</p>
+<svg viewBox="0 0 680 575" role="img">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g stroke="var(--t)" stroke-width="1.5" fill="none">
+<line x1="140" y1="120" x2="180" y2="120"/>
+<line x1="160" y1="120" x2="160" y2="92" marker-end="url(#arrow)"/>
+<line x1="180" y1="120" x2="180" y2="130"/>
+<rect x="173" y="130" width="14" height="32"/>
+<line x1="180" y1="162" x2="180" y2="190"/>
+<rect x="173" y="190" width="14" height="32"/>
+<line x1="180" y1="222" x2="180" y2="234"/>
+<line x1="170" y1="234" x2="190" y2="234"/><line x1="174" y1="239" x2="186" y2="239"/><line x1="178" y1="244" x2="182" y2="244"/>
+<line x1="180" y1="190" x2="216" y2="190"/>
+<line x1="216" y1="190" x2="216" y2="204"/>
+<line x1="206" y1="204" x2="226" y2="204"/><line x1="206" y1="210" x2="226" y2="210"/>
+<line x1="216" y1="210" x2="216" y2="234"/>
+<line x1="206" y1="234" x2="226" y2="234"/><line x1="210" y1="239" x2="222" y2="239"/><line x1="214" y1="244" x2="218" y2="244"/>
+<line x1="216" y1="190" x2="328" y2="190" marker-end="url(#arrow)"/>
+<line x1="310" y1="126" x2="320" y2="126"/>
+<line x1="320" y1="100" x2="320" y2="150"/>
+<line x1="320" y1="150" x2="328" y2="150" marker-end="url(#arrow)"/>
+<line x1="320" y1="100" x2="360" y2="100"/>
+<rect x="360" y="93" width="40" height="14"/>
+<line x1="400" y1="100" x2="430" y2="100"/>
+<line x1="430" y1="100" x2="430" y2="190"/>
+<polygon points="330,130 330,250 410,190"/>
+<line x1="410" y1="190" x2="480" y2="190" marker-end="url(#arrow)"/>
+<line x1="370" y1="300" x2="480" y2="300" marker-end="url(#arrow)"/>
+<line x1="370" y1="380" x2="480" y2="380" marker-end="url(#arrow)"/>
+<line x1="370" y1="460" x2="480" y2="460" marker-end="url(#arrow)"/>
+</g>
+<g fill="var(--t)">
+<circle cx="160" cy="120" r="3"/><circle cx="180" cy="190" r="3"/><circle cx="216" cy="190" r="3"/>
+<circle cx="320" cy="126" r="3"/><circle cx="430" cy="190" r="3"/>
+</g>
+<g class="c-teal"><rect x="40" y="96" width="100" height="48" rx="4" stroke-width="0.5"/>
+<text class="th" x="90" y="112" text-anchor="middle" dominant-baseline="central">INA240A2</text>
+<text class="ts" x="90" y="130" text-anchor="middle" dominant-baseline="central">coil 1</text></g>
+<g class="c-gray"><rect x="210" y="106" width="100" height="40" rx="4" stroke-width="0.5"/>
+<text class="th" x="260" y="120" text-anchor="middle" dominant-baseline="central">VREF</text>
+<text class="ts" x="260" y="136" text-anchor="middle" dominant-baseline="central">1.88 V</text></g>
+<text class="ts" x="160" y="82" text-anchor="middle">to AD4691 CH0</text>
+<text class="ts" x="196" y="146">2.2 kΩ</text>
+<text class="ts" x="166" y="208" text-anchor="end">2.2 kΩ</text>
+<text class="ts" x="230" y="208">220p</text>
+<text class="ts" x="338" y="150" dominant-baseline="central">+</text>
+<text class="ts" x="338" y="190" dominant-baseline="central">−</text>
+<text class="th" x="372" y="190" text-anchor="middle" dominant-baseline="central">LTC6752</text>
+<text class="ts" x="380" y="84" text-anchor="middle">Rhyst 100 kΩ</text>
+<text class="ts" x="330" y="264">V+ = +3V3, 100 nF</text>
+<text class="ts" x="488" y="190" dominant-baseline="central">/R, latch coil 1</text>
+<text class="ts" x="488" y="300" dominant-baseline="central">/R, latch coil 2</text>
+<text class="ts" x="488" y="380" dominant-baseline="central">/R, latch battery</text>
+<text class="ts" x="488" y="460" dominant-baseline="central">/R, latch CT</text>
+<g class="c-teal"><rect x="40" y="278" width="330" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="205" y="292" text-anchor="middle" dominant-baseline="central">Comparator, coil 2</text>
+<text class="ts" x="205" y="309" text-anchor="middle" dominant-baseline="central">same circuit, INA240A2, VREF 1.88 V</text></g>
+<g class="c-teal"><rect x="40" y="358" width="330" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="205" y="372" text-anchor="middle" dominant-baseline="central">Comparator, battery</text>
+<text class="ts" x="205" y="389" text-anchor="middle" dominant-baseline="central">same circuit, INA240A1, VREF 1.79 V</text></g>
+<g class="c-gray"><rect x="40" y="438" width="330" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="205" y="452" text-anchor="middle" dominant-baseline="central">CT trip comparator</text>
+<text class="ts" x="205" y="469" text-anchor="middle" dominant-baseline="central">LTC6752 front end, TRIP_N</text></g>
+<text class="ts" x="40" y="508">Divider 1:2 brings 3.75 V (75 A) down to 1.875 V, inside the 3.3 V supply.</text>
+<text class="ts" x="40" y="524">Trip about 75 A per coil. Battery about 77 A (VREF from 4.7 kΩ and 5.6 kΩ).</text>
+<text class="ts" x="40" y="540">The 220 pF filter (about 0.25 µs) blanks switching spikes. Expect about 1 µs.</text>
+<text class="ts" x="40" y="556">Each comparator output goes straight to its own 74HC279 /R input.</text>
+</svg>
+</section>
+</main>
+</body>
+</html>
