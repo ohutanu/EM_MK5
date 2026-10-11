@@ -43,7 +43,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 
 <section>
 <h2>Sheet 1: control, ADC and sensors</h2>
-<p class="d">Pi 5, guarded position sensors, SPI0 bus to the RP2040 and AD4691, supply dividers, ULN2803A (PWM) and BSS138 (enable) LED drivers, trip latch and enable optocouplers.</p>
+<p class="d">Pi 5, guarded position sensors, SPI0 bus to the RP2040 and AD4691, supply dividers, ULN2803A (PWM) LED drivers and a 74HC21 AND (enable), trip latch and enable optocouplers.</p>
 <svg viewBox="0 0 680 360" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
@@ -177,7 +177,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <path d="M270 141 L360 141 L360 114" marker-end="url(#arrow)"/>
 </g>
 <text class="ts" x="40" y="84" dominant-baseline="central">PWM ×4</text>
-<text class="ts" x="40" y="141" dominant-baseline="central">EN via BSS138</text>
+<text class="ts" x="40" y="141" dominant-baseline="central">EN direct from 74HC21</text>
 <g class="c-gray"><rect x="150" y="56" width="120" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="210" y="74" text-anchor="middle" dominant-baseline="central">ACPL-343 ×4</text>
 <text class="ts" x="210" y="94" text-anchor="middle" dominant-baseline="central">one per gate</text></g>
@@ -199,7 +199,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <path d="M270 301 L360 301 L360 274" marker-end="url(#arrow)"/>
 </g>
 <text class="ts" x="40" y="244" dominant-baseline="central">PWM ×4</text>
-<text class="ts" x="40" y="301" dominant-baseline="central">EN via BSS138</text>
+<text class="ts" x="40" y="301" dominant-baseline="central">EN direct from 74HC21</text>
 <g class="c-gray"><rect x="150" y="216" width="120" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="210" y="234" text-anchor="middle" dominant-baseline="central">ACPL-343 ×4</text>
 <text class="ts" x="210" y="254" text-anchor="middle" dominant-baseline="central">one per gate</text></g>
@@ -368,7 +368,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="542" y="246" text-anchor="end" dominant-baseline="central">OUTB</text></g>
 <text class="ts" x="40" y="130" dominant-baseline="central">PWM a</text>
 <text class="ts" x="40" y="244" dominant-baseline="central">PWM b</text>
-<text class="ts" x="40" y="358" dominant-baseline="central">EN via BSS138</text>
+<text class="ts" x="40" y="358" dominant-baseline="central">EN direct from 74HC21</text>
 <text class="ts" x="150" y="116" text-anchor="middle">R 240 Ω</text>
 <text class="ts" x="150" y="230" text-anchor="middle">R 240 Ω</text>
 <text class="ts" x="150" y="344" text-anchor="middle">R 240 Ω</text>
@@ -387,13 +387,13 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="612" y="264" text-anchor="middle">gate Qb</text>
 <text class="ts" x="40" y="446">One 2EDN7534R drives a pair of paralleled MOSFETs, one output each.</text>
 <text class="ts" x="40" y="462">100 nF + 1 µF at each VCC and VDD pin. Repeat for all four drivers.</text>
-<text class="ts" x="40" y="488">LED path: +5 V, 240 Ω, ACPL anode, cathode, ULN2803A output (sink). PWM input high = LED on. Enable LEDs use a BSS138 instead.</text>
+<text class="ts" x="40" y="488">LED path: +5 V, 240 Ω, ACPL anode, cathode, ULN2803A output (sink). PWM input high = LED on. Enable LEDs are driven directly from the 74HC21 instead (anode via 240 Ω, cathode to GND).</text>
 </svg>
 </section>
 
 <section>
-<h2>Schematic: LED drivers for the ACPL-343 (ULN2803A and BSS138)</h2>
-<p class="d">One ULN2803A sinks the LED current of the 8 PWM optocouplers from the +5 V rail. All enable optocouplers share one small N-MOSFET (BSS138) instead, with its gate on the enable node. The three LEDs are in parallel, each with its own 240 Ω from +5 V, so the BSS138 carries about 32 mA. A high input turns the LED on in both cases, so the polarity is unchanged.</p>
+<h2>Schematic: LED drivers for the ACPL-343 (ULN2803A and direct drive)</h2>
+<p class="d">One ULN2803A sinks the LED current of the 8 PWM optocouplers from the +5 V rail. The enable optocouplers need no transistor: the enable node (output of a 74HC21 AND) drives each LED directly through its own 270 Ω to GND (about 5 mA). A high input turns the LED on in both cases, so the polarity is unchanged.</p>
 <svg viewBox="0 0 680 505" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
@@ -406,7 +406,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <line x1="120" y1="380" x2="248" y2="380" marker-end="url(#arrow)"/>
 <line x1="350" y1="110" x2="470" y2="110"/>
 <line x1="350" y1="230" x2="470" y2="230"/>
-<line x1="350" y1="380" x2="470" y2="380"/>
+<line x1="350" y1="380" x2="420" y2="380"/><line x1="420" y1="380" x2="420" y2="300"/><line x1="420" y1="300" x2="445" y2="300"/><line x1="470" y1="380" x2="445" y2="380"/><line x1="445" y1="380" x2="445" y2="392"/><line x1="435" y1="392" x2="455" y2="392"/><line x1="439" y1="397" x2="451" y2="397"/><line x1="443" y1="402" x2="447" y2="402"/>
 <line x1="470" y1="90" x2="445" y2="90"/><line x1="445" y1="90" x2="445" y2="74"/><rect x="438" y="42" width="14" height="32"/><line x1="445" y1="42" x2="445" y2="30"/>
 <line x1="470" y1="210" x2="445" y2="210"/><line x1="445" y1="210" x2="445" y2="194"/><rect x="438" y="162" width="14" height="32"/><line x1="445" y1="162" x2="445" y2="150"/>
 <line x1="470" y1="360" x2="445" y2="360"/><line x1="445" y1="360" x2="445" y2="344"/><rect x="438" y="312" width="14" height="32"/><line x1="445" y1="312" x2="445" y2="300"/>
@@ -420,9 +420,9 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="300" y="162" text-anchor="middle" dominant-baseline="central">IN3 to IN8</text>
 <text class="ts" x="300" y="178" text-anchor="middle" dominant-baseline="central">same circuit</text></g>
 <g class="c-gray"><rect x="250" y="330" width="100" height="100" rx="4" stroke-width="0.5"/>
-<text class="th" x="300" y="348" text-anchor="middle" dominant-baseline="central">BSS138</text>
-<text class="ts" x="258" y="380" dominant-baseline="central">G</text><text class="ts" x="342" y="380" text-anchor="end" dominant-baseline="central">D</text>
-<text class="ts" x="300" y="412" text-anchor="middle" dominant-baseline="central">one for all enable LEDs</text></g>
+<text class="th" x="300" y="348" text-anchor="middle" dominant-baseline="central">74HC21 (½)</text>
+<text class="ts" x="258" y="380" dominant-baseline="central">A to D</text><text class="ts" x="342" y="380" text-anchor="end" dominant-baseline="central">Y</text>
+<text class="ts" x="300" y="412" text-anchor="middle" dominant-baseline="central">4 Q inputs, Y = EN node</text></g>
 
 <g class="c-gray"><rect x="470" y="76" width="100" height="50" rx="4" stroke-width="0.5"/>
 <text class="th" x="534" y="98" text-anchor="middle" dominant-baseline="central">ACPL-343</text>
@@ -442,19 +442,19 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="40" y="380" dominant-baseline="central">EN node</text>
 <text class="ts" x="458" y="34">+5V</text><text class="ts" x="458" y="62">240 Ω</text>
 <text class="ts" x="458" y="154">+5V</text><text class="ts" x="458" y="182">240 Ω</text>
-<text class="ts" x="458" y="304">+5V</text><text class="ts" x="458" y="332">240 Ω</text>
+<text class="ts" x="458" y="296">EN node (3.3 V)</text><text class="ts" x="458" y="332">270 Ω</text><text class="ts" x="458" y="410">K to GND</text>
 <text class="ts" x="204" y="142">10 kΩ</text><text class="ts" x="204" y="262">10 kΩ</text>
 <text class="ts" x="578" y="104">→ isolated</text><text class="ts" x="578" y="224">→ isolated</text><text class="ts" x="578" y="374">→ isolated</text>
 
 <text class="ts" x="40" y="468">ULN2803A (PWM only): pin 9 GND, pin 10 COM to +5V, unused inputs to GND, 100 nF at the +5V pin.</text>
 <text class="ts" x="40" y="484">LED current: (5 V − 1.55 V − 0.9 V) / 240 Ω ≈ 10.6 mA. The 10 kΩ pull-downs keep every LED off at reset.</text>
-<text class="ts" x="40" y="500">PWM: one ULN2803A for all 8 gates. Enable: one BSS138, gate on the EN node, drain feeds the three enable LEDs in parallel (240 Ω each).</text>
+<text class="ts" x="40" y="500">PWM: one ULN2803A for all 8 gates. Enable: 74HC21 output → 270 Ω → LED anode, cathode to GND (about 5 mA each; one half drives 2 LEDs, the other 1). Check IF.</text>
 </svg>
 </section>
 
 <section>
 <h2>Schematic: four trip latches and enable</h2>
-<p class="d">Each trip comparator resets its own latch in one 74HC279, so the Pi can see which trip fired. The four Q outputs are combined by a BAT54 wired-AND into the enable node, which drives the gates of the BSS138 enable transistors and the ACPL-343 enable optocouplers (LED current from +5 V).</p>
+<p class="d">Each trip comparator resets its own latch in one 74HC279, so the Pi can see which trip fired. The four Q outputs go into a 74HC21 4-input AND (3.3 V). Its output is the enable node and drives the ACPL-343 enable LEDs directly, each through 270 Ω, with no transistor (both halves of the 74HC21 are used, inputs in parallel) (LED current from +5 V).</p>
 <svg viewBox="0 0 680 520" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
@@ -466,14 +466,9 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <line x1="270" y1="190" x2="320" y2="190"/><line x1="285" y1="190" x2="285" y2="172"/>
 <line x1="270" y1="280" x2="320" y2="280"/><line x1="285" y1="280" x2="285" y2="262"/>
 <line x1="270" y1="370" x2="320" y2="370"/><line x1="285" y1="370" x2="285" y2="352"/>
-<polygon points="350,90 350,110 320,100"/><line x1="320" y1="89" x2="320" y2="111"/><line x1="350" y1="100" x2="380" y2="100"/>
-<polygon points="350,180 350,200 320,190"/><line x1="320" y1="179" x2="320" y2="201"/><line x1="350" y1="190" x2="380" y2="190"/>
-<polygon points="350,270 350,290 320,280"/><line x1="320" y1="269" x2="320" y2="291"/><line x1="350" y1="280" x2="380" y2="280"/>
-<polygon points="350,360 350,380 320,370"/><line x1="320" y1="359" x2="320" y2="381"/><line x1="350" y1="370" x2="380" y2="370"/>
-<line x1="380" y1="100" x2="380" y2="370"/>
-<line x1="368" y1="40" x2="392" y2="40"/><line x1="380" y1="40" x2="380" y2="56"/>
-<rect x="373" y="56" width="14" height="32"/><line x1="380" y1="88" x2="380" y2="100"/>
-<line x1="380" y1="235" x2="418" y2="235" marker-end="url(#arrow)"/>
+<line x1="320" y1="100" x2="398" y2="100" marker-end="url(#arrow)"/><line x1="320" y1="190" x2="398" y2="190" marker-end="url(#arrow)"/>
+<line x1="320" y1="280" x2="398" y2="280" marker-end="url(#arrow)"/><line x1="320" y1="370" x2="398" y2="370" marker-end="url(#arrow)"/>
+<line x1="470" y1="235" x2="500" y2="235"/><line x1="500" y1="205" x2="500" y2="265"/>
 <line x1="500" y1="205" x2="510" y2="205"/><rect x="510" y="199" width="26" height="12"/><line x1="536" y1="205" x2="548" y2="205" marker-end="url(#arrow)"/>
 <line x1="500" y1="265" x2="510" y2="265"/><rect x="510" y="259" width="26" height="12"/><line x1="536" y1="265" x2="548" y2="265" marker-end="url(#arrow)"/>
 <line x1="148" y1="440" x2="172" y2="440"/><line x1="160" y1="440" x2="160" y2="452"/>
@@ -483,8 +478,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 </g>
 <g fill="var(--t)">
 <circle cx="285" cy="100" r="3"/><circle cx="285" cy="190" r="3"/><circle cx="285" cy="280" r="3"/><circle cx="285" cy="370" r="3"/>
-<circle cx="380" cy="100" r="3"/><circle cx="380" cy="190" r="3"/><circle cx="380" cy="280" r="3"/><circle cx="380" cy="370" r="3"/>
-<circle cx="380" cy="235" r="3"/><circle cx="160" cy="496" r="3"/>
+<circle cx="500" cy="235" r="3"/><circle cx="160" cy="496" r="3"/>
 </g>
 <rect class="box" x="160" y="56" width="110" height="358" rx="4" stroke-width="0.5"/>
 <text class="th" x="215" y="70" text-anchor="middle" dominant-baseline="central">74HC279</text>
@@ -504,24 +498,24 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="285" y="166" text-anchor="middle">→ GPIO23</text>
 <text class="ts" x="285" y="256" text-anchor="middle">→ GPIO24</text>
 <text class="ts" x="285" y="346" text-anchor="middle">→ GPIO27</text>
-<text class="ts" x="400" y="40" dominant-baseline="central">+3V3</text>
-<text class="ts" x="396" y="72">10 kΩ</text>
-<g class="c-gray"><rect x="420" y="190" width="80" height="90" rx="4" stroke-width="0.5"/>
-<text class="th" x="460" y="235" text-anchor="middle" dominant-baseline="central">BSS138</text></g>
+<g class="c-gray"><rect x="400" y="80" width="70" height="310" rx="4" stroke-width="0.5"/>
+<text class="th" x="435" y="235" text-anchor="middle" dominant-baseline="central">74HC21</text>
+<text class="ts" x="435" y="255" text-anchor="middle" dominant-baseline="central">AND, ½</text>
+<text class="ts" x="462" y="228" text-anchor="end" dominant-baseline="central">Y</text></g>
 <g class="c-gray"><rect x="550" y="183" width="80" height="44" rx="4" stroke-width="0.5"/>
 <text class="th" x="590" y="205" text-anchor="middle" dominant-baseline="central">ACPL-343</text></g>
 <g class="c-gray"><rect x="550" y="243" width="80" height="44" rx="4" stroke-width="0.5"/>
 <text class="th" x="590" y="265" text-anchor="middle" dominant-baseline="central">ACPL-343</text></g>
-<text class="ts" x="523" y="192" text-anchor="middle">240 Ω to +5V</text>
+<text class="ts" x="523" y="192" text-anchor="middle">270 Ω</text>
 <text class="ts" x="590" y="235" text-anchor="middle">EN coil</text>
 <text class="ts" x="590" y="302" text-anchor="middle">EN regen</text>
-<text class="ts" x="460" y="178" text-anchor="middle">EN node</text>
+<text class="ts" x="500" y="150" text-anchor="middle">EN node</text>
 <text class="ts" x="180" y="440" dominant-baseline="central">+3V3</text>
 <text class="ts" x="176" y="468">10 kΩ</text>
 <text class="ts" x="40" y="496" dominant-baseline="central">GPIO17</text>
 <text class="ts" x="224" y="496" dominant-baseline="central">RST net</text>
 <text class="ts" x="300" y="440">RST feeds every /S. Tie /S2 to /S1 on latches 1 and 3.</text>
-<text class="ts" x="300" y="456">Enable node: BAT54 per Q, one 10 kΩ pull-up.</text>
+<text class="ts" x="300" y="456">Enable node: 74HC21 (3.3 V) ANDs the four Q outputs.</text>
 <text class="ts" x="300" y="472">Each Q goes to its own Pi GPIO: shows which trip fired.</text>
 <text class="ts" x="300" y="488">After power-up, pulse RST once the TRIP inputs are high.</text>
 </svg>

@@ -82,7 +82,7 @@ Chain per MOSFET: RP2040 PWM → ULN2803A input → ULN2803A output (sinks the L
 - LED resistor: 240 Ω from +5 V for about 10 mA. **[CONFIRM]** against the ACPL-343 recommended LED current.
 
 ### 4.1 Enable groups
-- Latch Q / enable node → one BSS138 N-MOSFET (gate on the node, source to GND) → drain feeds all enable ACPL-343 LEDs in parallel, each anode via its own 240 Ω to +5 V (about 32 mA for three) → ENA and ENB of the 2EDN7534R drivers in the group
+- Enable node (4 Q outputs ANDed by a **74HC21**, 3.3 V, both halves with inputs in parallel) → 270 Ω → ACPL-343 LED anode, cathode to GND. No transistor. One half drives the coil and regen 1 LEDs, the other drives regen 2. → ENA and ENB of the 2EDN7534R drivers in the group
 - As requested: one enable optocoupler for the coil-control group (4 × Q1 gates) and one for the regeneration group (4 × Q2 gates)
 - **KNOWN PROBLEM:** the regeneration group spans both channels. Their Q2 sources are at node A1 and node A2, which are at different voltages, so one optocoupler output cannot share its ground with both. Fix: one enable optocoupler per channel for the regeneration side (3 in total).
 - Fail-safe: if the 3.3 V logic or the latch output drops, the LEDs turn off and all drivers disable.
@@ -130,10 +130,10 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → LTC6752 → TRIP_N → 7
 ### 6.2 Four trip latches in one 74HC279 (changed 11 Oct 2026)
 - One latch per trip source: CT, coil 1, coil 2, battery. The Pi can read which one fired.
 - Each latch: /R = its TRIP signal, /S = shared RST net from GPIO17 (10 kΩ pull-up to 3V3), Q high = OK, Q low = tripped.
-- Q outputs: each to its own Pi GPIO (22, 23, 24, 27), and each through a BAT54 to a **wired-AND enable node** with one 10 kΩ pull-up. Any Q low pulls the node low. The node drives the gate of one BSS138, which sinks all the enable ACPL-343 LEDs (three in parallel, each with its own 240 Ω to +5 V). Q low (tripped) → gate low → LED off → gates disabled. No pull-down on the node: it would form a divider with the 10 kΩ pull-up.
+- Q outputs: each to its own Pi GPIO (22, 23, 24, 27) and to an input of a **74HC21** (dual 4-input AND, powered from 3V3). The AND output is the enable node: any Q low (tripped) → output low → LEDs off → gates disabled. The old BAT54 wired-AND and 10 kΩ pull-up are removed.
 - The 74HC279 has four latches, but latches 1 and 3 have **two /S inputs**. Tie /S2 to /S1 on those. All four latches are now used, so there are no unused latches to tie off.
 - Power-up: pulse GPIO17 once the supplies and the TRIP inputs are high, otherwise the latches may start tripped.
-- **[CONFIRM]** The BAT54 drop adds about 0.3 V to the node low level, still well below the BSS138 gate threshold (about 0.8 V min). Check the datasheet. A BJT (BC847) would load the weak 10 kΩ pull-up (needs about 0.2 mA base current), which is why a MOSFET is used.
+- **[CONFIRM]** Direct drive: a 74HC21 at 3.3 V is only guaranteed for about ±4 mA, but it drives about 10 mA (two LEDs) from one half. Check VOH under load and the ACPL-343 minimum LED threshold current (IFLH). If it fails, add one BSS138 per half to sink the LED current from +5 V.
 
 ---
 
@@ -181,10 +181,9 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → LTC6752 → TRIP_N → 7
 | 2EDN7534R gate driver | 4 | Replaces UCC27524 |
 | ACPL-P343 or W343 | 8 PWM + 2 or 3 enable | Replaces ACPL-314J |
 | ULN2803A | 1 | 8 PWM LEDs |
-| BSS138 (or 2N7002) | 1 | Sinks all enable LEDs (coil, regen 1, regen 2), about 32 mA |
-| Resistors 240 Ω and 10 kΩ | 11 + 11 | LED series (to +5 V) and input pull-downs |
+| 74HC21 | 1 | Dual 4-input AND, makes the enable node and drives the enable LEDs directly |
+| Resistors 240 Ω (PWM LEDs), 270 Ω (enable LEDs), 10 kΩ | 8 + 3 + 8 | LED series and PWM input pull-downs |
 | LTC6752 (SOT-23-5) | 4 | 1 for the CT trip (replaces 2 × LT1719) plus 3 for the INA240 backup trip |
-| BAT54 (enable wired-AND) | 4 | One per latch Q, plus a 10 kΩ pull-up |
 | 74HC279 | 1 | Four latches, one per trip source |
 | CR8348-2000-F | 1 | On the bus feed (was 2) |
 | AD4691 + 4.096 V reference | 1 | Replaces ADS8688A and MCP3208 |
