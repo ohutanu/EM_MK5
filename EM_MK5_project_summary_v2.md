@@ -81,7 +81,7 @@ Chain per MOSFET: RP2040 PWM → ULN2803A input → ULN2803A output (sinks the L
 - LED resistor: 240 Ω from +5 V for about 10 mA. **[CONFIRM]** against the ACPL-343 recommended LED current.
 
 ### 4.1 Enable groups
-- Enable node (2 Q outputs, current and temperature, ANDed by a **74HC21**, 3.3 V, both halves with inputs in parallel) → 270 Ω → ACPL-343 LED anode, cathode to GND. No transistor. One half drives the coil and regen 1 LEDs, the other drives regen 2. → ENA and ENB of the 2EDN7534R drivers in the group
+- Enable node (2 Q outputs, current and temperature, ANDed by a **74HCT21** on +5 V, both halves with inputs in parallel) → 470 Ω → ACPL-343 LED anode, cathode to GND. No transistor. One half drives the coil and regen 1 LEDs, the other drives regen 2. → ENA and ENB of the 2EDN7534R drivers in the group
 - As requested: one enable optocoupler for the coil-control group (4 × Q1 gates) and one for the regeneration group (4 × Q2 gates)
 - **KNOWN PROBLEM:** the regeneration group spans both channels. Their Q2 sources are at node A1 and node A2, which are at different voltages, so one optocoupler output cannot share its ground with both. Fix: one enable optocoupler per channel for the regeneration side (3 in total).
 - Fail-safe: if the 3.3 V logic or the latch output drops, the LEDs turn off and all drivers disable.
@@ -105,7 +105,7 @@ Chain per MOSFET: RP2040 PWM → ULN2803A input → ULN2803A output (sinks the L
 
 ## 6. CURRENT TRIP (ONE CHANNEL, ON THE MAIN SUPPLY)
 
-Signal chain: CT → Rb → TVS → BAT54 peak hold → merged current comparator (section 6.1) → TRIP_I → 74HC279 /R → Q → 74HC21 → enable optocouplers.
+Signal chain: CT → Rb → TVS → BAT54 peak hold → merged current comparator (section 6.1) → TRIP_I → 74LS279 /R → Q → 74HCT21 → enable optocouplers.
 
 - CT: CR8348-2000-F, 2000:1, primary is the +60 V feed through the ring (1 turn), **after the bulk capacitors and before the coils**. At 75 A the secondary current is 37.5 mA.
 - Rb = 56 Ω (2.1 V at 75 A). TVS across the secondary: **bidirectional 15 V (P6KE15CA)**. The old P6KE15A clamps negative swings at about −0.7 V and can stop the core resetting.
@@ -131,12 +131,13 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → merged current comparato
 - Comparator: **LTC6752** (same part as the current trip), supplied from +3V3 with 100 nF, CMOS output (no pull-up), Rhyst 1 MΩ (about 25 mV, or a few K of hysteresis), 10 nF from M to GND against noise. +IN = M, −IN = VREF about 0.83 V (27 kΩ / 9.1 kΩ from 3V3). Output TRIP_T goes low when hot → /R of the temperature latch. A 2.9 ns part on a slow signal can chatter, so check the hysteresis and filter on the bench. Trip near 80 °C. **[CONFIRM]** NTC type and trip temperature; trim VREF by measurement.
 - The diode taps are taken from the divider nodes and add only leakage load. A shorted NTC also trips, an open NTC does not (the AD4691 reading shows it).
 
-### 6.3 Two trip latches in one 74HC279 (changed 11 Oct 2026)
-- Two latches in use: **current** (TRIP_I) and **temperature** (TRIP_T). Use latches 2 and 4 (one /S each). Unused latches 1 and 3: tie /S1, /S2 and /R to 3V3.
+### 6.3 Two trip latches in one 74LS279 (changed 11 Oct 2026)
+- Two latches in use: **current** (TRIP_I) and **temperature** (TRIP_T). Use latches 2 and 4 (one /S each). Unused latches 1 and 3: tie /S1, /S2 and /R to +5 V.
 - Each latch: /R = its TRIP signal, /S = shared RST net from GPIO17 (10 kΩ pull-up to 3V3), Q high = OK, Q low = tripped.
-- Q outputs: GPIO22 (current) and GPIO23 (temperature), and two inputs of a **74HC21** (4-input AND, 3V3). The other two inputs go to 3V3. The AND output is the enable node: either Q low → output low → LEDs off → gates disabled.
+- Q outputs: GPIO22 (current) and GPIO23 (temperature) through a **3.3 kΩ / 6.8 kΩ divider** each (the LS Q high is 2.7 V min and can reach 3.4 V or more; the Pi GPIO must not see more than 3.3 V), and two inputs of a **74HCT21** (4-input AND on +5 V, TTL-compatible inputs). The other two inputs go to +5 V. The AND output is the enable node: either Q low → output low → LEDs off → gates disabled. **[CONFIRM]** Pi GPIO VIH against the divided Q high level (about 1.8 V min).
 - Power-up: pulse GPIO17 once the supplies and the TRIP inputs are high, otherwise the latches may start tripped.
-- **[CONFIRM]** Direct drive: a 74HC21 at 3.3 V is only guaranteed for about ±4 mA, but it drives about 10 mA (two LEDs) from one half. Check VOH under load and the ACPL-343 minimum LED threshold current (IFLH). If it fails, add one BSS138 per half to sink the LED current from +5 V.
+- **74LS279 on +5 V** (5 V TTL, about 20 mA with 100 nF decoupling). Inputs: /R from the LTC6752 (3.3 V CMOS, clears VIH 2.0 V, sinks the 0.4 mA LS input current); /S from GPIO17 with the 10 kΩ pull-up to 3V3. Outputs: Q low ≤ 0.5 V at 8 mA, Q high 2.7 V min at only 0.4 mA, so Q must not drive anything heavy.
+- **[CONFIRM]** Direct drive: a 74HCT21 on +5 V gives about 3.6 V at 8 mA (two LEDs, 470 Ω, about 4 mA each). Check VOH under load and the ACPL-343 minimum LED threshold current (IFLH). If it fails, add one BSS138 per half to sink the LED current from +5 V.
 
 ---
 
@@ -184,11 +185,12 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → merged current comparato
 | 2EDN7534R gate driver | 4 | Replaces UCC27524 |
 | ACPL-P343 or W343 | 8 PWM + 2 or 3 enable | Replaces ACPL-314J |
 | ULN2803A | 1 | 8 PWM LEDs |
-| 74HC21 | 1 | Dual 4-input AND, makes the enable node and drives the enable LEDs directly |
-| Resistors 240 Ω (PWM LEDs), 270 Ω (enable LEDs), 10 kΩ | 8 + 3 + 8 | LED series and PWM input pull-downs |
+| 74HCT21 | 1 | Dual 4-input AND on +5 V, makes the enable node and drives the enable LEDs directly |
+| Resistors 240 Ω (PWM LEDs), 470 Ω (enable LEDs), 10 kΩ | 8 + 3 + 8 | LED series and PWM input pull-downs |
+| Resistors 3.3 kΩ and 6.8 kΩ | 2 + 2 | Dividers from the two LS279 Q outputs to the Pi GPIOs |
 | LTC6752 (SOT-23-5) | 2 | 1 merged current trip (replaces 2 × LT1719), 1 radiator temperature trip |
 | BAT54 | 9 | 4 current OR + 5 NTC OR |
-| 74HC279 | 1 | Two latches used: current, temperature |
+| 74LS279 | 1 | 5 V TTL, two latches used: current, temperature |
 | CR8348-2000-F | 1 | On the bus feed (was 2) |
 | AD4691 + 4.096 V reference | 1 | Replaces ADS8688A and MCP3208 |
 | INA240 | 3 | 2 × A2 (coil), 1 × A1 (battery) |
