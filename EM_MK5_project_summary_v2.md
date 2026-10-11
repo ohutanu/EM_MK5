@@ -128,7 +128,7 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → merged current comparato
 
 ### 6.2 Radiator temperature trip: one comparator for all NTCs (added 11 Oct 2026)
 - The five NTC dividers (10 kΩ pull-up to the 4.096 V reference, NTC to GND) fall in voltage as the radiator heats. Five BAT54 diodes (cathodes to the NTC nodes, anodes joined at node M) select the lowest voltage, so M follows the hottest radiator. 100 kΩ from M to 3V3.
-- Comparator: **LM393** (slow is fine here), supplied from +5 V for input range, open collector with 10 kΩ pull-up to 3V3, Rhyst 1 MΩ. +IN = M, −IN = VREF about 0.83 V (27 kΩ / 9.1 kΩ from 3V3). Output TRIP_T goes low when hot → /R of the temperature latch. Trip near 80 °C. **[CONFIRM]** NTC type and trip temperature; trim VREF by measurement.
+- Comparator: **LTC6752** (same part as the current trip), supplied from +3V3 with 100 nF, CMOS output (no pull-up), Rhyst 1 MΩ (about 25 mV, or a few K of hysteresis), 10 nF from M to GND against noise. +IN = M, −IN = VREF about 0.83 V (27 kΩ / 9.1 kΩ from 3V3). Output TRIP_T goes low when hot → /R of the temperature latch. A 2.9 ns part on a slow signal can chatter, so check the hysteresis and filter on the bench. Trip near 80 °C. **[CONFIRM]** NTC type and trip temperature; trim VREF by measurement.
 - The diode taps are taken from the divider nodes and add only leakage load. A shorted NTC also trips, an open NTC does not (the AD4691 reading shows it).
 
 ### 6.3 Two trip latches in one 74HC279 (changed 11 Oct 2026)
@@ -186,8 +186,7 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → merged current comparato
 | ULN2803A | 1 | 8 PWM LEDs |
 | 74HC21 | 1 | Dual 4-input AND, makes the enable node and drives the enable LEDs directly |
 | Resistors 240 Ω (PWM LEDs), 270 Ω (enable LEDs), 10 kΩ | 8 + 3 + 8 | LED series and PWM input pull-downs |
-| LTC6752 (SOT-23-5) | 1 | Merged current trip, replaces 2 × LT1719 |
-| LM393 | 1 | Radiator temperature trip (half used) |
+| LTC6752 (SOT-23-5) | 2 | 1 merged current trip (replaces 2 × LT1719), 1 radiator temperature trip |
 | BAT54 | 9 | 4 current OR + 5 NTC OR |
 | 74HC279 | 1 | Two latches used: current, temperature |
 | CR8348-2000-F | 1 | On the bus feed (was 2) |

@@ -764,7 +764,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 </section>
 <section>
 <h2>Schematic: radiator temperature trip (one comparator)</h2>
-<p class="d">The five NTC divider nodes are joined by a BAT54 diode-OR for the lowest voltage (the hottest radiator). One slow comparator watches it, so an LM393 is enough here. Output TRIP_T resets the temperature latch.</p>
+<p class="d">The five NTC divider nodes are joined by a BAT54 diode-OR for the lowest voltage (the hottest radiator). One LTC6752 (the same part as the current trip) watches it. Output TRIP_T resets the temperature latch.</p>
 <svg viewBox="0 0 680 500" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
@@ -782,10 +782,9 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <line x1="390" y1="390" x2="410" y2="390"/><line x1="394" y1="395" x2="406" y2="395"/><line x1="398" y1="400" x2="402" y2="400"/>
 <line x1="500" y1="185" x2="580" y2="185" marker-end="url(#arrow)"/>
 <line x1="520" y1="185" x2="520" y2="100"/><line x1="520" y1="100" x2="470" y2="100"/><rect x="440" y="94" width="30" height="12"/><line x1="440" y1="100" x2="360" y2="100"/><line x1="360" y1="100" x2="360" y2="160"/>
-<line x1="560" y1="185" x2="560" y2="130"/><rect x="554" y="100" width="12" height="30"/><line x1="560" y1="100" x2="560" y2="76"/><line x1="550" y1="76" x2="570" y2="76"/>
 <line x1="330" y1="260" x2="330" y2="282"/><rect x="324" y="282" width="12" height="30"/><line x1="330" y1="312" x2="330" y2="324"/><line x1="320" y1="324" x2="340" y2="324"/>
 </g>
-<g fill="var(--t)"><circle cx="330" cy="160" r="3"/><circle cx="520" cy="185" r="3"/><circle cx="560" cy="185" r="3"/><circle cx="400" cy="332" r="3"/><circle cx="360" cy="160" r="3"/></g>
+<g fill="var(--t)"><circle cx="330" cy="160" r="3"/><circle cx="520" cy="185" r="3"/><circle cx="400" cy="332" r="3"/><circle cx="360" cy="160" r="3"/></g>
 <g class="c-teal">
 <rect x="40" y="44" width="160" height="32" rx="4" stroke-width="0.5"/><text class="th" x="120" y="60" text-anchor="middle" dominant-baseline="central">NTC 1 node</text>
 <rect x="40" y="94" width="160" height="32" rx="4" stroke-width="0.5"/><text class="th" x="120" y="110" text-anchor="middle" dominant-baseline="central">NTC 2 node</text>
@@ -796,17 +795,17 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="342" y="150">M</text>
 <text class="ts" x="428" y="146" dominant-baseline="central">+</text>
 <text class="ts" x="428" y="224" dominant-baseline="central">−</text>
-<text class="th" x="460" y="185" text-anchor="middle" dominant-baseline="central">LM393</text>
+<text class="th" x="460" y="185" text-anchor="middle" dominant-baseline="central">LTC6752</text>
 <text class="ts" x="414" y="304">27 kΩ</text>
 <text class="ts" x="414" y="370">9.1 kΩ</text>
 <text class="ts" x="414" y="268">+3V3</text>
 <text class="ts" x="440" y="334">VREF 0.83 V, trip near 80 °C</text>
-<text class="ts" x="574" y="118">10 kΩ</text><text class="ts" x="576" y="72">+3V3</text><text class="ts" x="344" y="302">100 kΩ</text><text class="ts" x="344" y="342">+3V3</text>
+<text class="ts" x="344" y="302">100 kΩ</text><text class="ts" x="344" y="342">+3V3</text>
 <text class="ts" x="455" y="86" text-anchor="middle">Rhyst 1 MΩ</text>
 <text class="ts" x="588" y="185" dominant-baseline="central">TRIP_T</text>
 <text class="ts" x="40" y="428">Normal: all nodes high, M above VREF, output high (OK).</text>
 <text class="ts" x="40" y="444">A radiator gets hot: its node drops, M drops, output goes low.</text>
-<text class="ts" x="40" y="460">LM393: open collector, 10 kΩ to +3V3, supplied from +5 V.</text>
+<text class="ts" x="40" y="460">LTC6752 on +3V3, CMOS output (no pull-up). 10 nF from M to GND.</text>
 <text class="ts" x="40" y="476">A shorted NTC also trips, an open NTC does not. [CONFIRM]</text>
 </svg>
 </section>
