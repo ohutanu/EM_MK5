@@ -393,7 +393,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 
 <section>
 <h2>Schematic: LED drivers for the ACPL-343 (ULN2803A and BSS138)</h2>
-<p class="d">One ULN2803A sinks the LED current of the 8 PWM optocouplers from the +5 V rail. Each enable optocoupler has its own small N-MOSFET (BSS138) instead, with its gate on the enable node. A high input turns the LED on in both cases, so the polarity is unchanged.</p>
+<p class="d">One ULN2803A sinks the LED current of the 8 PWM optocouplers from the +5 V rail. All enable optocouplers share one small N-MOSFET (BSS138) instead, with its gate on the enable node. The three LEDs are in parallel, each with its own 240 Ω from +5 V, so the BSS138 carries about 32 mA. A high input turns the LED on in both cases, so the polarity is unchanged.</p>
 <svg viewBox="0 0 680 505" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
@@ -422,7 +422,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <g class="c-gray"><rect x="250" y="330" width="100" height="100" rx="4" stroke-width="0.5"/>
 <text class="th" x="300" y="348" text-anchor="middle" dominant-baseline="central">BSS138</text>
 <text class="ts" x="258" y="380" dominant-baseline="central">G</text><text class="ts" x="342" y="380" text-anchor="end" dominant-baseline="central">D</text>
-<text class="ts" x="300" y="412" text-anchor="middle" dominant-baseline="central">S to GND; ×3, same gate node</text></g>
+<text class="ts" x="300" y="412" text-anchor="middle" dominant-baseline="central">one for all enable LEDs</text></g>
 
 <g class="c-gray"><rect x="470" y="76" width="100" height="50" rx="4" stroke-width="0.5"/>
 <text class="th" x="534" y="98" text-anchor="middle" dominant-baseline="central">ACPL-343</text>
@@ -448,7 +448,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 
 <text class="ts" x="40" y="468">ULN2803A (PWM only): pin 9 GND, pin 10 COM to +5V, unused inputs to GND, 100 nF at the +5V pin.</text>
 <text class="ts" x="40" y="484">LED current: (5 V − 1.55 V − 0.9 V) / 240 Ω ≈ 10.6 mA. The 10 kΩ pull-downs keep every LED off at reset.</text>
-<text class="ts" x="40" y="500">PWM: one ULN2803A for all 8 gates. Enable: three BSS138, gates on the EN node (its 10 kΩ pull-up is the only load).</text>
+<text class="ts" x="40" y="500">PWM: one ULN2803A for all 8 gates. Enable: one BSS138, gate on the EN node, drain feeds the three enable LEDs in parallel (240 Ω each).</text>
 </svg>
 </section>
 
@@ -507,7 +507,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="400" y="40" dominant-baseline="central">+3V3</text>
 <text class="ts" x="396" y="72">10 kΩ</text>
 <g class="c-gray"><rect x="420" y="190" width="80" height="90" rx="4" stroke-width="0.5"/>
-<text class="th" x="460" y="235" text-anchor="middle" dominant-baseline="central">BSS138 ×n</text></g>
+<text class="th" x="460" y="235" text-anchor="middle" dominant-baseline="central">BSS138</text></g>
 <g class="c-gray"><rect x="550" y="183" width="80" height="44" rx="4" stroke-width="0.5"/>
 <text class="th" x="590" y="205" text-anchor="middle" dominant-baseline="central">ACPL-343</text></g>
 <g class="c-gray"><rect x="550" y="243" width="80" height="44" rx="4" stroke-width="0.5"/>
