@@ -70,16 +70,19 @@ Each switch is **two paralleled SiC MOSFETs**, each with its own PWM signal, dri
 
 ## 4. GATE DRIVE (CURRENT)
 
-Chain per MOSFET: RP2040 PWM → 74LVC244 buffer → 180 Ω → **ACPL-P343/W343** (isolation) → **2EDN7534R** (INA or INB) → 10 Ω Rg → gate.
+Chain per MOSFET: RP2040 PWM → ULN2803A input → ULN2803A output (sinks the LED current) → ACPL LED cathode; anode → 240 Ω → +5 V; ACPL-**P343/W343** (isolation) → **2EDN7534R** (INA or INB) → 10 Ω Rg → gate.
 
 - 8 PWM optocouplers (one per gate), 4 × 2EDN7534R (each drives a pair of paralleled MOSFETs, one output per MOSFET)
-- One 74LVC244 buffers the 8 PWM LEDs (the RP2040 cannot source 8 × 10 mA). Pull-downs on the buffer inputs keep gates off during reset.
+- One ULN2803A sinks the 8 PWM LEDs (the RP2040 cannot drive 8 × 10 mA). It is non-inverting overall: input high = LED on = gate on. 10 kΩ pull-downs on the inputs keep gates off during reset and while the RP2040 pins float. Unused inputs to GND, pin 10 (COM) to +5 V, 100 nF at the supply.
+- LED supply is +5 V, not 3.3 V: (5 − 1.55 − 0.9) / 240 Ω ≈ 10.6 mA. At 3.3 V there would be no headroom for the Darlington VCE(sat).
+- ULN2803A facts found: 500 mA per channel, VCE(sat) 0.9 V typ and 1.1 V max at 100 mA, 2.7 kΩ internal base resistor, tPLH 130 ns and tPHL 20 ns (test conditions differ from this circuit). **[CONFIRM]** the input threshold with 3.3 V logic at about 10 mA load (the datasheet gives VI(on) for 200 mA and above); a 3.3 V logic high gives about 0.7 mA base current.
+- **[CONFIRM]** Dead time: the Darlington turns off slower than on (saturation storage), which shifts the Q1/Q2 edges by an unknown amount. Keep at least 1 µs dead time in the RP2040 and measure the gate waveforms. If the asymmetry is too large, use discrete NPN (BC847) or N-MOSFET (2N7002) low-side sinks run from 3.3 V.
 - ACPL-343 facts found: single channel, 4 A peak (3 A min), rail-to-rail output, 200 ns max propagation delay, 100 ns max difference between parts, LED input with hysteresis, 3750 Vrms (P343) or 5 kV (W343). **[CONFIRM]** supply range covers 18 V and the recommended LED current.
 - 2EDN7534R facts found: dual-channel 5 A low-side driver, non-inverting inputs, enable pins (high or open = on, low = output off), -12 V input robustness, 20 V supply ceiling. The R variant is TSSOP-8. UVLO of the 7-series is believed to be 4.2 V, which is low for SiC. **[CONFIRM]** UVLO and the enable pin input range (+20 V).
-- LED resistor: 180 Ω for about 10 mA. **[CONFIRM]**
+- LED resistor: 240 Ω from +5 V for about 10 mA. **[CONFIRM]** against the ACPL-343 recommended LED current.
 
 ### 4.1 Enable groups
-- Latch Q → 74LVC244 buffer → 180 Ω → ACPL-343 → ENA and ENB of the 2EDN7534R drivers in the group
+- Latch Q / enable node → ULN2803A (second chip) → ACPL-343 LED (anode via 240 Ω to +5 V) → ENA and ENB of the 2EDN7534R drivers in the group
 - As requested: one enable optocoupler for the coil-control group (4 × Q1 gates) and one for the regeneration group (4 × Q2 gates)
 - **KNOWN PROBLEM:** the regeneration group spans both channels. Their Q2 sources are at node A1 and node A2, which are at different voltages, so one optocoupler output cannot share its ground with both. Fix: one enable optocoupler per channel for the regeneration side (3 in total).
 - Fail-safe: if the 3.3 V logic or the latch output drops, the LEDs turn off and all drivers disable.
@@ -127,10 +130,10 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → LTC6752 → TRIP_N → 7
 ### 6.2 Four trip latches in one 74HC279 (changed 11 Oct 2026)
 - One latch per trip source: CT, coil 1, coil 2, battery. The Pi can read which one fired.
 - Each latch: /R = its TRIP signal, /S = shared RST net from GPIO17 (10 kΩ pull-up to 3V3), Q high = OK, Q low = tripped.
-- Q outputs: each to its own Pi GPIO (22, 23, 24, 27), and each through a BAT54 to a **wired-AND enable node** with one 10 kΩ pull-up. Any Q low pulls the node low. The node drives the 74LVC244 buffer → 180 Ω → the two enable ACPL-343 optocouplers.
+- Q outputs: each to its own Pi GPIO (22, 23, 24, 27), and each through a BAT54 to a **wired-AND enable node** with one 10 kΩ pull-up. Any Q low pulls the node low. The node drives a ULN2803A input; its outputs sink the two enable ACPL-343 LEDs (anode via 240 Ω to +5 V). Q low (tripped) → input low → LED off → gates disabled.
 - The 74HC279 has four latches, but latches 1 and 3 have **two /S inputs**. Tie /S2 to /S1 on those. All four latches are now used, so there are no unused latches to tie off.
 - Power-up: pulse GPIO17 once the supplies and the TRIP inputs are high, otherwise the latches may start tripped.
-- **[CONFIRM]** The BAT54 drop adds about 0.3 V to the node low level, still below the 74LVC244 VIL at 3.3 V. Check with the datasheet.
+- **[CONFIRM]** The BAT54 drop adds about 0.3 V to the node low level, still well below the ULN2803A input threshold. Check the datasheet.
 
 ---
 
@@ -177,7 +180,8 @@ Signal chain: CT → Rb → TVS → BAT54 peak hold → LTC6752 → TRIP_N → 7
 | IMW40R025M2H SiC MOSFET | 8 | Two paralleled per switch **[CONFIRM]** |
 | 2EDN7534R gate driver | 4 | Replaces UCC27524 |
 | ACPL-P343 or W343 | 8 PWM + 2 or 3 enable | Replaces ACPL-314J |
-| 74LVC244 | 1 or 2 | LED buffers (PWM, enable) |
+| ULN2803A | 2 | One for the 8 PWM LEDs, one for the 2-3 enable LEDs |
+| Resistors 240 Ω and 10 kΩ | 11 + 11 | LED series (to +5 V) and input pull-downs |
 | LTC6752 (SOT-23-5) | 4 | 1 for the CT trip (replaces 2 × LT1719) plus 3 for the INA240 backup trip |
 | BAT54 (enable wired-AND) | 4 | One per latch Q, plus a 10 kΩ pull-up |
 | 74HC279 | 1 | Four latches, one per trip source |
