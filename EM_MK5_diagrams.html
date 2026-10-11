@@ -86,7 +86,7 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="420" y="188" text-anchor="middle" dominant-baseline="central">16-bit, 16 ch</text></g>
 <g class="c-gray"><rect x="510" y="150" width="130" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="575" y="168" text-anchor="middle" dominant-baseline="central">Trip latch</text>
-<text class="ts" x="575" y="188" text-anchor="middle" dominant-baseline="central">17 + 2 flags</text></g>
+<text class="ts" x="575" y="188" text-anchor="middle" dominant-baseline="central">17 + 4 flags</text></g>
 <g class="c-gray"><rect x="190" y="236" width="140" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="260" y="254" text-anchor="middle" dominant-baseline="central">ULN2803A + ACPL</text>
 <text class="ts" x="260" y="274" text-anchor="middle" dominant-baseline="central">×8, then 2EDN</text></g>
@@ -127,13 +127,13 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="105" y="122" text-anchor="middle" dominant-baseline="central">56 Ω, 1 turn</text></g>
 <g class="c-gray"><rect x="190" y="84" width="130" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="255" y="102" text-anchor="middle" dominant-baseline="central">LTC6752</text>
-<text class="ts" x="255" y="122" text-anchor="middle" dominant-baseline="central">merged, 75 A</text></g>
+<text class="ts" x="255" y="122" text-anchor="middle" dominant-baseline="central">75 A</text></g>
 <g class="c-gray"><rect x="340" y="84" width="130" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="405" y="102" text-anchor="middle" dominant-baseline="central">74LS279</text>
-<text class="ts" x="405" y="122" text-anchor="middle" dominant-baseline="central">2 latches</text></g>
+<text class="ts" x="405" y="122" text-anchor="middle" dominant-baseline="central">4 latches</text></g>
 <g class="c-gray"><rect x="490" y="84" width="150" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="565" y="102" text-anchor="middle" dominant-baseline="central">Pi GPIO</text>
-<text class="ts" x="565" y="122" text-anchor="middle" dominant-baseline="central">17 reset, 2 flags</text></g>
+<text class="ts" x="565" y="122" text-anchor="middle" dominant-baseline="central">17 reset, 4 flags</text></g>
 <g class="c-teal"><rect x="40" y="170" width="130" height="56" rx="4" stroke-width="0.5"/>
 <text class="th" x="105" y="188" text-anchor="middle" dominant-baseline="central">Coil + D1</text>
 <text class="ts" x="105" y="208" text-anchor="middle" dominant-baseline="central">20 mH, snubbers</text></g>
@@ -453,40 +453,52 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 </section>
 
 <section>
-<h2>Schematic: two trip latches and enable</h2>
-<p class="d">The merged current trip (TRIP_I) and the temperature trip (TRIP_T) each reset one latch in a 74LS279 (5 V TTL). Both Q outputs go to Pi GPIOs through dividers and into a 74HCT21 4-input AND (5 V), whose output is the enable node. It drives the ACPL-343 enable LEDs directly, each through 470 Ω, with no transistor.</p>
-<svg viewBox="0 0 680 440" role="img">
+<h2>Schematic: four trip latches and enable</h2>
+<p class="d">Each trip signal resets its own latch in one 74LS279 (5 V TTL): CT (power stage), coil, battery (regenerative stage) and radiator temperature. Each Q goes to a Pi GPIO through a divider, so the Pi sees which trip fired. The four Q outputs also go into a 74HCT21 4-input AND (5 V), whose output is the enable node. It drives the ACPL-343 enable LEDs directly, each through 470 Ω, with no transistor.</p>
+<svg viewBox="0 0 680 500" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
 <line x1="140" y1="86" x2="158" y2="86"/><line x1="120" y1="114" x2="158" y2="114" marker-end="url(#arrow)"/>
-<line x1="140" y1="176" x2="158" y2="176"/><line x1="120" y1="204" x2="158" y2="204" marker-end="url(#arrow)"/>
 <line x1="270" y1="100" x2="398" y2="100" marker-end="url(#arrow)"/><line x1="285" y1="100" x2="285" y2="82"/>
+<line x1="140" y1="176" x2="158" y2="176"/><line x1="120" y1="204" x2="158" y2="204" marker-end="url(#arrow)"/>
 <line x1="270" y1="190" x2="398" y2="190" marker-end="url(#arrow)"/><line x1="285" y1="190" x2="285" y2="172"/>
-<line x1="470" y1="145" x2="500" y2="145"/><line x1="500" y1="145" x2="500" y2="265"/>
+<line x1="140" y1="266" x2="158" y2="266"/><line x1="120" y1="294" x2="158" y2="294" marker-end="url(#arrow)"/>
+<line x1="270" y1="280" x2="398" y2="280" marker-end="url(#arrow)"/><line x1="285" y1="280" x2="285" y2="262"/>
+<line x1="140" y1="356" x2="158" y2="356"/><line x1="120" y1="384" x2="158" y2="384" marker-end="url(#arrow)"/>
+<line x1="270" y1="370" x2="398" y2="370" marker-end="url(#arrow)"/><line x1="285" y1="370" x2="285" y2="352"/>
+<line x1="470" y1="235" x2="500" y2="235"/><line x1="500" y1="205" x2="500" y2="265"/>
 <line x1="500" y1="205" x2="510" y2="205"/><rect x="510" y="199" width="26" height="12"/><line x1="536" y1="205" x2="548" y2="205" marker-end="url(#arrow)"/>
 <line x1="500" y1="265" x2="510" y2="265"/><rect x="510" y="259" width="26" height="12"/><line x1="536" y1="265" x2="548" y2="265" marker-end="url(#arrow)"/>
-<line x1="148" y1="330" x2="172" y2="330"/><line x1="160" y1="330" x2="160" y2="342"/>
-<rect x="153" y="342" width="14" height="32"/><line x1="160" y1="374" x2="160" y2="386"/>
-<line x1="92" y1="386" x2="158" y2="386" marker-end="url(#arrow)"/>
-<line x1="160" y1="386" x2="218" y2="386"/>
+<line x1="148" y1="440" x2="172" y2="440"/><line x1="160" y1="440" x2="160" y2="452"/>
+<rect x="153" y="452" width="14" height="32"/><line x1="160" y1="484" x2="160" y2="494"/>
+<line x1="92" y1="494" x2="158" y2="494" marker-end="url(#arrow)"/>
+<line x1="160" y1="494" x2="218" y2="494"/>
 </g>
-<g fill="var(--t)"><circle cx="285" cy="100" r="3"/><circle cx="285" cy="190" r="3"/><circle cx="500" cy="145" r="3"/><circle cx="160" cy="386" r="3"/></g>
-<rect class="box" x="160" y="56" width="110" height="170" rx="4" stroke-width="0.5"/>
+<g fill="var(--t)"><circle cx="285" cy="100" r="3"/><circle cx="285" cy="190" r="3"/><circle cx="285" cy="280" r="3"/><circle cx="285" cy="370" r="3"/><circle cx="500" cy="235" r="3"/><circle cx="160" cy="494" r="3"/></g>
+<rect class="box" x="160" y="56" width="110" height="358" rx="4" stroke-width="0.5"/>
 <text class="th" x="215" y="70" text-anchor="middle" dominant-baseline="central">74LS279</text>
-<text class="ts" x="168" y="86" dominant-baseline="central">/S</text><text class="ts" x="168" y="114" dominant-baseline="central">/R</text><text class="ts" x="262" y="100" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="100" text-anchor="middle" dominant-baseline="central">current</text>
-<text class="ts" x="168" y="176" dominant-baseline="central">/S</text><text class="ts" x="168" y="204" dominant-baseline="central">/R</text><text class="ts" x="262" y="190" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="190" text-anchor="middle" dominant-baseline="central">temp</text>
+<text class="ts" x="168" y="86" dominant-baseline="central">/S</text><text class="ts" x="168" y="114" dominant-baseline="central">/R</text><text class="ts" x="262" y="100" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="100" text-anchor="middle" dominant-baseline="central">CT</text>
 <text class="ts" x="136" y="86" text-anchor="end" dominant-baseline="central">RST</text>
-<text class="ts" x="136" y="176" text-anchor="end" dominant-baseline="central">RST</text>
-<text class="ts" x="40" y="114" dominant-baseline="central">TRIP_I</text>
-<text class="ts" x="40" y="204" dominant-baseline="central">TRIP_T</text>
+<text class="ts" x="40" y="114" dominant-baseline="central">TRIP_CT</text>
 <text class="ts" x="294" y="76">→ GPIO22</text>
+<text class="ts" x="168" y="176" dominant-baseline="central">/S</text><text class="ts" x="168" y="204" dominant-baseline="central">/R</text><text class="ts" x="262" y="190" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="190" text-anchor="middle" dominant-baseline="central">coil</text>
+<text class="ts" x="136" y="176" text-anchor="end" dominant-baseline="central">RST</text>
+<text class="ts" x="40" y="204" dominant-baseline="central">TRIP_COIL</text>
 <text class="ts" x="294" y="166">→ GPIO23</text>
-<g class="c-gray"><rect x="400" y="80" width="70" height="130" rx="4" stroke-width="0.5"/>
-<text class="th" x="435" y="150" text-anchor="middle" dominant-baseline="central">74HCT21</text>
-<text class="ts" x="435" y="170" text-anchor="middle" dominant-baseline="central">AND, ½</text>
-<text class="ts" x="462" y="132" text-anchor="end" dominant-baseline="central">Y</text></g>
-<text class="ts" x="406" y="108" dominant-baseline="central">A</text>
-<text class="ts" x="406" y="182" dominant-baseline="central">B</text>
+<text class="ts" x="168" y="266" dominant-baseline="central">/S</text><text class="ts" x="168" y="294" dominant-baseline="central">/R</text><text class="ts" x="262" y="280" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="280" text-anchor="middle" dominant-baseline="central">battery</text>
+<text class="ts" x="136" y="266" text-anchor="end" dominant-baseline="central">RST</text>
+<text class="ts" x="40" y="294" dominant-baseline="central">TRIP_BAT</text>
+<text class="ts" x="294" y="256">→ GPIO24</text>
+<text class="ts" x="168" y="356" dominant-baseline="central">/S</text><text class="ts" x="168" y="384" dominant-baseline="central">/R</text><text class="ts" x="262" y="370" text-anchor="end" dominant-baseline="central">Q</text><text class="ts" x="215" y="370" text-anchor="middle" dominant-baseline="central">temp</text>
+<text class="ts" x="136" y="356" text-anchor="end" dominant-baseline="central">RST</text>
+<text class="ts" x="40" y="384" dominant-baseline="central">TRIP_T</text>
+<text class="ts" x="294" y="346">→ GPIO27</text>
+<g class="c-gray"><rect x="400" y="80" width="70" height="310" rx="4" stroke-width="0.5"/>
+<text class="th" x="435" y="235" text-anchor="middle" dominant-baseline="central">74HCT21</text>
+<text class="ts" x="435" y="255" text-anchor="middle" dominant-baseline="central">AND, ½</text>
+<text class="ts" x="462" y="218" text-anchor="end" dominant-baseline="central">Y</text></g>
+<text class="ts" x="406" y="108" dominant-baseline="central">A</text><text class="ts" x="406" y="198" dominant-baseline="central">B</text>
+<text class="ts" x="406" y="288" dominant-baseline="central">C</text><text class="ts" x="406" y="378" dominant-baseline="central">D</text>
 <g class="c-gray"><rect x="550" y="183" width="80" height="44" rx="4" stroke-width="0.5"/>
 <text class="th" x="590" y="205" text-anchor="middle" dominant-baseline="central">ACPL-343</text></g>
 <g class="c-gray"><rect x="550" y="243" width="80" height="44" rx="4" stroke-width="0.5"/>
@@ -494,24 +506,22 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="523" y="192" text-anchor="middle">470 Ω</text>
 <text class="ts" x="590" y="236" text-anchor="middle">EN coil</text>
 <text class="ts" x="590" y="302" text-anchor="middle">EN regen</text>
-<text class="ts" x="500" y="130" text-anchor="middle">EN node</text>
-<text class="ts" x="180" y="330" dominant-baseline="central">+3V3</text>
-<text class="ts" x="176" y="358">10 kΩ</text>
-<text class="ts" x="40" y="386" dominant-baseline="central">GPIO17</text>
-<text class="ts" x="224" y="386" dominant-baseline="central">RST net</text>
-<text class="ts" x="260" y="298">74LS279 and 74HCT21 on +5 V, 100 nF each.</text>
-<text class="ts" x="260" y="314">RST feeds both /S. Use latches 2 and 4 of the 74LS279.</text>
-<text class="ts" x="260" y="330">Unused latches 1 and 3: tie /S1, /S2, /R to +5 V.</text>
-<text class="ts" x="260" y="346">74HCT21 inputs C and D go to +5 V.</text>
-<text class="ts" x="260" y="362">Q to GPIO: 3.3 kΩ / 6.8 kΩ divider (Q can reach 3.4 V or more).</text>
-<text class="ts" x="260" y="378">After power-up, pulse RST once TRIP_I and TRIP_T are high.</text>
-<text class="ts" x="40" y="412">Both halves of the 74HCT21 are used for the three LEDs, inputs in parallel (drawn once).</text>
+<text class="ts" x="507" y="238">EN node</text>
+<text class="ts" x="180" y="440" dominant-baseline="central">+3V3</text>
+<text class="ts" x="176" y="468">10 kΩ</text>
+<text class="ts" x="40" y="494" dominant-baseline="central">GPIO17</text>
+<text class="ts" x="224" y="494" dominant-baseline="central">RST net</text>
+<text class="ts" x="260" y="436">74LS279 and 74HCT21 on +5 V, 100 nF each.</text>
+<text class="ts" x="260" y="452">Latches 1 and 3 have two /S inputs: tie /S2 to /S1.</text>
+<text class="ts" x="260" y="468">Q to GPIO: 3.3 kΩ / 6.8 kΩ divider (Q can reach 3.4 V or more).</text>
+<text class="ts" x="260" y="484">After power-up, pulse RST once all TRIP inputs are high.</text>
+<text class="ts" x="260" y="420">Both halves of the 74HCT21 are used, inputs in parallel (drawn once).</text>
 </svg>
 </section>
 
 <section>
 <h2>Schematic: current trip front end</h2>
-<p class="d">CT on the +60 V feed, 56 Ω burden, TVS, BAT54 peak hold, and the LTC6752 (SOT-23-5, 3.3 V) comparator with a 1.88 V reference and hysteresis. TRIP_N joins the other current signals in the merged current trip, which uses one shared LTC6752 (this drawing shows its comparator).</p>
+<p class="d">CT on the +60 V feed, 56 Ω burden, TVS, BAT54 peak hold, and the LTC6752 (SOT-23-5, 3.3 V) comparator with a 1.88 V reference and hysteresis. TRIP_N goes to the CT latch /R input (TRIP_CT).</p>
 <svg viewBox="0 0 680 370" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
@@ -712,16 +722,14 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 </svg>
 </section>
 <section>
-<h2>Schematic: merged current trip (one comparator)</h2>
-<p class="d">The CT peak-hold signal and the three INA240 signals (coil 1, coil 2, battery) are scaled to the same level and joined by a BAT54 diode-OR, so the highest one reaches a single LTC6752. Its output TRIP_I resets the current latch.</p>
-<svg viewBox="0 0 680 490" role="img">
+<h2>Schematic: coil and battery current trips (INA240)</h2>
+<p class="d">The two coil INA240 outputs are joined by a BAT54 diode-OR into one LTC6752, which drives TRIP_COIL. The battery INA240 has its own LTC6752 with the same circuit, driving TRIP_BAT. The CT has a third comparator (CT front end schematic), driving TRIP_CT.</p>
+<svg viewBox="0 0 680 480" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
-<line x1="200" y1="70" x2="250" y2="70"/><polygon points="250,60 250,80 280,70"/><line x1="280" y1="60" x2="280" y2="80"/><line x1="280" y1="70" x2="330" y2="70"/>
 <line x1="200" y1="140" x2="250" y2="140"/><polygon points="250,130 250,150 280,140"/><line x1="280" y1="130" x2="280" y2="150"/><line x1="280" y1="140" x2="330" y2="140"/>
 <line x1="200" y1="210" x2="250" y2="210"/><polygon points="250,200 250,220 280,210"/><line x1="280" y1="200" x2="280" y2="220"/><line x1="280" y1="210" x2="330" y2="210"/>
-<line x1="200" y1="280" x2="250" y2="280"/><polygon points="250,270 250,290 280,280"/><line x1="280" y1="270" x2="280" y2="290"/><line x1="280" y1="280" x2="330" y2="280"/>
-<line x1="330" y1="70" x2="330" y2="280"/>
+<line x1="330" y1="140" x2="330" y2="280"/>
 <line x1="330" y1="175" x2="420" y2="175"/>
 <line x1="330" y1="280" x2="330" y2="296"/><rect x="323" y="296" width="14" height="32"/><line x1="330" y1="328" x2="330" y2="338"/>
 <line x1="320" y1="338" x2="340" y2="338"/><line x1="324" y1="343" x2="336" y2="343"/><line x1="328" y1="348" x2="332" y2="348"/>
@@ -734,18 +742,12 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <line x1="540" y1="200" x2="540" y2="112"/><line x1="540" y1="112" x2="470" y2="112"/><rect x="440" y="106" width="30" height="12"/><line x1="440" y1="112" x2="380" y2="112"/><line x1="380" y1="112" x2="380" y2="225"/>
 </g>
 <g fill="var(--t)"><circle cx="330" cy="175" r="3"/><circle cx="540" cy="200" r="3"/><circle cx="380" cy="225" r="3"/><circle cx="400" cy="332" r="3"/></g>
-<g class="c-teal"><rect x="40" y="52" width="160" height="36" rx="4" stroke-width="0.5"/>
-<text class="th" x="120" y="66" text-anchor="middle" dominant-baseline="central">CT peak hold</text>
-<text class="ts" x="120" y="80" text-anchor="middle" dominant-baseline="central">1.88 V at 75 A</text></g>
 <g class="c-teal"><rect x="40" y="122" width="160" height="36" rx="4" stroke-width="0.5"/>
 <text class="th" x="120" y="136" text-anchor="middle" dominant-baseline="central">INA240A2 coil 1</text>
 <text class="ts" x="120" y="150" text-anchor="middle" dominant-baseline="central">2.2k/2.2k, 220 pF</text></g>
 <g class="c-teal"><rect x="40" y="192" width="160" height="36" rx="4" stroke-width="0.5"/>
 <text class="th" x="120" y="206" text-anchor="middle" dominant-baseline="central">INA240A2 coil 2</text>
 <text class="ts" x="120" y="220" text-anchor="middle" dominant-baseline="central">2.2k/2.2k, 220 pF</text></g>
-<g class="c-teal"><rect x="40" y="262" width="160" height="36" rx="4" stroke-width="0.5"/>
-<text class="th" x="120" y="276" text-anchor="middle" dominant-baseline="central">INA240A1 battery</text>
-<text class="ts" x="120" y="290" text-anchor="middle" dominant-baseline="central">divider scaled to match</text></g>
 <text class="ts" x="342" y="170">N</text>
 <text class="ts" x="344" y="318">100 kΩ</text>
 <text class="ts" x="428" y="162" dominant-baseline="central">−</text>
@@ -756,17 +758,19 @@ svg text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 <text class="ts" x="414" y="268">+3V3</text>
 <text class="ts" x="440" y="334">VREF 1.88 V</text>
 <text class="ts" x="455" y="100" text-anchor="middle">Rhyst 100 kΩ</text>
-<text class="ts" x="588" y="200" dominant-baseline="central">TRIP_I</text>
-<text class="ts" x="262" y="102" text-anchor="middle">BAT54 ×4</text>
+<text class="ts" x="588" y="200" dominant-baseline="central">TRIP_COIL</text>
+<text class="ts" x="262" y="102" text-anchor="middle">BAT54 ×2</text>
+<g class="c-teal"><rect x="40" y="262" width="260" height="44" rx="4" stroke-width="0.5"/>
+<text class="th" x="170" y="276" text-anchor="middle" dominant-baseline="central">Battery trip → TRIP_BAT</text>
+<text class="ts" x="170" y="293" text-anchor="middle" dominant-baseline="central">same circuit, INA240A1, VREF 1.79 V</text></g>
 <text class="ts" x="40" y="430">The 4.7 kΩ / 6.2 kΩ divider gives about 1.88 V. The BAT54 drop (about 0.25 V)</text>
 <text class="ts" x="40" y="446">adds to the trip level, so trim the divider after measuring it. [CONFIRM]</text>
-<text class="ts" x="40" y="466">The sources are ORed, so the Pi no longer sees which one tripped.</text>
-<text class="ts" x="40" y="482">It can still read the currents on the AD4691.</text>
+<text class="ts" x="40" y="466">Coil 1 and coil 2 are ORed, so one latch covers both coils.</text>
 </svg>
 </section>
 <section>
 <h2>Schematic: radiator temperature trip (one comparator)</h2>
-<p class="d">The five NTC divider nodes are joined by a BAT54 diode-OR for the lowest voltage (the hottest radiator). One LTC6752 (the same part as the current trip) watches it. Output TRIP_T resets the temperature latch.</p>
+<p class="d">The five NTC divider nodes are joined by a BAT54 diode-OR for the lowest voltage (the hottest radiator). One LTC6752 (the same part as the other trips) watches it. Output TRIP_T resets the temperature latch.</p>
 <svg viewBox="0 0 680 500" role="img">
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g stroke="var(--t)" stroke-width="1.5" fill="none">
