@@ -6,7 +6,7 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 
 | Pico signal | Pico pin | ESP32-S3 pin | Notes |
 |---|---|---|---|
-| PWM_CH1 to CH8 | GP6 to GP13 | GPIO4 to GPIO11 | Pairs (CH1,CH2) = IO4/IO5, (CH3,CH4) = IO6/IO7, (CH5,CH6) = IO8/IO9, (CH7,CH8) = IO10/IO11. MCPWM, hardware dead time. |
+| PWM_CH1 to CH8 | GP6 to GP13 | GPIO4 to GPIO7, GPIO35, GPIO36, GPIO37, GPIO11 | Pairs (CH1,CH2) = IO4/IO5, (CH3,CH4) = IO6/IO7, (CH5,CH6) = IO35/IO36, (CH7,CH8) = IO37/IO11. MCPWM, hardware dead time. |
 | SPI MOSI, CS, SCK, MISO (to the Pi) | GP16, GP17, GP18, GP19 | GPIO13, GPIO12, GPIO14, GPIO21 | SPI2 slave through the GPIO matrix (the fast IOMUX pins 10-13 are used by PWM). Keep the Pi clock to a few MHz. **[CONFIRM]** max slave clock. |
 | MainSupp | GP28 (ADC2) | GPIO1 | ADC1 |
 | 5V_Meas | GP27 (ADC1) | GPIO2 | ADC1 |
@@ -35,3 +35,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - **SPI slave:** transaction-based with fixed length. Keep the Pi clock moderate (a few MHz).
 - **Boot:** pins float during reset. The 10 kΩ pull-downs on the ULN2803 inputs keep the gates off.
 - IO48 (module pin 25): Status LED (green) with 1 kΩ. Module is the N16 (quad flash, no PSRAM), so IO47/IO48 are 3.3 V.
+- New analog inputs on ADC1: Analog_5 = IO8 (pin 12), Analog_6 = IO9 (pin 17), Analog_7 = IO10 (pin 18). Each has a divider, 1 kΩ and 100 nF, below about 2.5 V.

@@ -4,8 +4,8 @@
   Pairs (see ESP32_S3_pinout.md):  A = Q1 gate, B = Q2 gate
     pair 0: GPIO4  / GPIO5    PWM_CH1 / CH2  (MCPWM group 0, operator 0)
     pair 1: GPIO6  / GPIO7    PWM_CH3 / CH4  (MCPWM group 0, operator 1)
-    pair 2: GPIO8  / GPIO9    PWM_CH5 / CH6  (MCPWM group 0, operator 2)
-    pair 3: GPIO10 / GPIO11   PWM_CH7 / CH8  (MCPWM group 1, operator 0)
+    pair 2: GPIO35 / GPIO36  PWM_CH5 / CH6  (MCPWM group 0, operator 2)
+    pair 3: GPIO37 / GPIO11  PWM_CH7 / CH8  (MCPWM group 1, operator 0)
 
   Method: generator A makes an edge-aligned PWM. The dead-time submodule delays the rising edge of A
   and feeds generator B with an inverted copy whose rising edge is delayed too, so the two
@@ -29,8 +29,8 @@
 #define DUTY_MAX    0.90f
 
 #define NUM_PAIRS 4
-static const int pin_a[NUM_PAIRS] = {4, 6, 8, 10};
-static const int pin_b[NUM_PAIRS] = {5, 7, 9, 11};
+static const int pin_a[NUM_PAIRS] = {4, 6, 35, 37};
+static const int pin_b[NUM_PAIRS] = {5, 7, 36, 11};
 static const int group_of[NUM_PAIRS] = {0, 0, 0, 1};
 
 static mcpwm_timer_handle_t timer[2];

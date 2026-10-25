@@ -8,25 +8,25 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 .c{stroke:var(--bd);stroke-width:1.2;fill:var(--box)}.m{stroke:var(--bd);stroke-width:1.5;fill:var(--mod)}
 .p{stroke:var(--pb);stroke-width:1;fill:var(--port)}
 .t{font-size:12px;fill:var(--t)}.s{font-size:11px;fill:var(--m)}.th{font-size:13px;font-weight:600;fill:var(--t)}.pt{font-size:12px;fill:var(--t)}
-</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1 controller schematic</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1440" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="960" rx="4"/>
+</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1 controller schematic</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1690" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="1210" rx="4"/>
 <text class="th" x="660.0" y="144" text-anchor="middle" dominant-baseline="central">ESP32-S3-WROOM-1</text>
 <text class="s" x="660.0" y="161" text-anchor="middle" dominant-baseline="central">U1 (module pin numbers)</text>
-<line class="w" x1="600" y1="1090" x2="600" y2="1104"/>
-<line class="w" x1="600" y1="1104" x2="600" y2="1110"/>
-<line class="w" x1="591" y1="1110" x2="609" y2="1110"/>
-<line class="w" x1="595" y1="1114" x2="605" y2="1114"/>
-<line class="w" x1="598" y1="1118" x2="602" y2="1118"/>
-<line class="w" x1="680" y1="1090" x2="680" y2="1104"/>
-<line class="w" x1="680" y1="1104" x2="680" y2="1110"/>
-<line class="w" x1="671" y1="1110" x2="689" y2="1110"/>
-<line class="w" x1="675" y1="1114" x2="685" y2="1114"/>
-<line class="w" x1="678" y1="1118" x2="682" y2="1118"/>
-<line class="w" x1="740" y1="1090" x2="740" y2="1104"/>
-<line class="w" x1="740" y1="1104" x2="740" y2="1110"/>
-<line class="w" x1="731" y1="1110" x2="749" y2="1110"/>
-<line class="w" x1="735" y1="1114" x2="745" y2="1114"/>
-<line class="w" x1="738" y1="1118" x2="742" y2="1118"/>
-<text class="s" x="660.0" y="1076" text-anchor="middle" dominant-baseline="central">GND pins 1, 40, 41 (EPAD)</text>
+<line class="w" x1="600" y1="1340" x2="600" y2="1354"/>
+<line class="w" x1="600" y1="1354" x2="600" y2="1360"/>
+<line class="w" x1="591" y1="1360" x2="609" y2="1360"/>
+<line class="w" x1="595" y1="1364" x2="605" y2="1364"/>
+<line class="w" x1="598" y1="1368" x2="602" y2="1368"/>
+<line class="w" x1="680" y1="1340" x2="680" y2="1354"/>
+<line class="w" x1="680" y1="1354" x2="680" y2="1360"/>
+<line class="w" x1="671" y1="1360" x2="689" y2="1360"/>
+<line class="w" x1="675" y1="1364" x2="685" y2="1364"/>
+<line class="w" x1="678" y1="1368" x2="682" y2="1368"/>
+<line class="w" x1="740" y1="1340" x2="740" y2="1354"/>
+<line class="w" x1="740" y1="1354" x2="740" y2="1360"/>
+<line class="w" x1="731" y1="1360" x2="749" y2="1360"/>
+<line class="w" x1="735" y1="1364" x2="745" y2="1364"/>
+<line class="w" x1="738" y1="1368" x2="742" y2="1368"/>
+<text class="s" x="660.0" y="1326" text-anchor="middle" dominant-baseline="central">GND pins 1, 40, 41 (EPAD)</text>
 <text class="th" x="40" y="34" text-anchor="start" dominant-baseline="central">Power input and 3.3 V regulator</text>
 <rect class="c" x="40" y="60" width="70" height="54" rx="3"/>
 <text class="th" x="40" y="48" text-anchor="start" dominant-baseline="central"></text>
@@ -311,6 +311,115 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="445" y1="766" x2="455" y2="766"/>
 <line class="w" x1="448" y1="770" x2="452" y2="770"/>
 <text class="s" x="450" y="782" text-anchor="middle" dominant-baseline="central">100n</text>
+<line class="w" x1="540" y1="810" x2="560" y2="810"/>
+<text class="t" x="568" y="810" text-anchor="start" dominant-baseline="central">IO8 / ADC1</text>
+<text class="s" x="536" y="801" text-anchor="end" dominant-baseline="central">12</text>
+<polygon class="p" points="162,801 240,801 250,810 240,819 162,819"/>
+<text class="pt" x="168" y="810" text-anchor="start" dominant-baseline="central">Analog_5</text>
+<line class="w" x1="250" y1="810" x2="284" y2="810"/>
+<line class="w" x1="284" y1="810" x2="290" y2="810"/>
+<rect class="c" x="290" y="804" width="36" height="12"/>
+<line class="w" x1="326" y1="810" x2="332" y2="810"/>
+<text class="s" x="308" y="796" text-anchor="middle" dominant-baseline="central">Rtop</text>
+<line class="w" x1="332" y1="810" x2="374" y2="810"/>
+<circle class="d" cx="350" cy="810" r="3"/>
+<line class="w" x1="350" y1="810" x2="350" y2="816"/>
+<line class="w" x1="350" y1="810" x2="350" y2="816"/>
+<rect class="c" x="344" y="816" width="12" height="36"/>
+<line class="w" x1="350" y1="852" x2="350" y2="858"/>
+<text class="s" x="361" y="834" text-anchor="start" dominant-baseline="central">Rbot</text>
+<line class="w" x1="350" y1="858" x2="350" y2="864"/>
+<line class="w" x1="341" y1="864" x2="359" y2="864"/>
+<line class="w" x1="345" y1="868" x2="355" y2="868"/>
+<line class="w" x1="348" y1="872" x2="352" y2="872"/>
+<line class="w" x1="374" y1="810" x2="380" y2="810"/>
+<rect class="c" x="380" y="804" width="36" height="12"/>
+<line class="w" x1="416" y1="810" x2="422" y2="810"/>
+<text class="s" x="398" y="796" text-anchor="middle" dominant-baseline="central">1k</text>
+<line class="w" x1="422" y1="810" x2="540" y2="810"/>
+<circle class="d" cx="450" cy="810" r="3"/>
+<line class="w" x1="450" y1="810" x2="450" y2="820"/>
+<line class="w" x1="441" y1="820" x2="459" y2="820"/>
+<line class="w" x1="441" y1="826" x2="459" y2="826"/>
+<line class="w" x1="450" y1="826" x2="450" y2="836"/>
+<line class="w" x1="450" y1="836" x2="450" y2="842"/>
+<line class="w" x1="441" y1="842" x2="459" y2="842"/>
+<line class="w" x1="445" y1="846" x2="455" y2="846"/>
+<line class="w" x1="448" y1="850" x2="452" y2="850"/>
+<text class="s" x="450" y="862" text-anchor="middle" dominant-baseline="central">100n</text>
+<line class="w" x1="540" y1="890" x2="560" y2="890"/>
+<text class="t" x="568" y="890" text-anchor="start" dominant-baseline="central">IO9 / ADC1</text>
+<text class="s" x="536" y="881" text-anchor="end" dominant-baseline="central">17</text>
+<polygon class="p" points="162,881 240,881 250,890 240,899 162,899"/>
+<text class="pt" x="168" y="890" text-anchor="start" dominant-baseline="central">Analog_6</text>
+<line class="w" x1="250" y1="890" x2="284" y2="890"/>
+<line class="w" x1="284" y1="890" x2="290" y2="890"/>
+<rect class="c" x="290" y="884" width="36" height="12"/>
+<line class="w" x1="326" y1="890" x2="332" y2="890"/>
+<text class="s" x="308" y="876" text-anchor="middle" dominant-baseline="central">Rtop</text>
+<line class="w" x1="332" y1="890" x2="374" y2="890"/>
+<circle class="d" cx="350" cy="890" r="3"/>
+<line class="w" x1="350" y1="890" x2="350" y2="896"/>
+<line class="w" x1="350" y1="890" x2="350" y2="896"/>
+<rect class="c" x="344" y="896" width="12" height="36"/>
+<line class="w" x1="350" y1="932" x2="350" y2="938"/>
+<text class="s" x="361" y="914" text-anchor="start" dominant-baseline="central">Rbot</text>
+<line class="w" x1="350" y1="938" x2="350" y2="944"/>
+<line class="w" x1="341" y1="944" x2="359" y2="944"/>
+<line class="w" x1="345" y1="948" x2="355" y2="948"/>
+<line class="w" x1="348" y1="952" x2="352" y2="952"/>
+<line class="w" x1="374" y1="890" x2="380" y2="890"/>
+<rect class="c" x="380" y="884" width="36" height="12"/>
+<line class="w" x1="416" y1="890" x2="422" y2="890"/>
+<text class="s" x="398" y="876" text-anchor="middle" dominant-baseline="central">1k</text>
+<line class="w" x1="422" y1="890" x2="540" y2="890"/>
+<circle class="d" cx="450" cy="890" r="3"/>
+<line class="w" x1="450" y1="890" x2="450" y2="900"/>
+<line class="w" x1="441" y1="900" x2="459" y2="900"/>
+<line class="w" x1="441" y1="906" x2="459" y2="906"/>
+<line class="w" x1="450" y1="906" x2="450" y2="916"/>
+<line class="w" x1="450" y1="916" x2="450" y2="922"/>
+<line class="w" x1="441" y1="922" x2="459" y2="922"/>
+<line class="w" x1="445" y1="926" x2="455" y2="926"/>
+<line class="w" x1="448" y1="930" x2="452" y2="930"/>
+<text class="s" x="450" y="942" text-anchor="middle" dominant-baseline="central">100n</text>
+<line class="w" x1="540" y1="970" x2="560" y2="970"/>
+<text class="t" x="568" y="970" text-anchor="start" dominant-baseline="central">IO10 / ADC1</text>
+<text class="s" x="536" y="961" text-anchor="end" dominant-baseline="central">18</text>
+<polygon class="p" points="162,961 240,961 250,970 240,979 162,979"/>
+<text class="pt" x="168" y="970" text-anchor="start" dominant-baseline="central">Analog_7</text>
+<line class="w" x1="250" y1="970" x2="284" y2="970"/>
+<line class="w" x1="284" y1="970" x2="290" y2="970"/>
+<rect class="c" x="290" y="964" width="36" height="12"/>
+<line class="w" x1="326" y1="970" x2="332" y2="970"/>
+<text class="s" x="308" y="956" text-anchor="middle" dominant-baseline="central">Rtop</text>
+<line class="w" x1="332" y1="970" x2="374" y2="970"/>
+<circle class="d" cx="350" cy="970" r="3"/>
+<line class="w" x1="350" y1="970" x2="350" y2="976"/>
+<line class="w" x1="350" y1="970" x2="350" y2="976"/>
+<rect class="c" x="344" y="976" width="12" height="36"/>
+<line class="w" x1="350" y1="1012" x2="350" y2="1018"/>
+<text class="s" x="361" y="994" text-anchor="start" dominant-baseline="central">Rbot</text>
+<line class="w" x1="350" y1="1018" x2="350" y2="1024"/>
+<line class="w" x1="341" y1="1024" x2="359" y2="1024"/>
+<line class="w" x1="345" y1="1028" x2="355" y2="1028"/>
+<line class="w" x1="348" y1="1032" x2="352" y2="1032"/>
+<line class="w" x1="374" y1="970" x2="380" y2="970"/>
+<rect class="c" x="380" y="964" width="36" height="12"/>
+<line class="w" x1="416" y1="970" x2="422" y2="970"/>
+<text class="s" x="398" y="956" text-anchor="middle" dominant-baseline="central">1k</text>
+<line class="w" x1="422" y1="970" x2="540" y2="970"/>
+<circle class="d" cx="450" cy="970" r="3"/>
+<line class="w" x1="450" y1="970" x2="450" y2="980"/>
+<line class="w" x1="441" y1="980" x2="459" y2="980"/>
+<line class="w" x1="441" y1="986" x2="459" y2="986"/>
+<line class="w" x1="450" y1="986" x2="450" y2="996"/>
+<line class="w" x1="450" y1="996" x2="450" y2="1002"/>
+<line class="w" x1="441" y1="1002" x2="459" y2="1002"/>
+<line class="w" x1="445" y1="1006" x2="455" y2="1006"/>
+<line class="w" x1="448" y1="1010" x2="452" y2="1010"/>
+<text class="s" x="450" y="1022" text-anchor="middle" dominant-baseline="central">100n</text>
+<g transform="translate(0,250)">
 <rect class="c" x="200" y="794" width="110" height="120" rx="3"/>
 <text class="th" x="200" y="782" text-anchor="start" dominant-baseline="central">J3 SPI to the Pi 5</text>
 <text class="s" x="208" y="810" text-anchor="start" dominant-baseline="central">1</text>
@@ -344,6 +453,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="317" y1="904" x2="335" y2="904"/>
 <line class="w" x1="321" y1="908" x2="331" y2="908"/>
 <line class="w" x1="324" y1="912" x2="328" y2="912"/>
+</g>
 <line class="w" x1="760" y1="190" x2="780" y2="190"/>
 <text class="t" x="752" y="190" text-anchor="end" dominant-baseline="central">IO4</text>
 <text class="s" x="784" y="181" text-anchor="start" dominant-baseline="central">4</text>
@@ -369,20 +479,20 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <polygon class="p" points="800,247 871,247 881,256 871,265 800,265"/>
 <text class="pt" x="806" y="256" text-anchor="start" dominant-baseline="central">PWM_CH4</text>
 <line class="w" x1="760" y1="278" x2="780" y2="278"/>
-<text class="t" x="752" y="278" text-anchor="end" dominant-baseline="central">IO8</text>
-<text class="s" x="784" y="269" text-anchor="start" dominant-baseline="central">12</text>
+<text class="t" x="752" y="278" text-anchor="end" dominant-baseline="central">IO35</text>
+<text class="s" x="784" y="269" text-anchor="start" dominant-baseline="central">28</text>
 <line class="w" x1="780" y1="278" x2="800" y2="278"/>
 <polygon class="p" points="800,269 871,269 881,278 871,287 800,287"/>
 <text class="pt" x="806" y="278" text-anchor="start" dominant-baseline="central">PWM_CH5</text>
 <line class="w" x1="760" y1="300" x2="780" y2="300"/>
-<text class="t" x="752" y="300" text-anchor="end" dominant-baseline="central">IO9</text>
-<text class="s" x="784" y="291" text-anchor="start" dominant-baseline="central">17</text>
+<text class="t" x="752" y="300" text-anchor="end" dominant-baseline="central">IO36</text>
+<text class="s" x="784" y="291" text-anchor="start" dominant-baseline="central">29</text>
 <line class="w" x1="780" y1="300" x2="800" y2="300"/>
 <polygon class="p" points="800,291 871,291 881,300 871,309 800,309"/>
 <text class="pt" x="806" y="300" text-anchor="start" dominant-baseline="central">PWM_CH6</text>
 <line class="w" x1="760" y1="322" x2="780" y2="322"/>
-<text class="t" x="752" y="322" text-anchor="end" dominant-baseline="central">IO10</text>
-<text class="s" x="784" y="313" text-anchor="start" dominant-baseline="central">18</text>
+<text class="t" x="752" y="322" text-anchor="end" dominant-baseline="central">IO37</text>
+<text class="s" x="784" y="313" text-anchor="start" dominant-baseline="central">30</text>
 <line class="w" x1="780" y1="322" x2="800" y2="322"/>
 <polygon class="p" points="800,313 871,313 881,322 871,331 800,331"/>
 <text class="pt" x="806" y="322" text-anchor="start" dominant-baseline="central">PWM_CH7</text>
@@ -514,6 +624,25 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="915" y1="866" x2="925" y2="866"/>
 <line class="w" x1="918" y1="870" x2="922" y2="870"/>
 <text class="s" x="934" y="842" text-anchor="start" dominant-baseline="central">pGood LED (blue)</text>
+<line class="w" x1="760" y1="890" x2="780" y2="890"/>
+<text class="t" x="752" y="890" text-anchor="end" dominant-baseline="central">IO48</text>
+<text class="s" x="784" y="881" text-anchor="start" dominant-baseline="central">25</text>
+<line class="w" x1="780" y1="890" x2="820" y2="890"/>
+<line class="w" x1="814" y1="890" x2="820" y2="890"/>
+<rect class="c" x="820" y="884" width="36" height="12"/>
+<line class="w" x1="856" y1="890" x2="862" y2="890"/>
+<text class="s" x="838" y="876" text-anchor="middle" dominant-baseline="central">1k</text>
+<line class="w" x1="862" y1="890" x2="920" y2="890"/>
+<polygon class="c" points="912,894 928,894 920,908"/>
+<line class="w" x1="912" y1="908" x2="928" y2="908"/>
+<line class="w" x1="920" y1="890" x2="920" y2="894"/>
+<line class="w" x1="920" y1="908" x2="920" y2="916"/>
+<line class="w" x1="920" y1="916" x2="920" y2="922"/>
+<line class="w" x1="911" y1="922" x2="929" y2="922"/>
+<line class="w" x1="915" y1="926" x2="925" y2="926"/>
+<line class="w" x1="918" y1="930" x2="922" y2="930"/>
+<text class="s" x="934" y="902" text-anchor="start" dominant-baseline="central">Status LED (green)</text>
+<g transform="translate(0,250)">
 <text class="th" x="60" y="934" text-anchor="start" dominant-baseline="central">J5 USB-C to the ESP32-S3 (flash and debug, no converter IC)</text>
 <rect class="c" x="60" y="954" width="110" height="142" rx="3"/>
 <text class="th" x="60" y="942" text-anchor="start" dominant-baseline="central"></text>
@@ -599,31 +728,14 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="177" y1="1086" x2="195" y2="1086"/>
 <line class="w" x1="181" y1="1090" x2="191" y2="1090"/>
 <line class="w" x1="184" y1="1094" x2="188" y2="1094"/>
-<line class="w" x1="760" y1="890" x2="780" y2="890"/>
-<text class="t" x="752" y="890" text-anchor="end" dominant-baseline="central">IO48</text>
-<text class="s" x="784" y="881" text-anchor="start" dominant-baseline="central">25</text>
-<line class="w" x1="780" y1="890" x2="820" y2="890"/>
-<line class="w" x1="814" y1="890" x2="820" y2="890"/>
-<rect class="c" x="820" y="884" width="36" height="12"/>
-<line class="w" x1="856" y1="890" x2="862" y2="890"/>
-<text class="s" x="838" y="876" text-anchor="middle" dominant-baseline="central">1k</text>
-<line class="w" x1="862" y1="890" x2="920" y2="890"/>
-<polygon class="c" points="912,894 928,894 920,908"/>
-<line class="w" x1="912" y1="908" x2="928" y2="908"/>
-<line class="w" x1="920" y1="890" x2="920" y2="894"/>
-<line class="w" x1="920" y1="908" x2="920" y2="916"/>
-<line class="w" x1="920" y1="916" x2="920" y2="922"/>
-<line class="w" x1="911" y1="922" x2="929" y2="922"/>
-<line class="w" x1="915" y1="926" x2="925" y2="926"/>
-<line class="w" x1="918" y1="930" x2="922" y2="930"/>
-<text class="s" x="934" y="902" text-anchor="start" dominant-baseline="central">Status LED (green)</text>
-<text class="th" x="40" y="1205" text-anchor="start" dominant-baseline="central">Notes</text>
-<text class="s" x="40" y="1223" text-anchor="start" dominant-baseline="central">Power: +5 V in, U2 makes +3V3 for the module and the board. 10 µF + 100 nF on both sides of U2, and on the module 3V3 pin.</text>
-<text class="s" x="40" y="1241" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
-<text class="s" x="40" y="1259" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF at the pin. Keep the pin voltage below about 2.5 V.</text>
-<text class="s" x="40" y="1277" text-anchor="start" dominant-baseline="central">MainSupp 51k/1.8k gives 2.05 V at 60 V. 5V_Meas 15k/10k gives 2.0 V. 3.3V_Meas 10k/10k gives 1.65 V.</text>
-<text class="s" x="40" y="1295" text-anchor="start" dominant-baseline="central">IO15 and IO16 are on ADC2 (Wi-Fi must stay off). Module is the N16 (quad flash, no PSRAM): IO47 (pGood) and IO48 (status LED) are 3.3 V and IO33-IO37 are free.</text>
-<text class="s" x="40" y="1313" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
-<text class="s" x="40" y="1331" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
-<text class="s" x="40" y="1349" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
-<text class="s" x="40" y="1367" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
+</g>
+<text class="th" x="40" y="1455" text-anchor="start" dominant-baseline="central">Notes</text>
+<text class="s" x="40" y="1473" text-anchor="start" dominant-baseline="central">Power: +5 V in, U2 makes +3V3 for the module and the board. 10 µF + 100 nF on both sides of U2, and on the module 3V3 pin.</text>
+<text class="s" x="40" y="1491" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
+<text class="s" x="40" y="1509" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF at the pin. Keep the pin voltage below about 2.5 V.</text>
+<text class="s" x="40" y="1527" text-anchor="start" dominant-baseline="central">MainSupp 51k/1.8k gives 2.05 V at 60 V. 5V_Meas 15k/10k gives 2.0 V. 3.3V_Meas 10k/10k gives 1.65 V.</text>
+<text class="s" x="40" y="1545" text-anchor="start" dominant-baseline="central">IO1, IO2, IO8, IO9, IO10 are ADC1. IO15 and IO16 are on ADC2 (Wi-Fi must stay off). Module is the N16 (quad flash, no PSRAM): IO47 (pGood) and IO48 (status LED) are 3.3 V. IO35-IO37 carry PWM_CH5-CH7.</text>
+<text class="s" x="40" y="1563" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
+<text class="s" x="40" y="1581" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
+<text class="s" x="40" y="1599" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
+<text class="s" x="40" y="1617" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
