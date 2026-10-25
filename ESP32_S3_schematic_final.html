@@ -1184,7 +1184,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="1100" y1="1634" x2="1110" y2="1634"/>
 <line class="w" x1="1103" y1="1638" x2="1107" y2="1638"/>
 </g>
-<text class="th" x="60" y="1580" text-anchor="start" dominant-baseline="central">Q2 Si2366DS: 12 V load switch, up to 1 A, via optocoupler U11 (IO45)</text>
+<text class="th" x="60" y="1580" text-anchor="start" dominant-baseline="central">Q2 DMG3406L-13: 12 V load switch, up to 1 A, via optocoupler U11 (IO45)</text>
 <polygon class="p" points="20,1663 98,1663 108,1672 98,1681 20,1681"/>
 <text class="pt" x="26" y="1672" text-anchor="start" dominant-baseline="central">LOAD_PWM</text>
 <line class="w" x1="116" y1="1672" x2="116" y2="1672"/>
@@ -1231,7 +1231,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <text class="s" x="280" y="1796" text-anchor="start" dominant-baseline="central">D5 15V</text>
 <rect class="c" x="300" y="1660" width="100" height="110" rx="3"/>
 <text class="th" x="350" y="1682" text-anchor="middle" dominant-baseline="central">Q2</text>
-<text class="s" x="350" y="1698" text-anchor="middle" dominant-baseline="central">Si2366DS</text>
+<text class="s" x="350" y="1698" text-anchor="middle" dominant-baseline="central">DMG3406L</text>
 <text class="t" x="308" y="1720" text-anchor="start" dominant-baseline="central">G (1)</text>
 <text class="t" x="392" y="1680" text-anchor="end" dominant-baseline="central">D (3)</text>
 <text class="t" x="392" y="1760" text-anchor="end" dominant-baseline="central">S (2)</text>
@@ -1384,7 +1384,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <text class="s" x="40" y="2172" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
 <text class="s" x="40" y="2190" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
 <text class="s" x="40" y="2208" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
-<text class="s" x="40" y="2226" text-anchor="start" dominant-baseline="central">Q2 Si2366DS (SOT-23) switches a 12 V load up to 1 A from IO45 (LOAD_PWM). Rds(on) is about 50 mΩ at 3 V and 70 mΩ at 125 °C (graphs), so about 0.07 W at 1 A.</text>
+<text class="s" x="40" y="2226" text-anchor="start" dominant-baseline="central">Q2 DMG3406L-13 (SOT-23, 30 V, 3.6 A, Vgs max ±20 V) switches a 12 V load up to 1 A from IO45 (LOAD_PWM). With the 12 V gate drive Rds(on) is 50 mΩ max (10 V), about 0.05 W at 1 A.</text>
 <text class="s" x="40" y="2244" text-anchor="start" dominant-baseline="central">Q2 is driven through optocoupler U11 (PC817): IO45 sources about 6 mA into the LED through 330 Ω.</text>
 <text class="s" x="40" y="2262" text-anchor="start" dominant-baseline="central">The phototransistor (collector to +12V, emitter to the gate) gives a 12 V gate drive, so Q2 is fully on. Active high.</text>
 <text class="s" x="40" y="2280" text-anchor="start" dominant-baseline="central">Q2 gate: 10 kΩ pull-down (off at reset) and D5 15 V zener gate to source.</text>
