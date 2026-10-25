@@ -594,7 +594,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <text class="s" x="40" y="1186" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
 <text class="s" x="40" y="1204" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF at the pin. Keep the pin voltage below about 2.5 V.</text>
 <text class="s" x="40" y="1222" text-anchor="start" dominant-baseline="central">MainSupp 51k/1.8k gives 2.05 V at 60 V. 5V_Meas 15k/10k gives 2.0 V. 3.3V_Meas 10k/10k gives 1.65 V.</text>
-<text class="s" x="40" y="1240" text-anchor="start" dominant-baseline="central">IO15 and IO16 are on ADC2 (Wi-Fi must stay off). IO47 may run at 1.8 V on octal-PSRAM modules.</text>
+<text class="s" x="40" y="1240" text-anchor="start" dominant-baseline="central">IO15 and IO16 are on ADC2 (Wi-Fi must stay off). Module is the N16 (quad flash, no PSRAM): IO47/IO48 are 3.3 V and IO33-IO37 are free.</text>
 <text class="s" x="40" y="1258" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
 <text class="s" x="40" y="1276" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
 <text class="s" x="40" y="1294" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
