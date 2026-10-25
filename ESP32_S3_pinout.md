@@ -46,3 +46,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - NTC pull-ups now use a 4.096 V REF5040 (U8) with 22 kΩ pull-ups (keeps the pin under 2.5 V down to about 0 °C). REF5025 (U4) remains only as the +2V5 clamp rail.
 - NTC1 is a 10 kΩ NTC (RT1) mounted on the board (no header). NTC2 stays on header J7 for the radiator sensor.
 - Alarm LED (IO40) now drives an NPN (BC847, 1 kΩ base, 100 kΩ pull-down). LED from +5V with 150 Ω, about 20 mA.
+- LEDs: only Alarm (IO40, transistor) and pGood (IO47). The Status LED and User LEDs were removed. IO48, IO3, IO45, IO46 are now buttons BTN1 to BTN4 (active high: button to +3V3, 10 kΩ pull-down, 1 kΩ series, 100 nF) for running without the Pi. Do not hold BTN2 to BTN4 at power-up or reset (strapping pins).
