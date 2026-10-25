@@ -44,3 +44,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - Final schematic: ESP32_S3_schematic_final.html/.png. Last free pins now carry User LED 1 to 3: IO3 (pin 15), IO45 (pin 26), IO46 (pin 16), each 1 kΩ to an LED to GND. These are strapping pins: keep the LEDs off during reset and boot.
 - U4 changed to REF5025 (2.5 V, 0.05%), with a 1 kΩ bleed resistor from +2V5 to GND so the BAT54 clamps can sink current.
 - NTC pull-ups now use a 4.096 V REF5040 (U8) with 22 kΩ pull-ups (keeps the pin under 2.5 V down to about 0 °C). REF5025 (U4) remains only as the +2V5 clamp rail.
+- NTC1 is a 10 kΩ NTC (RT1) mounted on the board (no header). NTC2 stays on header J7 for the radiator sensor.
