@@ -47,3 +47,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - NTC1 is a 10 kΩ NTC (RT1) mounted on the board (no header). NTC2 stays on header J7 for the radiator sensor.
 - Alarm LED (IO40) now drives an NPN (BC847, 1 kΩ base, 100 kΩ pull-down). LED from +5V with 150 Ω, about 20 mA.
 - LEDs: only Alarm (IO40, transistor) and pGood (IO47). The Status LED and User LEDs were removed. IO48, IO3, IO45, IO46 are now buttons BTN1 to BTN4 (active high: button to +3V3, 10 kΩ pull-down, 1 kΩ series, 100 nF) for running without the Pi. Do not hold BTN2 to BTN4 at power-up or reset (strapping pins).
+- Buttons moved to an MCP23008 I2C expander (U9, address 0x20, GP4 to GP7, BTN1 to BTN4), on the ESP32 I2C bus (IO41/IO42). INT goes to IO48 (MCP_INT). IO3, IO45, IO46 are free again. The user plans to use freed ESP32 pins as SPI chip selects (to be defined).
