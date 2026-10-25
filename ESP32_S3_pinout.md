@@ -45,3 +45,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - U4 changed to REF5025 (2.5 V, 0.05%), with a 1 kΩ bleed resistor from +2V5 to GND so the BAT54 clamps can sink current.
 - NTC pull-ups now use a 4.096 V REF5040 (U8) with 22 kΩ pull-ups (keeps the pin under 2.5 V down to about 0 °C). REF5025 (U4) remains only as the +2V5 clamp rail.
 - NTC1 is a 10 kΩ NTC (RT1) mounted on the board (no header). NTC2 stays on header J7 for the radiator sensor.
+- Alarm LED (IO40) now drives an NPN (BC847, 1 kΩ base, 100 kΩ pull-down). LED from +5V with 150 Ω, about 20 mA.
