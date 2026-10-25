@@ -2,7 +2,7 @@
   EM_MK5: 4 complementary PWM pairs with HARDWARE dead time on the ESP32-S3 (ESP-IDF v5.x, MCPWM).
 
   Pairs (see ESP32_S3_pinout.md):  A = Q1 gate, B = Q2 gate
-    pair 0: GPIO15 / GPIO16   PWM_CH1 / CH2  (MCPWM group 0, operator 0)
+    pair 0: GPIO38 / GPIO39   PWM_CH1 / CH2  (MCPWM group 0, operator 0)
     pair 1: GPIO6  / GPIO7    PWM_CH3 / CH4  (MCPWM group 0, operator 1)
     pair 2: GPIO35 / GPIO36  PWM_CH5 / CH6  (MCPWM group 0, operator 2)
     pair 3: GPIO37 / GPIO11  PWM_CH7 / CH8  (MCPWM group 1, operator 0)
@@ -29,8 +29,8 @@
 #define DUTY_MAX    0.90f
 
 #define NUM_PAIRS 4
-static const int pin_a[NUM_PAIRS] = {15, 6, 35, 37};
-static const int pin_b[NUM_PAIRS] = {16, 7, 36, 11};
+static const int pin_a[NUM_PAIRS] = {38, 6, 35, 37};
+static const int pin_b[NUM_PAIRS] = {39, 7, 36, 11};
 static const int group_of[NUM_PAIRS] = {0, 0, 0, 1};
 
 static mcpwm_timer_handle_t timer[2];
