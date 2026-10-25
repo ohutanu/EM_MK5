@@ -43,3 +43,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - Final digital map: PWM_CH1/CH2 on IO38/IO39 (pins 31/32), so the pairs are IO38/IO39, IO6/IO7, IO35/IO36, IO37/IO11. Ext_Trigg1 to Ext_Trigg4 on IO17, IO18, IO15, IO16 (pins 10, 11, 8, 9), which are ADC2 pins used as digital I/O. Ext_Trigg1/2 are outputs, Ext_Trigg3/4 are inputs. This replaces the earlier PWM and trigger assignments.
 - Final schematic: ESP32_S3_schematic_final.html/.png. Last free pins now carry User LED 1 to 3: IO3 (pin 15), IO45 (pin 26), IO46 (pin 16), each 1 kΩ to an LED to GND. These are strapping pins: keep the LEDs off during reset and boot.
 - U4 changed to REF5025 (2.5 V, 0.05%), with a 1 kΩ bleed resistor from +2V5 to GND so the BAT54 clamps can sink current.
+- NTC pull-ups now use a 4.096 V REF5040 (U8) with 22 kΩ pull-ups (keeps the pin under 2.5 V down to about 0 °C). REF5025 (U4) remains only as the +2V5 clamp rail.

@@ -8,7 +8,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 .c{stroke:var(--bd);stroke-width:1.2;fill:var(--box)}.m{stroke:var(--bd);stroke-width:1.5;fill:var(--mod)}
 .p{stroke:var(--pb);stroke-width:1;fill:var(--port)}
 .t{font-size:12px;fill:var(--t)}.s{font-size:11px;fill:var(--m)}.th{font-size:13px;font-weight:600;fill:var(--t)}.pt{font-size:12px;fill:var(--t)}
-</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1-N16R2 controller schematic (FINAL)</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1800" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="1250" rx="4"/>
+</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1-N16R2 controller schematic (FINAL)</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1820" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="1250" rx="4"/>
 <text class="th" x="660.0" y="144" text-anchor="middle" dominant-baseline="central">ESP32-S3-WROOM-1</text>
 <text class="s" x="660.0" y="161" text-anchor="middle" dominant-baseline="central">U1 (module pin numbers)</text>
 <line class="w" x1="600" y1="1380" x2="600" y2="1394"/>
@@ -167,7 +167,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="465" y1="450" x2="475" y2="450"/>
 <line class="w" x1="468" y1="454" x2="472" y2="454"/>
 <text class="s" x="486" y="420" text-anchor="start" dominant-baseline="central">BOOT</text>
-<text class="th" x="850" y="34" text-anchor="start" dominant-baseline="central">U4 REF5025 (2.5 V reference and clamp rail)</text>
+<text class="th" x="850" y="34" text-anchor="start" dominant-baseline="central">U4 REF5025 (2.5 V clamp rail)</text>
 <rect class="m" x="900" y="52" width="120" height="90" rx="4"/>
 <text class="th" x="960" y="68" text-anchor="middle" dominant-baseline="central">REF5025</text>
 <text class="s" x="960" y="84" text-anchor="middle" dominant-baseline="central">SOIC-8</text>
@@ -216,6 +216,44 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="955" y1="160" x2="965" y2="160"/>
 <line class="w" x1="958" y1="164" x2="962" y2="164"/>
 <text class="s" x="960" y="132" text-anchor="middle" dominant-baseline="central">4 GND</text>
+<text class="th" x="940" y="222" text-anchor="start" dominant-baseline="central">U8 REF5040 (4.096 V for the NTC pull-ups)</text>
+<rect class="m" x="1000" y="240" width="120" height="90" rx="4"/>
+<text class="th" x="1060" y="256" text-anchor="middle" dominant-baseline="central">REF5040</text>
+<text class="s" x="1060" y="272" text-anchor="middle" dominant-baseline="central">SOIC-8</text>
+<text class="s" x="1008" y="290" text-anchor="start" dominant-baseline="central">2 VIN</text>
+<text class="s" x="1008" y="306" text-anchor="start" dominant-baseline="central">3 NC</text>
+<text class="s" x="1112" y="290" text-anchor="end" dominant-baseline="central">VOUT 6</text>
+<text class="s" x="1112" y="306" text-anchor="end" dominant-baseline="central">NC 5</text>
+<text class="s" x="1060" y="322" text-anchor="middle" dominant-baseline="central">4 GND</text>
+<line class="w" x1="960" y1="290" x2="1000" y2="290"/>
+<text class="s" x="956" y="278" text-anchor="start" dominant-baseline="central">+5V</text>
+<circle class="d" cx="975" cy="290" r="3"/>
+<line class="w" x1="975" y1="290" x2="975" y2="300"/>
+<line class="w" x1="966" y1="300" x2="984" y2="300"/>
+<line class="w" x1="966" y1="306" x2="984" y2="306"/>
+<line class="w" x1="975" y1="306" x2="975" y2="316"/>
+<line class="w" x1="975" y1="316" x2="975" y2="322"/>
+<line class="w" x1="966" y1="322" x2="984" y2="322"/>
+<line class="w" x1="970" y1="326" x2="980" y2="326"/>
+<line class="w" x1="973" y1="330" x2="977" y2="330"/>
+<text class="s" x="975" y="342" text-anchor="middle" dominant-baseline="central">1µ</text>
+<line class="w" x1="1120" y1="290" x2="1240" y2="290"/>
+<circle class="d" cx="1150" cy="290" r="3"/>
+<line class="w" x1="1150" y1="290" x2="1150" y2="300"/>
+<line class="w" x1="1141" y1="300" x2="1159" y2="300"/>
+<line class="w" x1="1141" y1="306" x2="1159" y2="306"/>
+<line class="w" x1="1150" y1="306" x2="1150" y2="316"/>
+<line class="w" x1="1150" y1="316" x2="1150" y2="322"/>
+<line class="w" x1="1141" y1="322" x2="1159" y2="322"/>
+<line class="w" x1="1145" y1="326" x2="1155" y2="326"/>
+<line class="w" x1="1148" y1="330" x2="1152" y2="330"/>
+<text class="s" x="1150" y="342" text-anchor="middle" dominant-baseline="central">10µ</text>
+<text class="t" x="1246" y="290" text-anchor="start" dominant-baseline="central">+4V096</text>
+<line class="w" x1="1060" y1="330" x2="1060" y2="338"/>
+<line class="w" x1="1060" y1="338" x2="1060" y2="344"/>
+<line class="w" x1="1051" y1="344" x2="1069" y2="344"/>
+<line class="w" x1="1055" y1="348" x2="1065" y2="348"/>
+<line class="w" x1="1058" y1="352" x2="1062" y2="352"/>
 <line class="w" x1="540" y1="490" x2="560" y2="490"/>
 <text class="t" x="568" y="490" text-anchor="start" dominant-baseline="central">IO1 / ADC1</text>
 <text class="s" x="536" y="481" text-anchor="end" dominant-baseline="central">39</text>
@@ -496,8 +534,8 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <rect class="c" x="344" y="888" width="12" height="36"/>
 <line class="w" x1="350" y1="888" x2="350" y2="882"/>
 <line class="w" x1="342" y1="882" x2="358" y2="882"/>
-<text class="s" x="336" y="882" text-anchor="end" dominant-baseline="central">+2V5</text>
-<text class="s" x="362" y="906" text-anchor="start" dominant-baseline="central">10k</text>
+<text class="s" x="336" y="882" text-anchor="end" dominant-baseline="central">+4V096</text>
+<text class="s" x="362" y="906" text-anchor="start" dominant-baseline="central">22k</text>
 <line class="w" x1="374" y1="930" x2="380" y2="930"/>
 <rect class="c" x="380" y="924" width="36" height="12"/>
 <line class="w" x1="416" y1="930" x2="422" y2="930"/>
@@ -549,8 +587,8 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <rect class="c" x="344" y="968" width="12" height="36"/>
 <line class="w" x1="350" y1="968" x2="350" y2="962"/>
 <line class="w" x1="342" y1="962" x2="358" y2="962"/>
-<text class="s" x="336" y="962" text-anchor="end" dominant-baseline="central">+2V5</text>
-<text class="s" x="362" y="986" text-anchor="start" dominant-baseline="central">10k</text>
+<text class="s" x="336" y="962" text-anchor="end" dominant-baseline="central">+4V096</text>
+<text class="s" x="362" y="986" text-anchor="start" dominant-baseline="central">22k</text>
 <line class="w" x1="374" y1="1010" x2="380" y2="1010"/>
 <rect class="c" x="380" y="1004" width="36" height="12"/>
 <line class="w" x1="416" y1="1010" x2="422" y2="1010"/>
@@ -950,15 +988,17 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <text class="s" x="40" y="1513" text-anchor="start" dominant-baseline="central">Power: +5 V in, U2 makes +3V3 for the module and the board. 10 µF + 100 nF on both sides of U2, and on the module 3V3 pin.</text>
 <text class="s" x="40" y="1531" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
 <text class="s" x="40" y="1549" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF, then two BAT54 clamps at the pin (one to +2V5, one to GND). The pin stays between about -0.3 V and 2.8 V.</text>
-<text class="s" x="40" y="1567" text-anchor="start" dominant-baseline="central">U4 (REF5025) makes the +2V5 rail from +3V3. The 1 kΩ bleed to GND lets the clamps sink current, because the reference can only source. Keep the normal signal below about 2.5 V (ADC linear range). The 1 kΩ limits the clamp current if an input fails.</text>
-<text class="s" x="40" y="1585" text-anchor="start" dominant-baseline="central">MainSupp (52 V battery) 100k/3.9k: 62 V gives 2.33 V, 58.4 V gives 2.19 V. 12V_Meas 56k/10k: 12 V gives 1.82 V, 14.4 V gives 2.18 V.</text>
-<text class="s" x="40" y="1603" text-anchor="start" dominant-baseline="central">Batt_V (battery 48 to 52 V, 58.4 V when full) 100k/3.9k: 48 V gives 1.76 V, 52 V gives 1.90 V, 58.4 V gives 2.19 V.</text>
-<text class="s" x="40" y="1621" text-anchor="start" dominant-baseline="central">5V_Meas 12k/10k: 5 V gives 2.27 V. 3.3V_Meas 4.7k/10k: 3.3 V gives 2.24 V. NTC1 and NTC2: 10 kΩ NTC to GND, 10 kΩ pull-up to +2V5. [CONFIRM] NTC value.</text>
-<text class="s" x="40" y="1639" text-anchor="start" dominant-baseline="central">All 7 analog inputs are on ADC1 (IO1, IO2, IO4, IO5, IO8, IO9, IO10), so they keep working with Wi-Fi on.</text>
-<text class="s" x="40" y="1657" text-anchor="start" dominant-baseline="central">PWM_CH1/CH2 are on IO38/IO39 and Ext_Trigg1-4 are on IO17, IO18, IO15, IO16 (ADC2 pins used as digital I/O).</text>
-<text class="s" x="40" y="1675" text-anchor="start" dominant-baseline="central">User LEDs 1 to 3 use the last free pins: IO3, IO45 and IO46 (strapping pins). With a 1 kΩ to the LED to GND they stay low at reset, which is the default strap level. Keep them off during boot.</text>
-<text class="s" x="40" y="1693" text-anchor="start" dominant-baseline="central">Module is the N16R2 (quad flash, quad PSRAM; [CONFIRM] in the ordering table): IO47 (pGood) and IO48 (status LED) are 3.3 V. IO35-IO37 carry PWM_CH5-CH7.</text>
-<text class="s" x="40" y="1711" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
-<text class="s" x="40" y="1729" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
-<text class="s" x="40" y="1747" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
-<text class="s" x="40" y="1765" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
+<text class="s" x="40" y="1567" text-anchor="start" dominant-baseline="central">U4 (REF5025) makes the +2V5 rail from +3V3. The 1 kΩ bleed to GND lets the clamps sink current, because the reference can only source.</text>
+<text class="s" x="40" y="1585" text-anchor="start" dominant-baseline="central">Keep the normal signal below about 2.5 V (ADC linear range). The 1 kΩ limits the clamp current if an input fails.</text>
+<text class="s" x="40" y="1603" text-anchor="start" dominant-baseline="central">MainSupp (52 V battery) 100k/3.9k: 62 V gives 2.33 V, 58.4 V gives 2.19 V. 12V_Meas 56k/10k: 12 V gives 1.82 V, 14.4 V gives 2.18 V.</text>
+<text class="s" x="40" y="1621" text-anchor="start" dominant-baseline="central">Batt_V (battery 48 to 52 V, 58.4 V when full) 100k/3.9k: 48 V gives 1.76 V, 52 V gives 1.90 V, 58.4 V gives 2.19 V.</text>
+<text class="s" x="40" y="1639" text-anchor="start" dominant-baseline="central">5V_Meas 12k/10k: 5 V gives 2.27 V. 3.3V_Meas 4.7k/10k: 3.3 V gives 2.24 V. NTC1 and NTC2: 10 kΩ NTC to GND, 22 kΩ pull-up to +4V096 (U8). [CONFIRM] NTC value.</text>
+<text class="s" x="40" y="1657" text-anchor="start" dominant-baseline="central">The 22 kΩ keeps the pin below 2.5 V down to about 0 °C (2.45 V). An open or unplugged sensor reads 4.1 V, and the BAT54 clamp holds the pin near 2.8 V.</text>
+<text class="s" x="40" y="1675" text-anchor="start" dominant-baseline="central">All 7 analog inputs are on ADC1 (IO1, IO2, IO4, IO5, IO8, IO9, IO10), so they keep working with Wi-Fi on.</text>
+<text class="s" x="40" y="1693" text-anchor="start" dominant-baseline="central">PWM_CH1/CH2 are on IO38/IO39 and Ext_Trigg1-4 are on IO17, IO18, IO15, IO16 (ADC2 pins used as digital I/O).</text>
+<text class="s" x="40" y="1711" text-anchor="start" dominant-baseline="central">User LEDs 1 to 3 use the last free pins: IO3, IO45 and IO46 (strapping pins). With a 1 kΩ to the LED to GND they stay low at reset, which is the default strap level. Keep them off during boot.</text>
+<text class="s" x="40" y="1729" text-anchor="start" dominant-baseline="central">Module is the N16R2 (quad flash, quad PSRAM; [CONFIRM] in the ordering table): IO47 (pGood) and IO48 (status LED) are 3.3 V. IO35-IO37 carry PWM_CH5-CH7.</text>
+<text class="s" x="40" y="1747" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
+<text class="s" x="40" y="1765" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
+<text class="s" x="40" y="1783" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
+<text class="s" x="40" y="1801" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
