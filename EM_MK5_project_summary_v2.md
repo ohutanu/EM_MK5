@@ -32,6 +32,7 @@ A 100 mm toroidal NdFeB magnet is shuttled left-to-right and back between two 3 
 - Dead time: the 2EDN7534R has no built-in dead time. Insert at least 500 ns, plus ACPL delay mismatch (100 ns max). Start at about 1 µs.
 - ADC0: bus voltage. ADC1: battery voltage. Both read through the divider in section 8, and the Pi gets the values over SPI.
 - Trigger output: was GP4, which now conflicts with PWM. Reassign to another GPIO. **[CONFIRM]**
+- **Option (25 Oct 2026):** the RP2040 can be replaced by an ESP32-S3-WROOM-1 (hardware dead time via MCPWM, SPI2 slave, ADC1). Full pin map from the Pico schematic in ESP32_S3_pinout.md. **[CONFIRM]** pins against the module datasheet.
 
 ### 2.3 Precision ADC: AD4691 (replaces ADS8688A and MCP3208)
 - 16-channel, 16-bit, 500 kSPS multiplexed SAR with per-channel averaging, 4-wire SPI
