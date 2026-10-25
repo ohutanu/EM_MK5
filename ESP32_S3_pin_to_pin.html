@@ -28,6 +28,7 @@ svg{width:100%;max-width:980px;height:auto;display:block;margin:0 auto}
 <line class="l g3" x1="280" y1="499.0" x2="700" y2="499.0"/>
 <line class="l g3" x1="280" y1="525.0" x2="700" y2="525.0"/>
 <line class="l g3" x1="280" y1="551.0" x2="700" y2="551.0"/>
+<line class="l g3" x1="280" y1="577.0" x2="700" y2="577.0"/>
 <line class="l g4" x1="280" y1="641.0" x2="700" y2="641.0"/>
 <line class="l g4" x1="280" y1="667.0" x2="700" y2="667.0"/>
 <line class="l g4" x1="280" y1="693.0" x2="700" y2="693.0"/>
@@ -122,9 +123,9 @@ svg{width:100%;max-width:980px;height:auto;display:block;margin:0 auto}
 <text class="t" x="708" y="551.0" dominant-baseline="central">IO8 / ADC1 · pin 12</text>
 <rect class="b g3" x="30" y="566" width="250" height="22" rx="4"/>
 <text class="t" x="38" y="577.0" dominant-baseline="central">pin 35 · ADC_VREF</text>
-<text class="s" x="272" y="577.0" text-anchor="end" dominant-baseline="central">REF_3.3</text>
+<text class="s" x="272" y="577.0" text-anchor="end" dominant-baseline="central">Analog_4 (new, was REF_3.3)</text>
 <rect class="b g3" x="700" y="566" width="250" height="22" rx="4"/>
-<text class="t" x="708" y="577.0" dominant-baseline="central">not connected</text>
+<text class="t" x="708" y="577.0" dominant-baseline="central">IO9 / ADC1 · pin 17</text>
 <text class="gt" x="30" y="614">External triggers</text>
 <rect class="b g4" x="30" y="630" width="250" height="22" rx="4"/>
 <text class="t" x="38" y="641.0" dominant-baseline="central">pin 4 · GP2</text>
@@ -140,7 +141,7 @@ svg{width:100%;max-width:980px;height:auto;display:block;margin:0 auto}
 <text class="t" x="38" y="693.0" dominant-baseline="central">pin 27 · GP21</text>
 <text class="s" x="272" y="693.0" text-anchor="end" dominant-baseline="central">Ext_Trigg3</text>
 <rect class="b g4" x="700" y="682" width="250" height="22" rx="4"/>
-<text class="t" x="708" y="693.0" dominant-baseline="central">IO9 · pin 17</text>
+<text class="t" x="708" y="693.0" dominant-baseline="central">IO47 · pin 24</text>
 <rect class="b g4" x="30" y="708" width="250" height="22" rx="4"/>
 <text class="t" x="38" y="719.0" dominant-baseline="central">pin 29 · GP22</text>
 <text class="s" x="272" y="719.0" text-anchor="end" dominant-baseline="central">Ext_Trigg4</text>
@@ -195,7 +196,7 @@ svg{width:100%;max-width:980px;height:auto;display:block;margin:0 auto}
 <rect class="b g7" x="700" y="1056" width="250" height="22" rx="4"/>
 <text class="t" x="708" y="1067.0" dominant-baseline="central">3V3 (from an LDO) · pin 2</text>
 <rect class="b g7" x="30" y="1082" width="250" height="22" rx="4"/>
-<text class="t" x="38" y="1093.0" dominant-baseline="central">all GND pins</text>
+<text class="t" x="38" y="1093.0" dominant-baseline="central">pin all · GND</text>
 <text class="s" x="272" y="1093.0" text-anchor="end" dominant-baseline="central">GND</text>
 <rect class="b g7" x="700" y="1082" width="250" height="22" rx="4"/>
 <text class="t" x="708" y="1093.0" dominant-baseline="central">GND · pin 1, 40, 41</text>
@@ -203,4 +204,4 @@ svg{width:100%;max-width:980px;height:auto;display:block;margin:0 auto}
 <text class="t" x="38" y="1119.0" dominant-baseline="central">pin 39 / 40 · VSYS / VBUS</text>
 <text class="s" x="272" y="1119.0" text-anchor="end" dominant-baseline="central">+5 V in</text>
 <rect class="b g7" x="700" y="1108" width="250" height="22" rx="4"/>
-<text class="t" x="708" y="1119.0" dominant-baseline="central">LDO input (not a module pin)</text><text class="s" x="30" y="1168">Module pin numbers and all GPIO choices: [CONFIRM] against the ESP32-S3-WROOM-1 datasheet before routing the board.</text><text class="s" x="30" y="1184">ADC inputs: ADC1 only, keep the pin voltage below about 2.5 V. 3V3 needs its own LDO (the module has no 3V3 output).</text></svg></body></html>
+<text class="t" x="708" y="1119.0" dominant-baseline="central">LDO input (not a module pin)</text><text class="s" x="30" y="1168">Module pin numbers and all GPIO choices: [CONFIRM] against the ESP32-S3-WROOM-1 datasheet before routing the board.</text><text class="s" x="30" y="1184">ADC inputs: ADC1 only, below about 2.5 V. 3V3 needs its own LDO. IO47: may run at 1.8 V on octal-PSRAM modules, check.</text></svg></body></html>

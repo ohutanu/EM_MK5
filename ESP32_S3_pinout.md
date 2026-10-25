@@ -11,9 +11,9 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 | MainSupp | GP28 (ADC2) | GPIO1 | ADC1 |
 | 5V_Meas | GP27 (ADC1) | GPIO2 | ADC1 |
 | 3.3V_Meas | GP26 (ADC0) | GPIO8 | ADC1 |
-| ADC_VREF | pin 35 | none | No reference pin. Remove the REF_3.3 net. |
+| ADC_VREF (REF_3.3) | pin 35 | GPIO9 | No reference pin on the ESP32. The slot is reused as a fourth analog input, Analog_4 (ADC1 channel 8). |
 | Ext_Trigg1, Ext_Trigg2 | GP2, GP3 | GPIO14, GPIO21 | Outputs (read from the arrow shapes). |
-| Ext_Trigg3, Ext_Trigg4 | GP21, GP22 | GPIO9, GPIO38 | Inputs. |
+| Ext_Trigg3, Ext_Trigg4 | GP21, GP22 | GPIO47, GPIO38 | Inputs. **[CONFIRM]** GPIO47 may run at 1.8 V on octal-PSRAM (R8) modules. |
 | UART TX / RX (J1) | GP0, GP1 | GPIO43 (TX0), GPIO44 (RX0) | Also the programming port. |
 | I2C SDA / SCL (J2) | GP4, GP5 | GPIO41, GPIO42 | |
 | Alarm LED (D3) | GP14 | GPIO39 | |
