@@ -712,18 +712,6 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="780" y1="412" x2="800" y2="412"/>
 <polygon class="p" points="800,403 894,403 904,412 894,421 800,421"/>
 <text class="pt" x="806" y="412" text-anchor="start" dominant-baseline="central">Ext_Trigg2</text>
-<line class="w" x1="760" y1="434" x2="780" y2="434"/>
-<text class="t" x="752" y="434" text-anchor="end" dominant-baseline="central">IO15</text>
-<text class="s" x="784" y="425" text-anchor="start" dominant-baseline="central">8</text>
-<line class="w" x1="780" y1="434" x2="800" y2="434"/>
-<polygon class="p" points="800,425 894,425 904,434 894,443 800,443"/>
-<text class="pt" x="806" y="434" text-anchor="start" dominant-baseline="central">Ext_Trigg3</text>
-<line class="w" x1="760" y1="456" x2="780" y2="456"/>
-<text class="t" x="752" y="456" text-anchor="end" dominant-baseline="central">IO16</text>
-<text class="s" x="784" y="447" text-anchor="start" dominant-baseline="central">9</text>
-<line class="w" x1="780" y1="456" x2="800" y2="456"/>
-<polygon class="p" points="800,447 894,447 904,456 894,465 800,465"/>
-<text class="pt" x="806" y="456" text-anchor="start" dominant-baseline="central">Ext_Trigg4</text>
 <rect class="c" x="1000" y="494" width="80" height="76" rx="3"/>
 <text class="th" x="1000" y="482" text-anchor="start" dominant-baseline="central">J1 UART</text>
 <text class="s" x="1008" y="510" text-anchor="start" dominant-baseline="central">1</text>
@@ -1351,7 +1339,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <text class="s" x="40" y="1974" text-anchor="start" dominant-baseline="central">5V_Meas 12k/10k: 5 V gives 2.27 V. 3.3V_Meas 4.7k/10k: 3.3 V gives 2.24 V. NTC1 (RT1, on the board) and NTC2 (sensor on header J7): 10 kΩ NTC to GND, 22 kΩ pull-up to +4V096 (U8). [CONFIRM] NTC value.</text>
 <text class="s" x="40" y="1992" text-anchor="start" dominant-baseline="central">The 22 kΩ keeps the pin below 2.5 V down to about 0 °C (2.45 V). An open or unplugged sensor reads 4.1 V, and the BAT54 clamp holds the pin near 2.8 V.</text>
 <text class="s" x="40" y="2010" text-anchor="start" dominant-baseline="central">All 7 analog inputs are on ADC1 (IO1, IO2, IO4, IO5, IO8, IO9, IO10), so they keep working with Wi-Fi on.</text>
-<text class="s" x="40" y="2028" text-anchor="start" dominant-baseline="central">PWM_CH1/CH2 are on IO38/IO39 and Ext_Trigg1-4 are on IO17, IO18, IO15, IO16 (ADC2 pins used as digital I/O).</text>
+<text class="s" x="40" y="2028" text-anchor="start" dominant-baseline="central">PWM_CH1/CH2 are on IO38/IO39 and Ext_Trigg1/2 (outputs) are on IO17, IO18 (ADC2 pins used as digital I/O). Ext_Trigg3/4 were dropped, so IO15 and IO16 are free.</text>
 <text class="s" x="40" y="2046" text-anchor="start" dominant-baseline="central">Alarm LED: IO40 drives Q1 (1 kΩ base, 100 kΩ pull-down). The LED runs from +5V with 150 Ω, about 20 mA (check the LED rating).</text>
 <text class="s" x="40" y="2064" text-anchor="start" dominant-baseline="central">Buttons BTN1 to BTN4 are on the MCP23008 (U9) pins GP4 to GP7, to GND. Enable its internal pull-ups (GPPU). I2C address 0x20 (A0, A1, A2 to GND). INT (IO48) signals a button press. [CONFIRM] MCP23008 pin numbers.</text>
 <text class="s" x="40" y="2082" text-anchor="start" dominant-baseline="central">U10 ULN2003A: IN1 and IN2 carry Ext_Trigg1/2 (open-collector outputs on J11), IN3 is FAN_PWM (IO3) sinking the fan on J12.</text>
