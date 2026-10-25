@@ -36,3 +36,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - **Boot:** pins float during reset. The 10 kΩ pull-downs on the ULN2803 inputs keep the gates off.
 - IO48 (module pin 25): Status LED (green) with 1 kΩ. Module is the N16 (quad flash, no PSRAM), so IO47/IO48 are 3.3 V.
 - New analog inputs on ADC1: Analog_5 = IO8 (pin 12), Analog_6 = IO9 (pin 17), Analog_7 = IO10 (pin 18). Each has a divider, 1 kΩ and 100 nF, below about 2.5 V.
+- Analog protection: every analog input has 1 kΩ, 100 nF and two BAT54 clamps at the pin (one to +2V5, one to GND). U4 REF3025 makes the +2V5 rail from +3V3 (1 µF out).
