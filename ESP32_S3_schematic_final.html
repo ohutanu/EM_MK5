@@ -1176,14 +1176,41 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="250" y1="1700" x2="250" y2="1706"/>
 <rect class="c" x="244" y="1706" width="12" height="36"/>
 <line class="w" x1="250" y1="1742" x2="250" y2="1748"/>
-<text class="s" x="261" y="1724" text-anchor="start" dominant-baseline="central">100k</text>
+<text class="s" x="261" y="1724" text-anchor="start" dominant-baseline="central"></text>
 <line class="w" x1="250" y1="1748" x2="250" y2="1754"/>
 <line class="w" x1="250" y1="1754" x2="250" y2="1760"/>
 <line class="w" x1="241" y1="1760" x2="259" y2="1760"/>
 <line class="w" x1="245" y1="1764" x2="255" y2="1764"/>
 <line class="w" x1="248" y1="1768" x2="252" y2="1768"/>
+<text class="s" x="236" y="1728" text-anchor="end" dominant-baseline="central">100k</text>
+<circle class="d" cx="280" cy="1706" r="3"/>
+<line class="w" x1="280" y1="1706" x2="280" y2="1720"/>
+<line class="w" x1="273" y1="1720" x2="287" y2="1720"/>
+<polygon class="c" points="273,1736 287,1736 280,1722"/>
+<line class="w" x1="280" y1="1736" x2="280" y2="1750"/>
+<line class="w" x1="280" y1="1750" x2="280" y2="1756"/>
+<line class="w" x1="271" y1="1756" x2="289" y2="1756"/>
+<line class="w" x1="275" y1="1760" x2="285" y2="1760"/>
+<line class="w" x1="278" y1="1764" x2="282" y2="1764"/>
+<text class="s" x="280" y="1778" text-anchor="middle" dominant-baseline="central">D5 5V1</text>
+<circle class="d" cx="165" cy="1706" r="3"/>
+<line class="w" x1="165" y1="1706" x2="165" y2="1694"/>
+<polygon class="c" points="158,1694 172,1694 165,1680"/>
+<line class="w" x1="158" y1="1678" x2="172" y2="1678"/>
+<line class="w" x1="165" y1="1678" x2="165" y2="1668"/>
+<line class="w" x1="157" y1="1668" x2="173" y2="1668"/>
+<text class="s" x="178" y="1668" text-anchor="start" dominant-baseline="central">+3V3</text>
+<line class="w" x1="165" y1="1706" x2="165" y2="1718"/>
+<line class="w" x1="158" y1="1718" x2="172" y2="1718"/>
+<polygon class="c" points="158,1734 172,1734 165,1720"/>
+<line class="w" x1="165" y1="1734" x2="165" y2="1744"/>
+<line class="w" x1="165" y1="1744" x2="165" y2="1750"/>
+<line class="w" x1="156" y1="1750" x2="174" y2="1750"/>
+<line class="w" x1="160" y1="1754" x2="170" y2="1754"/>
+<line class="w" x1="163" y1="1758" x2="167" y2="1758"/>
+<text class="s" x="165" y="1778" text-anchor="middle" dominant-baseline="central">D4 BAT54S</text>
 <rect class="c" x="300" y="1660" width="100" height="90" rx="3"/>
-<text class="s" x="350" y="1760" text-anchor="middle" dominant-baseline="central">Q2 Si2366DS (SOT-23)</text>
+<text class="s" x="350" y="1648" text-anchor="middle" dominant-baseline="central">Q2 Si2366DS (SOT-23)</text>
 <text class="t" x="308" y="1706" text-anchor="start" dominant-baseline="central">G (1)</text>
 <text class="t" x="392" y="1680" text-anchor="end" dominant-baseline="central">D (3)</text>
 <text class="t" x="392" y="1734" text-anchor="end" dominant-baseline="central">S (2)</text>
@@ -1336,4 +1363,5 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <text class="s" x="40" y="2190" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
 <text class="s" x="40" y="2208" text-anchor="start" dominant-baseline="central">Q2 Si2366DS (SOT-23) switches a 12 V load up to 1 A from IO45 (LOAD_PWM). Rds(on) is about 50 mΩ at 3 V and 70 mΩ at 125 °C (graphs), so about 0.07 W at 1 A.</text>
 <text class="s" x="40" y="2226" text-anchor="start" dominant-baseline="central">Q2 protection: 100 Ω gate resistor, 100 kΩ gate pull-down (off at reset, IO45 is a strapping pin), F1 PTC fuse 1.5 A hold, D2 SS14 flyback diode, D3 SMAJ15A TVS drain to GND.</text>
-<text class="s" x="40" y="2244" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
+<text class="s" x="40" y="2244" text-anchor="start" dominant-baseline="central">IO45 pin protection: D4 BAT54S clamps the pin side of the 100 Ω to +3V3 and GND (pin 1 GND, pin 2 +3V3, pin 3 to the net). D5 5.1 V zener (BZX84-C5V1) gate to source limits the gate.</text>
+<text class="s" x="40" y="2262" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
