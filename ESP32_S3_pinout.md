@@ -38,3 +38,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
 - New analog inputs on ADC1: Analog_5 = IO8 (pin 12), Analog_6 = IO9 (pin 17), Analog_7 = IO10 (pin 18). Each has a divider, 1 kΩ and 100 nF, below about 2.5 V.
 - Analog protection: every analog input has 1 kΩ, 100 nF and two BAT54 clamps at the pin (one to +2V5, one to GND). U4 REF3025 makes the +2V5 rail from +3V3 (1 µF out).
 - Final analog map: IO1 MainSupp (52 V battery, 100k/3.9k), IO2 5V_Meas (12k/10k), IO15 3.3V_Meas (4.7k/10k, ADC2), IO8 12V_Meas (56k/10k), IO9 NTC1 and IO10 NTC2 (10 kΩ NTC to GND, 10 kΩ pull-up to +2V5). IO16 is spare. This replaces Analog_4 to Analog_7.
+- Batt_V (battery 48 to 52 V, 58.4 V full): IO16 (pin 9, ADC2), 100k/3.9k, 1 kΩ, 100 nF and the BAT54 clamps.
