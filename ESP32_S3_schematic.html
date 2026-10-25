@@ -8,7 +8,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 .c{stroke:var(--bd);stroke-width:1.2;fill:var(--box)}.m{stroke:var(--bd);stroke-width:1.5;fill:var(--mod)}
 .p{stroke:var(--pb);stroke-width:1;fill:var(--port)}
 .t{font-size:12px;fill:var(--t)}.s{font-size:11px;fill:var(--m)}.th{font-size:13px;font-weight:600;fill:var(--t)}.pt{font-size:12px;fill:var(--t)}
-</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1 controller schematic</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1730" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="1250" rx="4"/>
+</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1 controller schematic</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1750" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="1250" rx="4"/>
 <text class="th" x="660.0" y="144" text-anchor="middle" dominant-baseline="central">ESP32-S3-WROOM-1</text>
 <text class="s" x="660.0" y="161" text-anchor="middle" dominant-baseline="central">U1 (module pin numbers)</text>
 <line class="w" x1="600" y1="1380" x2="600" y2="1394"/>
@@ -307,8 +307,8 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="492" y1="536" x2="508" y2="536"/>
 <text class="s" x="488" y="536" text-anchor="end" dominant-baseline="central">+2V5</text>
 <line class="w" x1="540" y1="650" x2="560" y2="650"/>
-<text class="t" x="568" y="650" text-anchor="start" dominant-baseline="central">IO15 / ADC2</text>
-<text class="s" x="536" y="641" text-anchor="end" dominant-baseline="central">8</text>
+<text class="t" x="568" y="650" text-anchor="start" dominant-baseline="central">IO4 / ADC1</text>
+<text class="s" x="536" y="641" text-anchor="end" dominant-baseline="central">4</text>
 <polygon class="p" points="154,641 240,641 250,650 240,659 154,659"/>
 <text class="pt" x="160" y="650" text-anchor="start" dominant-baseline="central">3.3V_Meas</text>
 <line class="w" x1="250" y1="650" x2="284" y2="650"/>
@@ -410,64 +410,63 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="500" y1="704" x2="500" y2="696"/>
 <line class="w" x1="492" y1="696" x2="508" y2="696"/>
 <text class="s" x="488" y="696" text-anchor="end" dominant-baseline="central">+2V5</text>
-<line class="w" x1="540" y1="850" x2="560" y2="850"/>
-<text class="t" x="568" y="850" text-anchor="start" dominant-baseline="central">IO9 / ADC1</text>
-<text class="s" x="536" y="841" text-anchor="end" dominant-baseline="central">17</text>
-<rect class="c" x="100" y="834" width="100" height="54" rx="3"/>
-<text class="th" x="100" y="822" text-anchor="start" dominant-baseline="central">J6 NTC1 (10k NTC)</text>
-<text class="s" x="108" y="850" text-anchor="start" dominant-baseline="central">1</text>
-<text class="s" x="192" y="850" text-anchor="end" dominant-baseline="central">NTC</text>
-<text class="s" x="108" y="872" text-anchor="start" dominant-baseline="central">2</text>
-<text class="s" x="192" y="872" text-anchor="end" dominant-baseline="central">GND</text>
-<line class="w" x1="200" y1="850" x2="350" y2="850"/>
-<circle class="d" cx="350" cy="850" r="3"/>
-<line class="w" x1="200" y1="872" x2="216" y2="872"/>
-<line class="w" x1="216" y1="872" x2="216" y2="878"/>
-<line class="w" x1="207" y1="878" x2="225" y2="878"/>
-<line class="w" x1="211" y1="882" x2="221" y2="882"/>
-<line class="w" x1="214" y1="886" x2="218" y2="886"/>
-<line class="w" x1="350" y1="850" x2="350" y2="844"/>
-<rect class="c" x="344" y="808" width="12" height="36"/>
-<line class="w" x1="350" y1="808" x2="350" y2="802"/>
-<line class="w" x1="342" y1="802" x2="358" y2="802"/>
-<text class="s" x="336" y="802" text-anchor="end" dominant-baseline="central">+2V5</text>
-<text class="s" x="362" y="826" text-anchor="start" dominant-baseline="central">10k</text>
-<line class="w" x1="374" y1="850" x2="380" y2="850"/>
-<rect class="c" x="380" y="844" width="36" height="12"/>
-<line class="w" x1="416" y1="850" x2="422" y2="850"/>
-<text class="s" x="398" y="836" text-anchor="middle" dominant-baseline="central">1k</text>
-<line class="w" x1="422" y1="850" x2="540" y2="850"/>
-<circle class="d" cx="450" cy="850" r="3"/>
-<line class="w" x1="450" y1="850" x2="450" y2="860"/>
-<line class="w" x1="441" y1="860" x2="459" y2="860"/>
-<line class="w" x1="441" y1="866" x2="459" y2="866"/>
-<line class="w" x1="450" y1="866" x2="450" y2="876"/>
-<line class="w" x1="450" y1="876" x2="450" y2="882"/>
-<line class="w" x1="441" y1="882" x2="459" y2="882"/>
-<line class="w" x1="445" y1="886" x2="455" y2="886"/>
-<line class="w" x1="448" y1="890" x2="452" y2="890"/>
-<text class="s" x="450" y="902" text-anchor="middle" dominant-baseline="central">100n</text>
-<circle class="d" cx="500" cy="850" r="3"/>
-<circle class="d" cx="522" cy="850" r="3"/>
-<line class="w" x1="522" y1="850" x2="522" y2="862"/>
-<polygon class="c" points="515,878 529,878 522,862"/>
-<line class="w" x1="515" y1="862" x2="529" y2="862"/>
-<line class="w" x1="522" y1="878" x2="522" y2="884"/>
-<line class="w" x1="522" y1="884" x2="522" y2="890"/>
-<line class="w" x1="513" y1="890" x2="531" y2="890"/>
-<line class="w" x1="517" y1="894" x2="527" y2="894"/>
-<line class="w" x1="520" y1="898" x2="524" y2="898"/>
-<line class="w" x1="500" y1="850" x2="500" y2="838"/>
-<polygon class="c" points="493,838 507,838 500,824"/>
-<line class="w" x1="493" y1="824" x2="507" y2="824"/>
-<line class="w" x1="500" y1="824" x2="500" y2="816"/>
-<line class="w" x1="492" y1="816" x2="508" y2="816"/>
-<text class="s" x="488" y="816" text-anchor="end" dominant-baseline="central">+2V5</text>
+<line class="w" x1="540" y1="810" x2="560" y2="810"/>
+<text class="t" x="568" y="810" text-anchor="start" dominant-baseline="central">IO5 / ADC1</text>
+<text class="s" x="536" y="801" text-anchor="end" dominant-baseline="central">5</text>
+<polygon class="p" points="101,801 240,801 250,810 240,819 101,819"/>
+<text class="pt" x="107" y="810" text-anchor="start" dominant-baseline="central">Batt_V (48-52 V)</text>
+<line class="w" x1="250" y1="810" x2="284" y2="810"/>
+<line class="w" x1="284" y1="810" x2="290" y2="810"/>
+<rect class="c" x="290" y="804" width="36" height="12"/>
+<line class="w" x1="326" y1="810" x2="332" y2="810"/>
+<text class="s" x="308" y="796" text-anchor="middle" dominant-baseline="central">100k</text>
+<line class="w" x1="332" y1="810" x2="374" y2="810"/>
+<circle class="d" cx="350" cy="810" r="3"/>
+<line class="w" x1="350" y1="810" x2="350" y2="816"/>
+<line class="w" x1="350" y1="810" x2="350" y2="816"/>
+<rect class="c" x="344" y="816" width="12" height="36"/>
+<line class="w" x1="350" y1="852" x2="350" y2="858"/>
+<text class="s" x="361" y="834" text-anchor="start" dominant-baseline="central">3.9k</text>
+<line class="w" x1="350" y1="858" x2="350" y2="864"/>
+<line class="w" x1="341" y1="864" x2="359" y2="864"/>
+<line class="w" x1="345" y1="868" x2="355" y2="868"/>
+<line class="w" x1="348" y1="872" x2="352" y2="872"/>
+<line class="w" x1="374" y1="810" x2="380" y2="810"/>
+<rect class="c" x="380" y="804" width="36" height="12"/>
+<line class="w" x1="416" y1="810" x2="422" y2="810"/>
+<text class="s" x="398" y="796" text-anchor="middle" dominant-baseline="central">1k</text>
+<line class="w" x1="422" y1="810" x2="540" y2="810"/>
+<circle class="d" cx="450" cy="810" r="3"/>
+<line class="w" x1="450" y1="810" x2="450" y2="820"/>
+<line class="w" x1="441" y1="820" x2="459" y2="820"/>
+<line class="w" x1="441" y1="826" x2="459" y2="826"/>
+<line class="w" x1="450" y1="826" x2="450" y2="836"/>
+<line class="w" x1="450" y1="836" x2="450" y2="842"/>
+<line class="w" x1="441" y1="842" x2="459" y2="842"/>
+<line class="w" x1="445" y1="846" x2="455" y2="846"/>
+<line class="w" x1="448" y1="850" x2="452" y2="850"/>
+<text class="s" x="450" y="862" text-anchor="middle" dominant-baseline="central">100n</text>
+<circle class="d" cx="500" cy="810" r="3"/>
+<circle class="d" cx="522" cy="810" r="3"/>
+<line class="w" x1="522" y1="810" x2="522" y2="822"/>
+<polygon class="c" points="515,838 529,838 522,822"/>
+<line class="w" x1="515" y1="822" x2="529" y2="822"/>
+<line class="w" x1="522" y1="838" x2="522" y2="844"/>
+<line class="w" x1="522" y1="844" x2="522" y2="850"/>
+<line class="w" x1="513" y1="850" x2="531" y2="850"/>
+<line class="w" x1="517" y1="854" x2="527" y2="854"/>
+<line class="w" x1="520" y1="858" x2="524" y2="858"/>
+<line class="w" x1="500" y1="810" x2="500" y2="798"/>
+<polygon class="c" points="493,798 507,798 500,784"/>
+<line class="w" x1="493" y1="784" x2="507" y2="784"/>
+<line class="w" x1="500" y1="784" x2="500" y2="776"/>
+<line class="w" x1="492" y1="776" x2="508" y2="776"/>
+<text class="s" x="488" y="776" text-anchor="end" dominant-baseline="central">+2V5</text>
 <line class="w" x1="540" y1="930" x2="560" y2="930"/>
-<text class="t" x="568" y="930" text-anchor="start" dominant-baseline="central">IO10 / ADC1</text>
-<text class="s" x="536" y="921" text-anchor="end" dominant-baseline="central">18</text>
+<text class="t" x="568" y="930" text-anchor="start" dominant-baseline="central">IO9 / ADC1</text>
+<text class="s" x="536" y="921" text-anchor="end" dominant-baseline="central">17</text>
 <rect class="c" x="100" y="914" width="100" height="54" rx="3"/>
-<text class="th" x="100" y="902" text-anchor="start" dominant-baseline="central">J7 NTC2 (10k NTC)</text>
+<text class="th" x="100" y="902" text-anchor="start" dominant-baseline="central">J6 NTC1 (10k NTC)</text>
 <text class="s" x="108" y="930" text-anchor="start" dominant-baseline="central">1</text>
 <text class="s" x="192" y="930" text-anchor="end" dominant-baseline="central">NTC</text>
 <text class="s" x="108" y="952" text-anchor="start" dominant-baseline="central">2</text>
@@ -517,26 +516,27 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="492" y1="896" x2="508" y2="896"/>
 <text class="s" x="488" y="896" text-anchor="end" dominant-baseline="central">+2V5</text>
 <line class="w" x1="540" y1="1010" x2="560" y2="1010"/>
-<text class="t" x="568" y="1010" text-anchor="start" dominant-baseline="central">IO16 / ADC2</text>
-<text class="s" x="536" y="1001" text-anchor="end" dominant-baseline="central">9</text>
-<polygon class="p" points="101,1001 240,1001 250,1010 240,1019 101,1019"/>
-<text class="pt" x="107" y="1010" text-anchor="start" dominant-baseline="central">Batt_V (48-52 V)</text>
-<line class="w" x1="250" y1="1010" x2="284" y2="1010"/>
-<line class="w" x1="284" y1="1010" x2="290" y2="1010"/>
-<rect class="c" x="290" y="1004" width="36" height="12"/>
-<line class="w" x1="326" y1="1010" x2="332" y2="1010"/>
-<text class="s" x="308" y="996" text-anchor="middle" dominant-baseline="central">100k</text>
-<line class="w" x1="332" y1="1010" x2="374" y2="1010"/>
+<text class="t" x="568" y="1010" text-anchor="start" dominant-baseline="central">IO10 / ADC1</text>
+<text class="s" x="536" y="1001" text-anchor="end" dominant-baseline="central">18</text>
+<rect class="c" x="100" y="994" width="100" height="54" rx="3"/>
+<text class="th" x="100" y="982" text-anchor="start" dominant-baseline="central">J7 NTC2 (10k NTC)</text>
+<text class="s" x="108" y="1010" text-anchor="start" dominant-baseline="central">1</text>
+<text class="s" x="192" y="1010" text-anchor="end" dominant-baseline="central">NTC</text>
+<text class="s" x="108" y="1032" text-anchor="start" dominant-baseline="central">2</text>
+<text class="s" x="192" y="1032" text-anchor="end" dominant-baseline="central">GND</text>
+<line class="w" x1="200" y1="1010" x2="350" y2="1010"/>
 <circle class="d" cx="350" cy="1010" r="3"/>
-<line class="w" x1="350" y1="1010" x2="350" y2="1016"/>
-<line class="w" x1="350" y1="1010" x2="350" y2="1016"/>
-<rect class="c" x="344" y="1016" width="12" height="36"/>
-<line class="w" x1="350" y1="1052" x2="350" y2="1058"/>
-<text class="s" x="361" y="1034" text-anchor="start" dominant-baseline="central">3.9k</text>
-<line class="w" x1="350" y1="1058" x2="350" y2="1064"/>
-<line class="w" x1="341" y1="1064" x2="359" y2="1064"/>
-<line class="w" x1="345" y1="1068" x2="355" y2="1068"/>
-<line class="w" x1="348" y1="1072" x2="352" y2="1072"/>
+<line class="w" x1="200" y1="1032" x2="216" y2="1032"/>
+<line class="w" x1="216" y1="1032" x2="216" y2="1038"/>
+<line class="w" x1="207" y1="1038" x2="225" y2="1038"/>
+<line class="w" x1="211" y1="1042" x2="221" y2="1042"/>
+<line class="w" x1="214" y1="1046" x2="218" y2="1046"/>
+<line class="w" x1="350" y1="1010" x2="350" y2="1004"/>
+<rect class="c" x="344" y="968" width="12" height="36"/>
+<line class="w" x1="350" y1="968" x2="350" y2="962"/>
+<line class="w" x1="342" y1="962" x2="358" y2="962"/>
+<text class="s" x="336" y="962" text-anchor="end" dominant-baseline="central">+2V5</text>
+<text class="s" x="362" y="986" text-anchor="start" dominant-baseline="central">10k</text>
 <line class="w" x1="374" y1="1010" x2="380" y2="1010"/>
 <rect class="c" x="380" y="1004" width="36" height="12"/>
 <line class="w" x1="416" y1="1010" x2="422" y2="1010"/>
@@ -604,14 +604,14 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="324" y1="912" x2="328" y2="912"/>
 </g>
 <line class="w" x1="760" y1="190" x2="780" y2="190"/>
-<text class="t" x="752" y="190" text-anchor="end" dominant-baseline="central">IO4</text>
-<text class="s" x="784" y="181" text-anchor="start" dominant-baseline="central">4</text>
+<text class="t" x="752" y="190" text-anchor="end" dominant-baseline="central">IO15</text>
+<text class="s" x="784" y="181" text-anchor="start" dominant-baseline="central">8</text>
 <line class="w" x1="780" y1="190" x2="800" y2="190"/>
 <polygon class="p" points="800,181 871,181 881,190 871,199 800,199"/>
 <text class="pt" x="806" y="190" text-anchor="start" dominant-baseline="central">PWM_CH1</text>
 <line class="w" x1="760" y1="212" x2="780" y2="212"/>
-<text class="t" x="752" y="212" text-anchor="end" dominant-baseline="central">IO5</text>
-<text class="s" x="784" y="203" text-anchor="start" dominant-baseline="central">5</text>
+<text class="t" x="752" y="212" text-anchor="end" dominant-baseline="central">IO16</text>
+<text class="s" x="784" y="203" text-anchor="start" dominant-baseline="central">9</text>
 <line class="w" x1="780" y1="212" x2="800" y2="212"/>
 <polygon class="p" points="800,203 871,203 881,212 871,221 800,221"/>
 <text class="pt" x="806" y="212" text-anchor="start" dominant-baseline="central">PWM_CH2</text>
@@ -886,8 +886,9 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <text class="s" x="40" y="1585" text-anchor="start" dominant-baseline="central">MainSupp (52 V battery) 100k/3.9k: 62 V gives 2.33 V, 58.4 V gives 2.19 V. 12V_Meas 56k/10k: 12 V gives 1.82 V, 14.4 V gives 2.18 V.</text>
 <text class="s" x="40" y="1603" text-anchor="start" dominant-baseline="central">Batt_V (battery 48 to 52 V, 58.4 V when full) 100k/3.9k: 48 V gives 1.76 V, 52 V gives 1.90 V, 58.4 V gives 2.19 V.</text>
 <text class="s" x="40" y="1621" text-anchor="start" dominant-baseline="central">5V_Meas 12k/10k: 5 V gives 2.27 V. 3.3V_Meas 4.7k/10k: 3.3 V gives 2.24 V. NTC1 and NTC2: 10 kΩ NTC to GND, 10 kΩ pull-up to +2V5. [CONFIRM] NTC value.</text>
-<text class="s" x="40" y="1639" text-anchor="start" dominant-baseline="central">IO1, IO2, IO8, IO9, IO10 are ADC1. IO15 and IO16 are ADC2 (Wi-Fi must stay off). Module is the N16 (quad flash, no PSRAM): IO47 (pGood) and IO48 (status LED) are 3.3 V. IO35-IO37 carry PWM_CH5-CH7.</text>
-<text class="s" x="40" y="1657" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
-<text class="s" x="40" y="1675" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
-<text class="s" x="40" y="1693" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
-<text class="s" x="40" y="1711" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
+<text class="s" x="40" y="1639" text-anchor="start" dominant-baseline="central">All 7 analog inputs are on ADC1 (IO1, IO2, IO4, IO5, IO8, IO9, IO10), so they keep working with Wi-Fi on.</text>
+<text class="s" x="40" y="1657" text-anchor="start" dominant-baseline="central">PWM_CH1/CH2 are on IO15/IO16 (ADC2 pins, used as digital). Module is the N16 (quad flash, no PSRAM): IO47 (pGood) and IO48 (status LED) are 3.3 V. IO35-IO37 carry PWM_CH5-CH7.</text>
+<text class="s" x="40" y="1675" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
+<text class="s" x="40" y="1693" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
+<text class="s" x="40" y="1711" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
+<text class="s" x="40" y="1729" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
