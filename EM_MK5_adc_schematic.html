@@ -7,7 +7,7 @@ svg{width:100%;max-width:1400px;height:auto;display:block;margin:0 auto}
 .c{stroke:var(--bd);stroke-width:1.2;fill:var(--box)}.m{stroke:var(--bd);stroke-width:1.5;fill:var(--mod)}
 .p{stroke:var(--pb);stroke-width:1;fill:var(--port)}
 .t{font-size:12px;fill:var(--t)}.s{font-size:11px;fill:var(--m)}.th{font-size:13px;font-weight:600;fill:var(--t)}.pt{font-size:12px;fill:var(--t)}
-</style></head><body><svg viewBox="0 0 1400 1700" role="img" aria-label="EM_MK5 ADC board schematic"><text class="th" x="40" y="30" text-anchor="start" dominant-baseline="central">EM_MK5 ADC board: AD4691 and MCP3208 on Pi 5 SPI0</text>
+</style></head><body><svg viewBox="0 0 1400 1760" role="img" aria-label="EM_MK5 ADC board schematic"><text class="th" x="40" y="30" text-anchor="start" dominant-baseline="central">EM_MK5 ADC board: AD4691 and MCP3208 on Pi 5 SPI0</text>
 <text class="th" x="640" y="40" text-anchor="start" dominant-baseline="central">U7 TLV70018 (1.8 V LDO for VIO and U5 SREF)</text>
 <rect class="m" x="700" y="56" width="110" height="96" rx="4"/>
 <text class="th" x="755.0" y="72" text-anchor="middle" dominant-baseline="central">TLV70018</text>
@@ -552,6 +552,48 @@ svg{width:100%;max-width:1400px;height:auto;display:block;margin:0 auto}
 <text class="t" x="442" y="704" text-anchor="end" dominant-baseline="central">CS</text>
 <text class="s" x="474" y="695" text-anchor="start" dominant-baseline="central">25</text>
 <line class="w" x1="470" y1="704" x2="620" y2="704"/>
+<circle class="d" cx="574" cy="584" r="3"/>
+<line class="w" x1="574" y1="584" x2="574" y2="800"/>
+<line class="w" x1="574" y1="794" x2="574" y2="800"/>
+<rect class="c" x="568" y="800" width="12" height="36"/>
+<line class="w" x1="574" y1="836" x2="574" y2="842"/>
+<text class="s" x="566" y="818" text-anchor="end" dominant-baseline="central">4.7k</text>
+<line class="w" x1="574" y1="842" x2="574" y2="892"/>
+<line class="w" x1="574" y1="892" x2="590" y2="892"/>
+<circle class="d" cx="574" cy="866" r="3"/>
+<line class="w" x1="574" y1="866" x2="552" y2="866"/>
+<line class="w" x1="552" y1="860" x2="552" y2="866"/>
+<rect class="c" x="546" y="866" width="12" height="36"/>
+<line class="w" x1="552" y1="902" x2="552" y2="908"/>
+<text class="s" x="540" y="884" text-anchor="end" dominant-baseline="central">100k</text>
+<line class="w" x1="552" y1="908" x2="552" y2="914"/>
+<line class="w" x1="552" y1="914" x2="552" y2="920"/>
+<line class="w" x1="543" y1="920" x2="561" y2="920"/>
+<line class="w" x1="547" y1="924" x2="557" y2="924"/>
+<line class="w" x1="550" y1="928" x2="554" y2="928"/>
+<line class="w" x1="590" y1="878" x2="590" y2="906"/>
+<line class="w" x1="590" y1="884" x2="610" y2="872"/>
+<line class="w" x1="590" y1="900" x2="610" y2="912"/>
+<polygon class="d" points="610,912 604,906 599,910"/>
+<line class="w" x1="610" y1="912" x2="610" y2="918"/>
+<line class="w" x1="610" y1="918" x2="610" y2="924"/>
+<line class="w" x1="601" y1="924" x2="619" y2="924"/>
+<line class="w" x1="605" y1="928" x2="615" y2="928"/>
+<line class="w" x1="608" y1="932" x2="612" y2="932"/>
+<text class="s" x="590" y="950" text-anchor="middle" dominant-baseline="central">Q3 BC847</text>
+<line class="w" x1="602" y1="790" x2="618" y2="790"/>
+<text class="s" x="622" y="790" text-anchor="start" dominant-baseline="central"></text>
+<text class="s" x="610" y="776" text-anchor="middle" dominant-baseline="central">+3V3</text>
+<line class="w" x1="610" y1="790" x2="610" y2="796"/>
+<line class="w" x1="610" y1="790" x2="610" y2="796"/>
+<rect class="c" x="604" y="796" width="12" height="36"/>
+<line class="w" x1="610" y1="832" x2="610" y2="838"/>
+<text class="s" x="626" y="814" text-anchor="start" dominant-baseline="central">330R</text>
+<line class="w" x1="610" y1="838" x2="610" y2="842"/>
+<polygon class="c" points="602,842 618,842 610,856"/>
+<line class="w" x1="602" y1="856" x2="618" y2="856"/>
+<line class="w" x1="610" y1="856" x2="610" y2="872"/>
+<text class="s" x="626" y="849" text-anchor="start" dominant-baseline="central">LED1</text>
 <circle class="d" cx="520" cy="680" r="3"/>
 <circle class="d" cx="520" cy="704" r="3"/>
 <line class="w" x1="520" y1="680" x2="520" y2="688"/>
@@ -1104,6 +1146,7 @@ svg{width:100%;max-width:1400px;height:auto;display:block;margin:0 auto}
 <text class="s" x="40" y="1572" text-anchor="start" dominant-baseline="central">4. GTL2003: SREF goes to the lower supply, GREF and DREF join and go to the higher supply through 200 kΩ with 100 nF. D-side lines need pull-ups (RN1, RN3). S-side pull-ups are not needed when VDD1 minus SREF is 1.5 V or more.</text>
 <text class="s" x="40" y="1590" text-anchor="start" dominant-baseline="central">   U5 is exactly at that limit (3.3 V minus 1.8 V). If the 1.8 V side reads badly at speed, add 4.7 kΩ pull-ups from the S1 to S7 lines to +1V8.</text>
 <text class="s" x="40" y="1608" text-anchor="start" dominant-baseline="central">5. SPI0 is shared: SCLK, MOSI and MISO go to both converters. CE0 selects the AD4691 and CE1 selects the MCP3208. Unselected devices release MISO, and both idle high.</text>
-<text class="s" x="40" y="1626" text-anchor="start" dominant-baseline="central">6. AD4691 manual mode (my reader code) needs CNV tied to CS: close JP1 (it joins CNV to CS). Open JP1 to drive CNV from GPIO25 instead. RESET is on GPIO24 and GP0 (busy/data ready) on GPIO23.</text>
-<text class="s" x="40" y="1644" text-anchor="start" dominant-baseline="central">7. Input RC (100 Ω and 1 nF) is a placeholder on every channel. Check it against each datasheet. NTC dividers and sensors tie their pull-ups to +VREF.</text>
-<text class="s" x="40" y="1662" text-anchor="start" dominant-baseline="central">8. Pin tables: AD4691 and GTL2003 from the ADI and NXP datasheets. REF5040, TLV70018 and MCP3208 pin numbers are from memory: [CONFIRM] before routing.</text></svg></body></html>
+<text class="s" x="40" y="1626" text-anchor="start" dominant-baseline="central">6. AD4691 manual mode: CNV is tied to CS (close JP1), so each CS rising edge starts a conversion. Open JP1 to drive CNV from GPIO25 instead. RESET is on GPIO24 and GP0 on GPIO23.</text>
+<text class="s" x="40" y="1644" text-anchor="start" dominant-baseline="central">   LED1 shows the state of GP0: GP0 (1.8 V) drives a BC847 (4.7 kΩ base, 100 kΩ pull-down), LED from +3V3 with 330 Ω (about 4 mA). GP0 must be set up as an output in the AD4691 registers. The Pi still sees GP0 on GPIO23.</text>
+<text class="s" x="40" y="1662" text-anchor="start" dominant-baseline="central">7. Input RC (100 Ω and 1 nF) is a placeholder on every channel. Check it against each datasheet. NTC dividers and sensors tie their pull-ups to +VREF.</text>
+<text class="s" x="40" y="1680" text-anchor="start" dominant-baseline="central">8. Pin tables: AD4691 and GTL2003 from the ADI and NXP datasheets. REF5040, TLV70018 and MCP3208 pin numbers are from memory: [CONFIRM] before routing.</text></svg></body></html>
