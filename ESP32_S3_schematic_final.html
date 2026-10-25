@@ -8,7 +8,7 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 .c{stroke:var(--bd);stroke-width:1.2;fill:var(--box)}.m{stroke:var(--bd);stroke-width:1.5;fill:var(--mod)}
 .p{stroke:var(--pb);stroke-width:1;fill:var(--port)}
 .t{font-size:12px;fill:var(--t)}.s{font-size:11px;fill:var(--m)}.th{font-size:13px;font-weight:600;fill:var(--t)}.pt{font-size:12px;fill:var(--t)}
-</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1-N16R2 controller schematic (FINAL)</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1940" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="1290" rx="4"/>
+</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1-N16R2 controller schematic (FINAL)</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 2300" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="1290" rx="4"/>
 <text class="th" x="660.0" y="144" text-anchor="middle" dominant-baseline="central">ESP32-S3-WROOM-1</text>
 <text class="s" x="660.0" y="161" text-anchor="middle" dominant-baseline="central">U1 (module pin numbers)</text>
 <line class="w" x1="600" y1="1420" x2="600" y2="1434"/>
@@ -1006,6 +1006,157 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="1128" y1="1170" x2="1132" y2="1170"/>
 <text class="s" x="960" y="1210" text-anchor="start" dominant-baseline="central">Buttons: GP4 to GP7 to GND. Enable the internal pull-ups (GPPU).</text>
 </g>
+<line class="w" x1="760" y1="950" x2="780" y2="950"/>
+<text class="t" x="752" y="950" text-anchor="end" dominant-baseline="central">IO3</text>
+<text class="s" x="784" y="941" text-anchor="start" dominant-baseline="central">15</text>
+<line class="w" x1="780" y1="950" x2="800" y2="950"/>
+<polygon class="p" points="800,941 871,941 881,950 871,959 800,959"/>
+<text class="pt" x="806" y="950" text-anchor="start" dominant-baseline="central">FAN_PWM</text>
+<g transform="translate(0,150)">
+<text class="th" x="640" y="1336" text-anchor="start" dominant-baseline="central">U10 ULN2003A: Ext_Trigg1/2 outputs and fan control</text>
+<rect class="c" x="640" y="1372" width="70" height="90" rx="3"/>
+<text class="s" x="640" y="1352" text-anchor="start" dominant-baseline="central">RN4 10k to GND</text>
+<polygon class="p" points="536,1383 630,1383 640,1392 630,1401 536,1401"/>
+<text class="pt" x="542" y="1392" text-anchor="start" dominant-baseline="central">Ext_Trigg1</text>
+<text class="s" x="648" y="1392" text-anchor="start" dominant-baseline="central">1</text>
+<polygon class="p" points="536,1405 630,1405 640,1414 630,1423 536,1423"/>
+<text class="pt" x="542" y="1414" text-anchor="start" dominant-baseline="central">Ext_Trigg2</text>
+<text class="s" x="648" y="1414" text-anchor="start" dominant-baseline="central">2</text>
+<polygon class="p" points="559,1427 630,1427 640,1436 630,1445 559,1445"/>
+<text class="pt" x="565" y="1436" text-anchor="start" dominant-baseline="central">FAN_PWM</text>
+<text class="s" x="648" y="1436" text-anchor="start" dominant-baseline="central">3</text>
+<line class="w" x1="675" y1="1462" x2="675" y2="1472"/>
+<line class="w" x1="675" y1="1472" x2="675" y2="1478"/>
+<line class="w" x1="666" y1="1478" x2="684" y2="1478"/>
+<line class="w" x1="670" y1="1482" x2="680" y2="1482"/>
+<line class="w" x1="673" y1="1486" x2="677" y2="1486"/>
+<rect class="m" x="900" y="1360" width="130" height="240" rx="4"/>
+<text class="th" x="965" y="1376" text-anchor="middle" dominant-baseline="central">ULN2003A</text>
+<line class="w" x1="880" y1="1400" x2="900" y2="1400"/>
+<text class="t" x="908" y="1400" text-anchor="start" dominant-baseline="central">1B</text>
+<text class="s" x="876" y="1391" text-anchor="end" dominant-baseline="central">1</text>
+<polygon class="p" points="776,1391 870,1391 880,1400 870,1409 776,1409"/>
+<text class="pt" x="782" y="1400" text-anchor="start" dominant-baseline="central">Ext_Trigg1</text>
+<line class="w" x1="880" y1="1424" x2="900" y2="1424"/>
+<text class="t" x="908" y="1424" text-anchor="start" dominant-baseline="central">2B</text>
+<text class="s" x="876" y="1415" text-anchor="end" dominant-baseline="central">2</text>
+<polygon class="p" points="776,1415 870,1415 880,1424 870,1433 776,1433"/>
+<text class="pt" x="782" y="1424" text-anchor="start" dominant-baseline="central">Ext_Trigg2</text>
+<line class="w" x1="880" y1="1448" x2="900" y2="1448"/>
+<text class="t" x="908" y="1448" text-anchor="start" dominant-baseline="central">3B</text>
+<text class="s" x="876" y="1439" text-anchor="end" dominant-baseline="central">3</text>
+<polygon class="p" points="799,1439 870,1439 880,1448 870,1457 799,1457"/>
+<text class="pt" x="805" y="1448" text-anchor="start" dominant-baseline="central">FAN_PWM</text>
+<line class="w" x1="880" y1="1472" x2="900" y2="1472"/>
+<text class="t" x="908" y="1472" text-anchor="start" dominant-baseline="central">4B</text>
+<text class="s" x="876" y="1463" text-anchor="end" dominant-baseline="central">4</text>
+<line class="w" x1="880" y1="1472" x2="870" y2="1472"/>
+<line class="w" x1="870" y1="1472" x2="870" y2="1478"/>
+<line class="w" x1="861" y1="1478" x2="879" y2="1478"/>
+<line class="w" x1="865" y1="1482" x2="875" y2="1482"/>
+<line class="w" x1="868" y1="1486" x2="872" y2="1486"/>
+<line class="w" x1="880" y1="1496" x2="900" y2="1496"/>
+<text class="t" x="908" y="1496" text-anchor="start" dominant-baseline="central">5B</text>
+<text class="s" x="876" y="1487" text-anchor="end" dominant-baseline="central">5</text>
+<line class="w" x1="880" y1="1496" x2="870" y2="1496"/>
+<line class="w" x1="870" y1="1496" x2="870" y2="1502"/>
+<line class="w" x1="861" y1="1502" x2="879" y2="1502"/>
+<line class="w" x1="865" y1="1506" x2="875" y2="1506"/>
+<line class="w" x1="868" y1="1510" x2="872" y2="1510"/>
+<line class="w" x1="880" y1="1520" x2="900" y2="1520"/>
+<text class="t" x="908" y="1520" text-anchor="start" dominant-baseline="central">6B</text>
+<text class="s" x="876" y="1511" text-anchor="end" dominant-baseline="central">6</text>
+<line class="w" x1="880" y1="1520" x2="870" y2="1520"/>
+<line class="w" x1="870" y1="1520" x2="870" y2="1526"/>
+<line class="w" x1="861" y1="1526" x2="879" y2="1526"/>
+<line class="w" x1="865" y1="1530" x2="875" y2="1530"/>
+<line class="w" x1="868" y1="1534" x2="872" y2="1534"/>
+<line class="w" x1="880" y1="1544" x2="900" y2="1544"/>
+<text class="t" x="908" y="1544" text-anchor="start" dominant-baseline="central">7B</text>
+<text class="s" x="876" y="1535" text-anchor="end" dominant-baseline="central">7</text>
+<line class="w" x1="880" y1="1544" x2="870" y2="1544"/>
+<line class="w" x1="870" y1="1544" x2="870" y2="1550"/>
+<line class="w" x1="861" y1="1550" x2="879" y2="1550"/>
+<line class="w" x1="865" y1="1554" x2="875" y2="1554"/>
+<line class="w" x1="868" y1="1558" x2="872" y2="1558"/>
+<line class="w" x1="1030" y1="1400" x2="1050" y2="1400"/>
+<text class="t" x="1022" y="1400" text-anchor="end" dominant-baseline="central">1C</text>
+<text class="s" x="1054" y="1391" text-anchor="start" dominant-baseline="central">16</text>
+<line class="w" x1="1030" y1="1424" x2="1050" y2="1424"/>
+<text class="t" x="1022" y="1424" text-anchor="end" dominant-baseline="central">2C</text>
+<text class="s" x="1054" y="1415" text-anchor="start" dominant-baseline="central">15</text>
+<line class="w" x1="1030" y1="1448" x2="1050" y2="1448"/>
+<text class="t" x="1022" y="1448" text-anchor="end" dominant-baseline="central">3C</text>
+<text class="s" x="1054" y="1439" text-anchor="start" dominant-baseline="central">14</text>
+<line class="w" x1="1030" y1="1472" x2="1050" y2="1472"/>
+<text class="t" x="1022" y="1472" text-anchor="end" dominant-baseline="central">4C</text>
+<text class="s" x="1054" y="1463" text-anchor="start" dominant-baseline="central">13</text>
+<line class="w" x1="1030" y1="1496" x2="1050" y2="1496"/>
+<text class="t" x="1022" y="1496" text-anchor="end" dominant-baseline="central">5C</text>
+<text class="s" x="1054" y="1487" text-anchor="start" dominant-baseline="central">12</text>
+<line class="w" x1="1030" y1="1520" x2="1050" y2="1520"/>
+<text class="t" x="1022" y="1520" text-anchor="end" dominant-baseline="central">6C</text>
+<text class="s" x="1054" y="1511" text-anchor="start" dominant-baseline="central">11</text>
+<line class="w" x1="1030" y1="1544" x2="1050" y2="1544"/>
+<text class="t" x="1022" y="1544" text-anchor="end" dominant-baseline="central">7C</text>
+<text class="s" x="1054" y="1535" text-anchor="start" dominant-baseline="central">10</text>
+<line class="w" x1="900" y1="1568" x2="880" y2="1568"/>
+<text class="t" x="908" y="1568" text-anchor="start" dominant-baseline="central">GND</text>
+<text class="s" x="876" y="1559" text-anchor="end" dominant-baseline="central">8</text>
+<line class="w" x1="880" y1="1568" x2="880" y2="1574"/>
+<line class="w" x1="871" y1="1574" x2="889" y2="1574"/>
+<line class="w" x1="875" y1="1578" x2="885" y2="1578"/>
+<line class="w" x1="878" y1="1582" x2="882" y2="1582"/>
+<line class="w" x1="1030" y1="1568" x2="1050" y2="1568"/>
+<text class="t" x="1022" y="1568" text-anchor="end" dominant-baseline="central">COM</text>
+<text class="s" x="1054" y="1559" text-anchor="start" dominant-baseline="central">9</text>
+<line class="w" x1="1050" y1="1568" x2="1050" y2="1580"/>
+<line class="w" x1="1042" y1="1580" x2="1058" y2="1580"/>
+<text class="s" x="1064" y="1580" text-anchor="start" dominant-baseline="central">+12V</text>
+<rect class="c" x="1120" y="1382" width="80" height="84" rx="3"/>
+<text class="th" x="1120" y="1370" text-anchor="start" dominant-baseline="central">J11 trigger outputs</text>
+<text class="s" x="1128" y="1400" text-anchor="start" dominant-baseline="central">1</text>
+<text class="s" x="1192" y="1400" text-anchor="end" dominant-baseline="central">TRIG1</text>
+<text class="s" x="1128" y="1424" text-anchor="start" dominant-baseline="central">2</text>
+<text class="s" x="1192" y="1424" text-anchor="end" dominant-baseline="central">TRIG2</text>
+<text class="s" x="1128" y="1448" text-anchor="start" dominant-baseline="central">3</text>
+<text class="s" x="1192" y="1448" text-anchor="end" dominant-baseline="central">GND</text>
+<line class="w" x1="1050" y1="1400" x2="1120" y2="1400"/>
+<line class="w" x1="1050" y1="1424" x2="1120" y2="1424"/>
+<line class="w" x1="1120" y1="1448" x2="1110" y2="1448"/>
+<line class="w" x1="1110" y1="1448" x2="1110" y2="1454"/>
+<line class="w" x1="1101" y1="1454" x2="1119" y2="1454"/>
+<line class="w" x1="1105" y1="1458" x2="1115" y2="1458"/>
+<line class="w" x1="1108" y1="1462" x2="1112" y2="1462"/>
+<rect class="c" x="1120" y="1482" width="80" height="60" rx="3"/>
+<text class="th" x="1120" y="1470" text-anchor="start" dominant-baseline="central">J12 fan</text>
+<text class="s" x="1128" y="1500" text-anchor="start" dominant-baseline="central">1</text>
+<text class="s" x="1192" y="1500" text-anchor="end" dominant-baseline="central">+12V</text>
+<text class="s" x="1128" y="1524" text-anchor="start" dominant-baseline="central">2</text>
+<text class="s" x="1192" y="1524" text-anchor="end" dominant-baseline="central">FAN-</text>
+<line class="w" x1="1120" y1="1500" x2="1105" y2="1500"/>
+<line class="w" x1="1105" y1="1500" x2="1105" y2="1490"/>
+<line class="w" x1="1097" y1="1490" x2="1113" y2="1490"/>
+<text class="s" x="1066" y="1490" text-anchor="start" dominant-baseline="central">+12V</text>
+<line class="w" x1="1050" y1="1448" x2="1085" y2="1448"/>
+<line class="w" x1="1085" y1="1448" x2="1085" y2="1524"/>
+<line class="w" x1="1085" y1="1524" x2="1120" y2="1524"/>
+<rect class="c" x="1120" y="1582" width="80" height="60" rx="3"/>
+<text class="th" x="1120" y="1570" text-anchor="start" dominant-baseline="central">J13 12 V input</text>
+<text class="s" x="1128" y="1600" text-anchor="start" dominant-baseline="central">1</text>
+<text class="s" x="1192" y="1600" text-anchor="end" dominant-baseline="central">+12V</text>
+<text class="s" x="1128" y="1624" text-anchor="start" dominant-baseline="central">2</text>
+<text class="s" x="1192" y="1624" text-anchor="end" dominant-baseline="central">GND</text>
+<line class="w" x1="1120" y1="1600" x2="1105" y2="1600"/>
+<line class="w" x1="1105" y1="1600" x2="1105" y2="1590"/>
+<line class="w" x1="1097" y1="1590" x2="1113" y2="1590"/>
+<text class="s" x="1066" y="1590" text-anchor="start" dominant-baseline="central">+12V</text>
+<line class="w" x1="1120" y1="1624" x2="1105" y2="1624"/>
+<line class="w" x1="1105" y1="1624" x2="1105" y2="1630"/>
+<line class="w" x1="1096" y1="1630" x2="1114" y2="1630"/>
+<line class="w" x1="1100" y1="1634" x2="1110" y2="1634"/>
+<line class="w" x1="1103" y1="1638" x2="1107" y2="1638"/>
+</g>
 <g transform="translate(0,330)">
 <text class="th" x="60" y="934" text-anchor="start" dominant-baseline="central">J5 USB-C to the ESP32-S3 (flash and debug, no converter IC)</text>
 <rect class="c" x="60" y="954" width="110" height="142" rx="3"/>
@@ -1093,23 +1244,25 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="181" y1="1090" x2="191" y2="1090"/>
 <line class="w" x1="184" y1="1094" x2="188" y2="1094"/>
 </g>
-<text class="th" x="40" y="1535" text-anchor="start" dominant-baseline="central">Notes</text>
-<text class="s" x="40" y="1553" text-anchor="start" dominant-baseline="central">Power: +5 V in, U2 makes +3V3 for the module and the board. 10 µF + 100 nF on both sides of U2, and on the module 3V3 pin.</text>
-<text class="s" x="40" y="1571" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
-<text class="s" x="40" y="1589" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF, then two BAT54 clamps at the pin (one to +2V5, one to GND). The pin stays between about -0.3 V and 2.8 V.</text>
-<text class="s" x="40" y="1607" text-anchor="start" dominant-baseline="central">U4 (REF5025) makes the +2V5 rail from +3V3. The 1 kΩ bleed to GND lets the clamps sink current, because the reference can only source.</text>
-<text class="s" x="40" y="1625" text-anchor="start" dominant-baseline="central">Keep the normal signal below about 2.5 V (ADC linear range). The 1 kΩ limits the clamp current if an input fails.</text>
-<text class="s" x="40" y="1643" text-anchor="start" dominant-baseline="central">MainSupp (52 V battery) 100k/3.9k: 62 V gives 2.33 V, 58.4 V gives 2.19 V. 12V_Meas 56k/10k: 12 V gives 1.82 V, 14.4 V gives 2.18 V.</text>
-<text class="s" x="40" y="1661" text-anchor="start" dominant-baseline="central">Batt_V (battery 48 to 52 V, 58.4 V when full) 100k/3.9k: 48 V gives 1.76 V, 52 V gives 1.90 V, 58.4 V gives 2.19 V.</text>
-<text class="s" x="40" y="1679" text-anchor="start" dominant-baseline="central">5V_Meas 12k/10k: 5 V gives 2.27 V. 3.3V_Meas 4.7k/10k: 3.3 V gives 2.24 V. NTC1 (RT1, on the board) and NTC2 (sensor on header J7): 10 kΩ NTC to GND, 22 kΩ pull-up to +4V096 (U8). [CONFIRM] NTC value.</text>
-<text class="s" x="40" y="1697" text-anchor="start" dominant-baseline="central">The 22 kΩ keeps the pin below 2.5 V down to about 0 °C (2.45 V). An open or unplugged sensor reads 4.1 V, and the BAT54 clamp holds the pin near 2.8 V.</text>
-<text class="s" x="40" y="1715" text-anchor="start" dominant-baseline="central">All 7 analog inputs are on ADC1 (IO1, IO2, IO4, IO5, IO8, IO9, IO10), so they keep working with Wi-Fi on.</text>
-<text class="s" x="40" y="1733" text-anchor="start" dominant-baseline="central">PWM_CH1/CH2 are on IO38/IO39 and Ext_Trigg1-4 are on IO17, IO18, IO15, IO16 (ADC2 pins used as digital I/O).</text>
-<text class="s" x="40" y="1751" text-anchor="start" dominant-baseline="central">Alarm LED: IO40 drives Q1 (1 kΩ base, 100 kΩ pull-down). The LED runs from +5V with 150 Ω, about 20 mA (check the LED rating).</text>
-<text class="s" x="40" y="1769" text-anchor="start" dominant-baseline="central">Buttons BTN1 to BTN4 are on the MCP23008 (U9) pins GP4 to GP7, to GND. Enable its internal pull-ups (GPPU). I2C address 0x20 (A0, A1, A2 to GND). INT (IO48) signals a button press. [CONFIRM] MCP23008 pin numbers.</text>
-<text class="s" x="40" y="1787" text-anchor="start" dominant-baseline="central">IO3, IO45 and IO46 are free (strapping pins). They are left unconnected.</text>
-<text class="s" x="40" y="1805" text-anchor="start" dominant-baseline="central">Module is the N16R2 (quad flash, quad PSRAM; [CONFIRM] in the ordering table): IO47 (pGood) and IO48 (MCP_INT) are 3.3 V. IO35-IO37 carry PWM_CH5-CH7.</text>
-<text class="s" x="40" y="1823" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
-<text class="s" x="40" y="1841" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
-<text class="s" x="40" y="1859" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
-<text class="s" x="40" y="1877" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
+<text class="th" x="40" y="1830" text-anchor="start" dominant-baseline="central">Notes</text>
+<text class="s" x="40" y="1848" text-anchor="start" dominant-baseline="central">Power: +5 V in, U2 makes +3V3 for the module and the board. 10 µF + 100 nF on both sides of U2, and on the module 3V3 pin.</text>
+<text class="s" x="40" y="1866" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
+<text class="s" x="40" y="1884" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF, then two BAT54 clamps at the pin (one to +2V5, one to GND). The pin stays between about -0.3 V and 2.8 V.</text>
+<text class="s" x="40" y="1902" text-anchor="start" dominant-baseline="central">U4 (REF5025) makes the +2V5 rail from +3V3. The 1 kΩ bleed to GND lets the clamps sink current, because the reference can only source.</text>
+<text class="s" x="40" y="1920" text-anchor="start" dominant-baseline="central">Keep the normal signal below about 2.5 V (ADC linear range). The 1 kΩ limits the clamp current if an input fails.</text>
+<text class="s" x="40" y="1938" text-anchor="start" dominant-baseline="central">MainSupp (52 V battery) 100k/3.9k: 62 V gives 2.33 V, 58.4 V gives 2.19 V. 12V_Meas 56k/10k: 12 V gives 1.82 V, 14.4 V gives 2.18 V.</text>
+<text class="s" x="40" y="1956" text-anchor="start" dominant-baseline="central">Batt_V (battery 48 to 52 V, 58.4 V when full) 100k/3.9k: 48 V gives 1.76 V, 52 V gives 1.90 V, 58.4 V gives 2.19 V.</text>
+<text class="s" x="40" y="1974" text-anchor="start" dominant-baseline="central">5V_Meas 12k/10k: 5 V gives 2.27 V. 3.3V_Meas 4.7k/10k: 3.3 V gives 2.24 V. NTC1 (RT1, on the board) and NTC2 (sensor on header J7): 10 kΩ NTC to GND, 22 kΩ pull-up to +4V096 (U8). [CONFIRM] NTC value.</text>
+<text class="s" x="40" y="1992" text-anchor="start" dominant-baseline="central">The 22 kΩ keeps the pin below 2.5 V down to about 0 °C (2.45 V). An open or unplugged sensor reads 4.1 V, and the BAT54 clamp holds the pin near 2.8 V.</text>
+<text class="s" x="40" y="2010" text-anchor="start" dominant-baseline="central">All 7 analog inputs are on ADC1 (IO1, IO2, IO4, IO5, IO8, IO9, IO10), so they keep working with Wi-Fi on.</text>
+<text class="s" x="40" y="2028" text-anchor="start" dominant-baseline="central">PWM_CH1/CH2 are on IO38/IO39 and Ext_Trigg1-4 are on IO17, IO18, IO15, IO16 (ADC2 pins used as digital I/O).</text>
+<text class="s" x="40" y="2046" text-anchor="start" dominant-baseline="central">Alarm LED: IO40 drives Q1 (1 kΩ base, 100 kΩ pull-down). The LED runs from +5V with 150 Ω, about 20 mA (check the LED rating).</text>
+<text class="s" x="40" y="2064" text-anchor="start" dominant-baseline="central">Buttons BTN1 to BTN4 are on the MCP23008 (U9) pins GP4 to GP7, to GND. Enable its internal pull-ups (GPPU). I2C address 0x20 (A0, A1, A2 to GND). INT (IO48) signals a button press. [CONFIRM] MCP23008 pin numbers.</text>
+<text class="s" x="40" y="2082" text-anchor="start" dominant-baseline="central">U10 ULN2003A: IN1 and IN2 carry Ext_Trigg1/2 (open-collector outputs on J11), IN3 is FAN_PWM (IO3) sinking the fan on J12.</text>
+<text class="s" x="40" y="2100" text-anchor="start" dominant-baseline="central">COM goes to +12V for the flyback diodes. 10 kΩ pull-downs (RN4) keep the outputs off at reset; unused inputs are grounded.</text>
+<text class="s" x="40" y="2118" text-anchor="start" dominant-baseline="central">A 3.3 V input is marginal for a ULN2003A at high current. It is fine for a small fan (about 200 mA or less). [CONFIRM] ULN2003A pin numbers. IO45 and IO46 stay free (strapping pins).</text>
+<text class="s" x="40" y="2136" text-anchor="start" dominant-baseline="central">Module is the N16R2 (quad flash, quad PSRAM; [CONFIRM] in the ordering table): IO47 (pGood) and IO48 (MCP_INT) are 3.3 V. IO35-IO37 carry PWM_CH5-CH7.</text>
+<text class="s" x="40" y="2154" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
+<text class="s" x="40" y="2172" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
+<text class="s" x="40" y="2190" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
+<text class="s" x="40" y="2208" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
