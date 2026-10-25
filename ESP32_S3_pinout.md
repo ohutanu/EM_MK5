@@ -34,3 +34,4 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
   `esp32-s3-devkitc-1`, framework `espidf` or `arduino, espidf`).
 - **SPI slave:** transaction-based with fixed length. Keep the Pi clock moderate (a few MHz).
 - **Boot:** pins float during reset. The 10 kΩ pull-downs on the ULN2803 inputs keep the gates off.
+- IO48 (module pin 25): Status LED (green) with 1 kΩ. Module is the N16 (quad flash, no PSRAM), so IO47/IO48 are 3.3 V.
