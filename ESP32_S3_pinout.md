@@ -34,7 +34,7 @@ ESP32-S3-WROOM-1 module datasheet before routing the board.
   `esp32-s3-devkitc-1`, framework `espidf` or `arduino, espidf`).
 - **SPI slave:** transaction-based with fixed length. Keep the Pi clock moderate (a few MHz).
 - **Boot:** pins float during reset. The 10 kΩ pull-downs on the ULN2803 inputs keep the gates off.
-- IO48 (module pin 25): Status LED (green) with 1 kΩ. Module is the N16 (quad flash, no PSRAM), so IO47/IO48 are 3.3 V.
+- IO48 (module pin 25): Status LED (green) with 1 kΩ. Module is the N16R2 (quad flash, quad PSRAM), so IO47/IO48 are 3.3 V and IO35-IO37 are free.
 - New analog inputs on ADC1: Analog_5 = IO8 (pin 12), Analog_6 = IO9 (pin 17), Analog_7 = IO10 (pin 18). Each has a divider, 1 kΩ and 100 nF, below about 2.5 V.
 - Analog protection: every analog input has 1 kΩ, 100 nF and two BAT54 clamps at the pin (one to +2V5, one to GND). U4 REF3025 makes the +2V5 rail from +3V3 (1 µF out).
 - Final analog map: IO1 MainSupp (52 V battery, 100k/3.9k), IO2 5V_Meas (12k/10k), IO15 3.3V_Meas (4.7k/10k, ADC2), IO8 12V_Meas (56k/10k), IO9 NTC1 and IO10 NTC2 (10 kΩ NTC to GND, 10 kΩ pull-up to +2V5). IO16 is spare. This replaces Analog_4 to Analog_7.
