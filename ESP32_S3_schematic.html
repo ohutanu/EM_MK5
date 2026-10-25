@@ -8,25 +8,25 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 .c{stroke:var(--bd);stroke-width:1.2;fill:var(--box)}.m{stroke:var(--bd);stroke-width:1.5;fill:var(--mod)}
 .p{stroke:var(--pb);stroke-width:1;fill:var(--port)}
 .t{font-size:12px;fill:var(--t)}.s{font-size:11px;fill:var(--m)}.th{font-size:13px;font-weight:600;fill:var(--t)}.pt{font-size:12px;fill:var(--t)}
-</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1 controller schematic</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1180" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="800" rx="4"/>
+</style></head><body><h1>EM_MK5: ESP32-S3-WROOM-1 controller schematic</h1><p class="d">Replaces the Raspberry Pi Pico sheet. Net names match the Pico sheet.</p><svg viewBox="0 0 1300 1380" role="img" aria-label="EM_MK5 ESP32-S3 controller schematic"><rect class="m" x="560" y="130" width="200" height="960" rx="4"/>
 <text class="th" x="660.0" y="144" text-anchor="middle" dominant-baseline="central">ESP32-S3-WROOM-1</text>
 <text class="s" x="660.0" y="161" text-anchor="middle" dominant-baseline="central">U1 (module pin numbers)</text>
-<line class="w" x1="600" y1="930" x2="600" y2="944"/>
-<line class="w" x1="600" y1="944" x2="600" y2="950"/>
-<line class="w" x1="591" y1="950" x2="609" y2="950"/>
-<line class="w" x1="595" y1="954" x2="605" y2="954"/>
-<line class="w" x1="598" y1="958" x2="602" y2="958"/>
-<line class="w" x1="680" y1="930" x2="680" y2="944"/>
-<line class="w" x1="680" y1="944" x2="680" y2="950"/>
-<line class="w" x1="671" y1="950" x2="689" y2="950"/>
-<line class="w" x1="675" y1="954" x2="685" y2="954"/>
-<line class="w" x1="678" y1="958" x2="682" y2="958"/>
-<line class="w" x1="740" y1="930" x2="740" y2="944"/>
-<line class="w" x1="740" y1="944" x2="740" y2="950"/>
-<line class="w" x1="731" y1="950" x2="749" y2="950"/>
-<line class="w" x1="735" y1="954" x2="745" y2="954"/>
-<line class="w" x1="738" y1="958" x2="742" y2="958"/>
-<text class="s" x="660.0" y="916" text-anchor="middle" dominant-baseline="central">GND pins 1, 40, 41 (EPAD)</text>
+<line class="w" x1="600" y1="1090" x2="600" y2="1104"/>
+<line class="w" x1="600" y1="1104" x2="600" y2="1110"/>
+<line class="w" x1="591" y1="1110" x2="609" y2="1110"/>
+<line class="w" x1="595" y1="1114" x2="605" y2="1114"/>
+<line class="w" x1="598" y1="1118" x2="602" y2="1118"/>
+<line class="w" x1="680" y1="1090" x2="680" y2="1104"/>
+<line class="w" x1="680" y1="1104" x2="680" y2="1110"/>
+<line class="w" x1="671" y1="1110" x2="689" y2="1110"/>
+<line class="w" x1="675" y1="1114" x2="685" y2="1114"/>
+<line class="w" x1="678" y1="1118" x2="682" y2="1118"/>
+<line class="w" x1="740" y1="1090" x2="740" y2="1104"/>
+<line class="w" x1="740" y1="1104" x2="740" y2="1110"/>
+<line class="w" x1="731" y1="1110" x2="749" y2="1110"/>
+<line class="w" x1="735" y1="1114" x2="745" y2="1114"/>
+<line class="w" x1="738" y1="1118" x2="742" y2="1118"/>
+<text class="s" x="660.0" y="1076" text-anchor="middle" dominant-baseline="central">GND pins 1, 40, 41 (EPAD)</text>
 <text class="th" x="40" y="34" text-anchor="start" dominant-baseline="central">Power input and 3.3 V regulator</text>
 <rect class="c" x="40" y="60" width="70" height="54" rx="3"/>
 <text class="th" x="40" y="48" text-anchor="start" dominant-baseline="central"></text>
@@ -514,12 +514,88 @@ svg{width:100%;max-width:1300px;height:auto;display:block;margin:0 auto}
 <line class="w" x1="915" y1="866" x2="925" y2="866"/>
 <line class="w" x1="918" y1="870" x2="922" y2="870"/>
 <text class="s" x="934" y="842" text-anchor="start" dominant-baseline="central">pGood LED (blue)</text>
-<text class="th" x="40" y="990" text-anchor="start" dominant-baseline="central">Notes</text>
-<text class="s" x="40" y="1008" text-anchor="start" dominant-baseline="central">Power: +5 V in, U2 makes +3V3 for the module and the board. 10 µF + 100 nF on both sides of U2, and on the module 3V3 pin.</text>
-<text class="s" x="40" y="1026" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
-<text class="s" x="40" y="1044" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF at the pin. Keep the pin voltage below about 2.5 V.</text>
-<text class="s" x="40" y="1062" text-anchor="start" dominant-baseline="central">MainSupp 51k/1.8k gives 2.05 V at 60 V. 5V_Meas 15k/10k gives 2.0 V. 3.3V_Meas 10k/10k gives 1.65 V.</text>
-<text class="s" x="40" y="1080" text-anchor="start" dominant-baseline="central">IO15 and IO16 are on ADC2 (Wi-Fi must stay off). IO47 may run at 1.8 V on octal-PSRAM modules.</text>
-<text class="s" x="40" y="1098" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
-<text class="s" x="40" y="1116" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
-<text class="s" x="40" y="1134" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
+<text class="th" x="60" y="934" text-anchor="start" dominant-baseline="central">J5 USB-C to the ESP32-S3 (flash and debug, no converter IC)</text>
+<rect class="c" x="60" y="954" width="110" height="142" rx="3"/>
+<text class="th" x="60" y="942" text-anchor="start" dominant-baseline="central"></text>
+<text class="s" x="68" y="970" text-anchor="start" dominant-baseline="central">1</text>
+<text class="s" x="162" y="970" text-anchor="end" dominant-baseline="central">D-</text>
+<text class="s" x="68" y="992" text-anchor="start" dominant-baseline="central">2</text>
+<text class="s" x="162" y="992" text-anchor="end" dominant-baseline="central">D+</text>
+<text class="s" x="68" y="1014" text-anchor="start" dominant-baseline="central">3</text>
+<text class="s" x="162" y="1014" text-anchor="end" dominant-baseline="central">VBUS</text>
+<text class="s" x="68" y="1036" text-anchor="start" dominant-baseline="central">4</text>
+<text class="s" x="162" y="1036" text-anchor="end" dominant-baseline="central">CC1</text>
+<text class="s" x="68" y="1058" text-anchor="start" dominant-baseline="central">5</text>
+<text class="s" x="162" y="1058" text-anchor="end" dominant-baseline="central">CC2</text>
+<text class="s" x="68" y="1080" text-anchor="start" dominant-baseline="central">6</text>
+<text class="s" x="162" y="1080" text-anchor="end" dominant-baseline="central">GND</text>
+<rect class="c" x="190" y="958" width="110" height="46" rx="3"/>
+<text class="s" x="245" y="981" text-anchor="middle" dominant-baseline="central">U3 USBLC6-2SC6</text>
+<line class="w" x1="170" y1="970" x2="190" y2="970"/>
+<line class="w" x1="300" y1="970" x2="334" y2="970"/>
+<line class="w" x1="334" y1="970" x2="340" y2="970"/>
+<rect class="c" x="340" y="964" width="36" height="12"/>
+<line class="w" x1="376" y1="970" x2="382" y2="970"/>
+<text class="s" x="358" y="956" text-anchor="middle" dominant-baseline="central">22</text>
+<line class="w" x1="382" y1="970" x2="540" y2="970"/>
+<line class="w" x1="170" y1="992" x2="190" y2="992"/>
+<line class="w" x1="300" y1="992" x2="334" y2="992"/>
+<line class="w" x1="334" y1="992" x2="340" y2="992"/>
+<rect class="c" x="340" y="986" width="36" height="12"/>
+<line class="w" x1="376" y1="992" x2="382" y2="992"/>
+<text class="s" x="358" y="978" text-anchor="middle" dominant-baseline="central">22</text>
+<line class="w" x1="382" y1="992" x2="540" y2="992"/>
+<line class="w" x1="540" y1="970" x2="560" y2="970"/>
+<text class="t" x="568" y="970" text-anchor="start" dominant-baseline="central">IO19</text>
+<text class="s" x="536" y="961" text-anchor="end" dominant-baseline="central">13</text>
+<line class="w" x1="540" y1="992" x2="560" y2="992"/>
+<text class="t" x="568" y="992" text-anchor="start" dominant-baseline="central">IO20</text>
+<text class="s" x="536" y="983" text-anchor="end" dominant-baseline="central">14</text>
+<line class="w" x1="245" y1="958" x2="245" y2="952"/>
+<line class="w" x1="236" y1="952" x2="254" y2="952"/>
+<line class="w" x1="240" y1="948" x2="250" y2="948"/>
+<line class="w" x1="243" y1="944" x2="247" y2="944"/>
+<line class="w" x1="245" y1="1004" x2="245" y2="1014"/>
+<circle class="d" cx="245" cy="1014" r="3"/>
+<line class="w" x1="170" y1="1014" x2="310" y2="1014"/>
+<polygon class="c" points="310,1007 310,1021 324,1014"/>
+<line class="w" x1="324" y1="1007" x2="324" y2="1021"/>
+<line class="w" x1="324" y1="1014" x2="384" y2="1014"/>
+<text class="s" x="317" y="1028" text-anchor="middle" dominant-baseline="central">D1</text>
+<text class="s" x="392" y="1014" text-anchor="start" dominant-baseline="central">to +5V rail</text>
+<line class="w" x1="170" y1="1036" x2="190" y2="1036"/>
+<line class="w" x1="184" y1="1036" x2="190" y2="1036"/>
+<rect class="c" x="190" y="1030" width="36" height="12"/>
+<line class="w" x1="226" y1="1036" x2="232" y2="1036"/>
+<text class="s" x="208" y="1022" text-anchor="middle" dominant-baseline="central"></text>
+<line class="w" x1="232" y1="1036" x2="244" y2="1036"/>
+<line class="w" x1="244" y1="1036" x2="244" y2="1042"/>
+<line class="w" x1="235" y1="1042" x2="253" y2="1042"/>
+<line class="w" x1="239" y1="1046" x2="249" y2="1046"/>
+<line class="w" x1="242" y1="1050" x2="246" y2="1050"/>
+<line class="w" x1="170" y1="1058" x2="190" y2="1058"/>
+<line class="w" x1="184" y1="1058" x2="190" y2="1058"/>
+<rect class="c" x="190" y="1052" width="36" height="12"/>
+<line class="w" x1="226" y1="1058" x2="232" y2="1058"/>
+<text class="s" x="208" y="1044" text-anchor="middle" dominant-baseline="central"></text>
+<line class="w" x1="232" y1="1058" x2="244" y2="1058"/>
+<line class="w" x1="244" y1="1058" x2="244" y2="1064"/>
+<line class="w" x1="235" y1="1064" x2="253" y2="1064"/>
+<line class="w" x1="239" y1="1068" x2="249" y2="1068"/>
+<line class="w" x1="242" y1="1072" x2="246" y2="1072"/>
+<text class="s" x="262" y="1049.0" text-anchor="start" dominant-baseline="central">5.1k each</text>
+<line class="w" x1="170" y1="1080" x2="186" y2="1080"/>
+<line class="w" x1="186" y1="1080" x2="186" y2="1086"/>
+<line class="w" x1="177" y1="1086" x2="195" y2="1086"/>
+<line class="w" x1="181" y1="1090" x2="191" y2="1090"/>
+<line class="w" x1="184" y1="1094" x2="188" y2="1094"/>
+<text class="th" x="40" y="1150" text-anchor="start" dominant-baseline="central">Notes</text>
+<text class="s" x="40" y="1168" text-anchor="start" dominant-baseline="central">Power: +5 V in, U2 makes +3V3 for the module and the board. 10 µF + 100 nF on both sides of U2, and on the module 3V3 pin.</text>
+<text class="s" x="40" y="1186" text-anchor="start" dominant-baseline="central">EN: 10 kΩ to +3V3, 1 µF to GND, RESET button. IO0: BOOT button to GND (hold BOOT, press RESET to flash).</text>
+<text class="s" x="40" y="1204" text-anchor="start" dominant-baseline="central">Analog inputs: divider, then 1 kΩ and 100 nF at the pin. Keep the pin voltage below about 2.5 V.</text>
+<text class="s" x="40" y="1222" text-anchor="start" dominant-baseline="central">MainSupp 51k/1.8k gives 2.05 V at 60 V. 5V_Meas 15k/10k gives 2.0 V. 3.3V_Meas 10k/10k gives 1.65 V.</text>
+<text class="s" x="40" y="1240" text-anchor="start" dominant-baseline="central">IO15 and IO16 are on ADC2 (Wi-Fi must stay off). IO47 may run at 1.8 V on octal-PSRAM modules.</text>
+<text class="s" x="40" y="1258" text-anchor="start" dominant-baseline="central">PWM_CH1 to PWM_CH8 go to the ULN2803A inputs, which have 10 kΩ pull-downs so the gates stay off while the pins float at reset.</text>
+<text class="s" x="40" y="1276" text-anchor="start" dominant-baseline="central">USB: J5 on IO19 (D-) and IO20 (D+) flashes the module with no converter IC. Hold BOOT, press RESET, release BOOT. U3 is ESD protection, D1 ORs USB VBUS into +5V.</text>
+<text class="s" x="40" y="1294" text-anchor="start" dominant-baseline="central">SPI: IO12/13/14/21 are routed through the GPIO matrix (SPI2 slave). Add 3.3 V level only, the Pi 5 is 3.3 V.</text>
+<text class="s" x="40" y="1312" text-anchor="start" dominant-baseline="central">[CONFIRM] module pin numbers and all values against the ESP32-S3-WROOM-1 datasheet and your parts before routing.</text></svg></body></html>
